@@ -1,0 +1,13 @@
+#ifndef ETATS_H
+#define ETATS_H
+
+#define PANNE_FREQMOYENNE 30
+
+#define FREQ_UPDATE 200
+#define TIME_TRANS 10000
+#define MAX_OUVERTURE (TIME_TRANS/FREQ_UPDATE)
+
+enum etat_values {OUVERTE, FERME, OUVERTURE, FERMATURE, ARRETE, ALARME};
+enum error_valuer { EPORTE, EVANNE };
+
+#endif // ETATS_H

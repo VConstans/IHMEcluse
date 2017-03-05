@@ -16,12 +16,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     vanne.cpp \
     porte.cpp \
-    ecluse.cpp
+    ecluse.cpp \
+    signallum.cpp
 
 HEADERS  += mainwindow.h \
     vanne.h \
     porte.h \
-    etats.h \
-    ecluse.h
+    ecluse.h \
+    signallum.h \
+    common.h
 
 FORMS    += mainwindow.ui

@@ -6,22 +6,15 @@ Ecluse::Ecluse(QObject *parent) :
 {
     vanne_bas = new Vanne();
     vanne_bas->moveToThread(&threadVanne_bas);
-    connect(vanne_bas,SIGNAL(envoiEtat(int,bool)),
-            this,SLOT(test_recoitSignal(int,bool)));
-    connect(this,SIGNAL(test_sendSignal()),vanne_bas,SLOT(fermature()));
     threadVanne_bas.start();
 
     vanne_haut = new Vanne();
     vanne_haut->moveToThread(&threadVanne_haut);
-    connect(vanne_haut,SIGNAL(envoiEtat(int,bool)),
-            this,SLOT(test_recoitSignal(int,bool)));
     threadVanne_haut.start();
 
     porte_haut = new Porte();
     porte_bas = new Porte();
 
-    // test
-    emit test_sendSignal();
 }
 
 
@@ -37,6 +30,30 @@ Ecluse::~Ecluse(){
     delete porte_haut;
 }
 
-void Ecluse::test_recoitSignal(int etat, bool alarme){
-   std::cout << "received" << std::endl;
+void Ecluse::ouvertureVanneMontant(void){
+    if (porte_haut->getetat() != FERME ||
+        porte_bas->getetat() != FERME  ){
+        emit error(EPORTE);
+        return;
+    }
+
+    vanne_haut->ouverture();
+}
+
+void Ecluse::ouvertureVanneAvalant(void){
+    if (porte_haut->getetat() != FERME ||
+        porte_bas->getetat() != FERME  ){
+        emit error(EPORTE);
+        return;
+    }
+
+    vanne_bas->ouverture();
+}
+
+void Ecluse::fermatureVanneMontant(void){
+    vanne_haut->fermature();
+}
+
+void Ecluse::fermatureVanneAvalant(void){
+    vanne_bas->fermature();
 }
