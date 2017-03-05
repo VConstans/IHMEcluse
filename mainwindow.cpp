@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <iostream>
+
+using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -53,14 +56,30 @@ void MainWindow::MontantDoorClose()
 
 void MainWindow::setGreenSignalMontant()
 {
-   // ui->signalMontant->setPixmap();
-    ui->signalMontant->show();
+    ui->signalMontant->setPixmap(QPixmap(":/images/voyant_vert_allume.png"));
 }
 
 void MainWindow::setRedSignalMontant()
 {
-    ui->signalMontant->setStyleSheet("border-image:url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_allume.png);");
-    ui->signalMontant->show();
+    ui->signalMontant->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+}
 
+void MainWindow::setRedSignalAvalant()
+{
+    ui->signalAvalant->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+}
 
+void MainWindow::setGreenSignalAvalant()
+{
+    ui->signalAvalant->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+}
+
+void MainWindow::setAlarme()
+{
+    ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+}
+
+void MainWindow::resetAlarme()
+{
+    ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_eteind.png"));
 }
