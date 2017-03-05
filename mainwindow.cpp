@@ -198,3 +198,8 @@ void MainWindow::setWaterLevel(int wl)
 {
     ui->waterLevel->setValue(wl);
 }
+
+void MainWindow::appendText(string s)
+{
+    ui->messageDisplay->append(QString::fromStdString(s));
+}

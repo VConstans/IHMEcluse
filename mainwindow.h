@@ -32,6 +32,7 @@ public slots:
     void setAlarme();
     void resetAlarme();
     void setWaterLevel(int wl);
+    void appendText(string s);
 };
 
 #endif // MAINWINDOW_H
