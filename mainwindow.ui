@@ -534,7 +534,7 @@ color: red
          <item>
           <layout class="QVBoxLayout" name="groupePorteAvalant">
            <item>
-            <widget class="QProgressBar" name="progressBar_2">
+            <widget class="QProgressBar" name="progressPorteAvalant">
              <property name="value">
               <number>24</number>
              </property>

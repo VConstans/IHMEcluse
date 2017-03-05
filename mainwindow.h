@@ -21,16 +21,15 @@ private:
     Ui::MainWindow *ui;
 
 public slots:
-    void avalantDoorTransition();
-    void montantDoorTransition();
-    void avalantDoorOpen();
-    void montantDoorOpen();
-    void avalantDoorClose();
-    void montantDoorClose();
+    void avalantDoor(int position, int etat);
+    void montantDoor(int position, int etat);
     void setGreenSignalMontant();
     void setRedSignalMontant();
     void setRedSignalAvalant();
     void setGreenSignalAvalant();
+    void setAlarme();
+    void resetAlarme();
+    void setWaterLevel(int wl);
 };
 
 #endif // MAINWINDOW_H
