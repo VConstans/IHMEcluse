@@ -1,0 +1,18 @@
+CONSTANS Victor
+CONIGLIO Luigi
+
+Nous avons décidés de faire une IHM composée de deux fenêtres principale.
+La première, qui sera celle par défaut, correspond à l'interface accessible
+à l'utilisateur lambda. A partir de celle-ci nous pourrons basculer dans le
+mode de fonctionnement avancé. Cela ce fait grâce au menu Outils qui est
+volontairement un peu caché pour qu'un utilisateur lambda ne puisse pas
+changer de mode par hasard. Pour plus de sécurité, le changement vers
+le mode manuel est restreint par l'entré d'un mot de passe.
+
+Dans l'interface automatique, le choix du sens transfert se fait par
+deux radiobox qui ne pourront pas être activées en même temps.
+
+Le champs status sur les deux interface nous permettra de signaler que
+l'alarme est activé ainsi que de donnée l'état des vannes et des portes.
+
+L'avancement des portes est donnée par la barre progressive
