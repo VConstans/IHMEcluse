@@ -71,6 +71,7 @@ void Ecluse::ouverturePorteBas(void){
         emit error(EEAU);
         return ;
     }
+    cout << "Ecluse: ouverture porte bas" << endl;
     porte_bas->ouverture();
 }
 
