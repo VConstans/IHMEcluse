@@ -23,7 +23,6 @@ MainWindow::MainWindow(QWidget *parent) :
             &ecl, SLOT(fermeturePorteHaut()));
     connect(ui->porteMontantArret, SIGNAL(clicked()),
             ecl.porte_haut, SLOT(arret()));
-}
 
     ui->progressPorteMontant->setMinimum(0);
     ui->progressPorteMontant->setMaximum(MAX_OUVERTURE);
@@ -37,7 +36,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::AvalantDoor(int position, int etat)
+void MainWindow::avalantDoor(int position, int etat)
 {
     switch(etat)
     {
@@ -66,7 +65,7 @@ void MainWindow::AvalantDoor(int position, int etat)
     ui->progressPorteAvalant->setValue(position);
 }
 
-void MainWindow::MontantDoor(int position, int etat)
+void MainWindow::montantDoor(int position, int etat)
 {
     switch(etat)
     {
