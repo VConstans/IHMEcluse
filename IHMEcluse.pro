@@ -27,3 +27,6 @@ HEADERS  += mainwindow.h \
     common.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    images.qrc

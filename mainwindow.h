@@ -25,6 +25,8 @@ public slots:
     void MontantDoorOpen();
     void AvalantDoorClose();
     void MontantDoorClose();
+    void setGreenSignalMontant();
+    void setRedSignalMontant();
 };
 
 #endif // MAINWINDOW_H
