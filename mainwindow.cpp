@@ -42,31 +42,27 @@ void MainWindow::avalantDoor(int position, int etat)
     {
         case OUVERTE:
             ui->porteAvalant->setStyleSheet("background-color: none;");
-            ui->porteAvalant->show();
             break;
         case FERME:
             ui->porteAvalant->setStyleSheet("background-color: black;");
-            ui->porteAvalant->show();
             break;
         case OUVERTURE:
             ui->porteAvalant->setStyleSheet("background-color:orange;");
-            ui->porteAvalant->show();
             break;
         case FERMETURE:
             ui->porteAvalant->setStyleSheet("background-color:orange;");
-            ui->porteAvalant->show();
             break;
         case ARRETE:
             ui->porteAvalant->setStyleSheet("background-color:orange;");
-            ui->porteAvalant->show();
             break;
         case ALARME:
             ui->porteAvalant->setStyleSheet("background-color:red;");
-            ui->porteAvalant->show();
             break;
     }
+    ui->porteAvalant->show();
 
     ui->progressPorteAvalant->setValue(position);
+    ui->progressPorteAvalant->show();
 }
 
 void MainWindow::montantDoor(int position, int etat)
@@ -75,31 +71,28 @@ void MainWindow::montantDoor(int position, int etat)
     {
         case OUVERTE:
             ui->porteMontant->setStyleSheet("background-color: none;");
-            ui->porteMontant->show();
             break;
         case FERME:
             ui->porteMontant->setStyleSheet("background-color: black;");
-            ui->porteMontant->show();
             break;
         case OUVERTURE:
             ui->porteMontant->setStyleSheet("background-color:orange;");
-            ui->porteMontant->show();
             break;
         case FERMETURE:
             ui->porteMontant->setStyleSheet("background-color:orange;");
-            ui->porteMontant->show();
             break;
         case ARRETE:
             ui->porteMontant->setStyleSheet("background-color:orange;");
-            ui->porteMontant->show();
             break;
         case ALARME:
             ui->porteMontant->setStyleSheet("background-color:red;");
-            ui->porteMontant->show();
             break;
     }
 
+    ui->porteMontant->show();
+
     ui->progressPorteMontant->setValue(position);
+    ui->progressPorteMontant->show();
 }
 
 void MainWindow::setGreenSignalMontant()
