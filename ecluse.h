@@ -23,6 +23,8 @@ signals:
 public slots:
     void ouvertureVanneMontant(void);
     void ouvertureVanneAvalant(void);
+    void fermatureVanneMontant(void);
+    void fermatureVanneAvalant(void);
 
 
 };

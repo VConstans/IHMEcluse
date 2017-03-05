@@ -49,3 +49,11 @@ void Ecluse::ouvertureVanneAvalant(void){
 
     vanne_bas->ouverture();
 }
+
+void Ecluse::fermatureVanneMontant(void){
+    vanne_haut->fermature();
+}
+
+void Ecluse::fermatureVanneAvalant(void){
+    vanne_bas->fermature();
+}
