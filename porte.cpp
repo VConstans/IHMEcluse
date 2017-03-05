@@ -30,18 +30,21 @@ void Porte::fermeture(void){
 
     etat = FERMETURE;
     timer_transition->start(FREQ_UPDATE);
+    cout << "Porte: fermeture"<< endl;
 }
 
 void Porte::extinction(void){
     if (etat != ALARME) return;
     etat = ARRETE;
     emit signaletat(position,etat);
+    cout << "Porte: extintion"<< endl;
 }
 
 void Porte::arret(void){
     timer_transition->stop();
     etat = ARRETE;
 
+    cout << "Porte: arret"<< endl;
     emit signaletat(position, etat);
 }
 
@@ -54,6 +57,7 @@ void Porte::arreturgence(void){
 
 bool Porte::simulpanne(void){
    if (qrand() % PANNE_FREQMOYENNE == 0){
+       cout << "Porte: panne!!"<< endl;
        arreturgence();
        return true;
    }
