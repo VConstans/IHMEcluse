@@ -41,7 +41,7 @@ void Porte::extinction(void){
 }
 
 void Porte::arret(void){
-    if (etat != FERMETURE ||
+    if (etat != FERMETURE &&
         etat != OUVERTURE ) return;
 
     timer_transition->stop();
