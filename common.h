@@ -8,5 +8,6 @@
 #define MAX_OUVERTURE (TIME_TRANS/FREQ_UPDATE)
 
 enum etat_values {OUVERTE, FERME, OUVERTURE, FERMATURE, ARRETE, ALARME};
+enum error_valuer { EPORTE, EVANNE };
 
 #endif // ETATS_H

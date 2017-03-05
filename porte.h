@@ -16,6 +16,7 @@ class Porte : public QObject
 
 public:
     explicit Porte(QObject *parent = 0);
+    int getetat(void);
 
 signals:
     void signaletat(int position, int etat);

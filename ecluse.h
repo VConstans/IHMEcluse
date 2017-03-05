@@ -4,6 +4,7 @@
 #include <QObject>
 #include "vanne.h"
 #include "porte.h"
+#include "common.h"
 
 class Ecluse : public QObject
 {
@@ -17,10 +18,11 @@ public:
     virtual ~Ecluse();
 
 signals:
-    void test_sendSignal();
+    void error(int ecode);
 
 public slots:
-    void test_recoitSignal(int etat, bool alarme);
+    void ouvertureVanneMontant(void);
+    void ouvertureVanneAvalant(void);
 
 
 };

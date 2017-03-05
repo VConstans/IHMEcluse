@@ -10,6 +10,10 @@ Porte::Porte(QObject *parent) :
             this,SLOT(updateposition()));
 }
 
+int Porte::getetat(void){
+    return etat;
+}
+
 void Porte::ouverture(void){
     if (etat == OUVERTE ||
         etat == ALARME ) return;
