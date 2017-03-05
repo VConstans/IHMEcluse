@@ -12,7 +12,7 @@
 #define MID_NIVEAU 100
 #define DEBIT_EAU 2
 
-enum etat_values {OUVERTE, FERME, OUVERTURE, FERMATURE, ARRETE, ALARME};
+enum etat_values {OUVERTE, FERME, OUVERTURE, FERMETURE, ARRETE, ALARME};
 enum error_valuer { EPORTE, EVANNE, EEAU };
 enum couleur_signaux {ROUGE, VERT };
 

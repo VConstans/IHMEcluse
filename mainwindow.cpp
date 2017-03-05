@@ -1,14 +1,20 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <iostream>
-
-using namespace std;
+#include "common.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->waterLevel->setMinimum(MIN_NIVEAU);
+    ui->waterLevel->setMaximum(MAX_NIVEAU);
+
+    ui->progressPorteMontant->setMinimum(0);
+    ui->progressPorteMontant->setMaximum(MAX_OUVERTURE);
+
+    ui->progressPorteAvalant->setMinimum(0);
+    ui->progressPorteAvalant->setMaximum(MAX_OUVERTURE);
 }
 
 MainWindow::~MainWindow()
@@ -16,40 +22,62 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::AvalantDoorTransition()
+void MainWindow::AvalantDoor(int position, int etat)
 {
-    ui->porteAvalant->setStyleSheet("background-color:orange;");
-    ui->porteAvalant->show();
+    switch(etat)
+    {
+        case OUVERTE:
+            ui->porteAvalant->setStyleSheet("background-color: none;");
+            ui->porteAvalant->show();
+            break;
+        case FERME:
+            ui->porteAvalant->setStyleSheet("background-color: black;");
+            ui->porteAvalant->show();
+            break;
+        case OUVERTURE:
+            ui->porteAvalant->setStyleSheet("background-color:orange;");
+            ui->porteAvalant->show();
+        case FERMETURE:
+            ui->porteAvalant->setStyleSheet("background-color:orange;");
+            ui->porteAvalant->show();
+        case ARRETE:
+            ui->porteAvalant->setStyleSheet("background-color:orange;");
+            ui->porteAvalant->show();
+        case ALARME:
+            ui->porteAvalant->setStyleSheet("background-color:red;");
+            ui->porteAvalant->show();
+    }
+
+    ui->progressPorteAvalant->setValue(position);
 }
 
-void MainWindow::MontantDoorTransition()
+void MainWindow::MontantDoor(int position, int etat)
 {
-    ui->porteMontant->setStyleSheet("background-color:orange;");
-    ui->porteMontant->show();
-}
+    switch(etat)
+    {
+        case OUVERTE:
+            ui->porteMontant->setStyleSheet("background-color: none;");
+            ui->porteMontant->show();
+            break;
+        case FERME:
+            ui->porteMontant->setStyleSheet("background-color: black;");
+            ui->porteMontant->show();
+            break;
+        case OUVERTURE:
+            ui->porteMontant->setStyleSheet("background-color:orange;");
+            ui->porteMontant->show();
+        case FERMETURE:
+            ui->porteMontant->setStyleSheet("background-color:orange;");
+            ui->porteMontant->show();
+        case ARRETE:
+            ui->porteMontant->setStyleSheet("background-color:orange;");
+            ui->porteMontant->show();
+        case ALARME:
+            ui->porteMontant->setStyleSheet("background-color:red;");
+            ui->porteMontant->show();
+    }
 
-void MainWindow::AvalantDoorOpen()
-{
-    ui->porteAvalant->setStyleSheet("background-color: none;");
-    ui->porteAvalant->show();
-}
-
-void MainWindow::MontantDoorOpen()
-{
-    ui->porteMontant->setStyleSheet("background-color:none;");
-    ui->porteMontant->show();
-}
-
-void MainWindow::AvalantDoorClose()
-{
-    ui->porteAvalant->setStyleSheet("background-color: black;");
-    ui->porteAvalant->show();
-}
-
-void MainWindow::MontantDoorClose()
-{
-    ui->porteMontant->setStyleSheet("background-color:black;");
-    ui->porteMontant->show();
+    ui->progressPorteMontant->setValue(position);
 }
 
 void MainWindow::setGreenSignalMontant()
@@ -80,4 +108,9 @@ void MainWindow::setAlarme()
 void MainWindow::resetAlarme()
 {
     ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_eteind.png"));
+}
+
+void MainWindow::setWaterLevel(int wl)
+{
+    ui->waterLevel->setValue(wl);
 }
