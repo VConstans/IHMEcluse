@@ -10,12 +10,13 @@ class Ecluse : public QObject
 {
     Q_OBJECT
     QThread threadVanne_haut, threadVanne_bas;
-    Vanne *vanne_haut, *vanne_bas;
-    Porte *porte_haut, *porte_bas;
     QTimer *timer_remplissage;
     int nivEau;
 
 public:
+    Vanne *vanne_haut, *vanne_bas;
+    Porte *porte_haut, *porte_bas;
+
     explicit Ecluse(QObject *parent = 0);
     virtual ~Ecluse();
 

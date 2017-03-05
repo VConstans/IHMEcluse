@@ -9,8 +9,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     connect(ui->porteAvalantOuv, SIGNAL(clicked()),
             &ecl, SLOT(ouverturePorteBas()));
+    connect(ui->porteAvalantFerm, SIGNAL(clicked()),
+            &ecl, SLOT(fermeturePorteBas()));
+    connect(ui->porteAvalantArret, SIGNAL(clicked()),
+            ecl.porte_bas, SLOT(arret()));
+
+    connect(ui->porteMontantOuv, SIGNAL(clicked()),
+            &ecl, SLOT(ouverturePorteHaut()));
+    connect(ui->porteMontantFerm, SIGNAL(clicked()),
+            &ecl, SLOT(fermeturePorteHaut()));
+    connect(ui->porteMontantArret, SIGNAL(clicked()),
+            ecl.porte_haut, SLOT(arret()));
 }
 
 MainWindow::~MainWindow()
