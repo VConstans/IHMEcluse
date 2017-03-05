@@ -29,10 +29,12 @@ MainWindow::MainWindow(QWidget *parent) :
             this, SLOT(montantDoor(int,int)));
 
     ui->progressPorteMontant->setMinimum(0);
-    ui->progressPorteMontant->setMaximum(MAX_OUVERTURE);
+    ui->progressPorteMontant->setMaximum(MAX_FERMETURE);
+    ui->progressPorteMontant->setValue(MAX_FERMETURE);
 
     ui->progressPorteAvalant->setMinimum(0);
-    ui->progressPorteAvalant->setMaximum(MAX_OUVERTURE);
+    ui->progressPorteAvalant->setMaximum(MAX_FERMETURE);
+    ui->progressPorteAvalant->setValue(MAX_FERMETURE);
 }
 
 MainWindow::~MainWindow()
@@ -63,7 +65,6 @@ void MainWindow::avalantDoor(int position, int etat)
             ui->porteAvalant->setStyleSheet("background-color:red;");
             break;
     }
-    cout << "test" << endl;
     ui->porteAvalant->show();
 
     ui->progressPorteAvalant->setValue(position);

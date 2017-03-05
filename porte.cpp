@@ -4,7 +4,7 @@ Porte::Porte(QObject *parent) :
     QObject(parent)
 {
     etat = FERME;
-    position = 0;
+    position = MAX_FERMETURE;
     timer_transition = new QTimer(this);
     connect(timer_transition,SIGNAL(timeout()),
             this,SLOT(updateposition()));
@@ -74,18 +74,18 @@ void Porte::updateposition(void){
 
     switch(etat){
         case OUVERTURE:
-            if (position >= MAX_OUVERTURE){
+            if (position <= 0){
                 etat = OUVERTE;
-            cout << "Porte: ouverte" << endl;
-            timer_transition->stop();
-                } else position++;
+                cout << "Porte: ouverte" << endl;
+                timer_transition->stop();
+            } else position--;
          break;
         case FERMETURE:
-            if (position <= 0){
+            if (position >= MAX_FERMETURE){
                 etat = FERME;
-            cout << "Porte: ferme" << endl;
-            timer_transition->stop();
-                } else position--;
+                cout << "Porte: ferme" << endl;
+                timer_transition->stop();
+            } else position++;
          break;
         default: return;
      }
