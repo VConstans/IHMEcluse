@@ -10,6 +10,21 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->waterLevel->setMinimum(MIN_NIVEAU);
     ui->waterLevel->setMaximum(MAX_NIVEAU);
 
+    connect(ui->porteAvalantOuv, SIGNAL(clicked()),
+            &ecl, SLOT(ouverturePorteBas()));
+    connect(ui->porteAvalantFerm, SIGNAL(clicked()),
+            &ecl, SLOT(fermeturePorteBas()));
+    connect(ui->porteAvalantArret, SIGNAL(clicked()),
+            ecl.porte_bas, SLOT(arret()));
+
+    connect(ui->porteMontantOuv, SIGNAL(clicked()),
+            &ecl, SLOT(ouverturePorteHaut()));
+    connect(ui->porteMontantFerm, SIGNAL(clicked()),
+            &ecl, SLOT(fermeturePorteHaut()));
+    connect(ui->porteMontantArret, SIGNAL(clicked()),
+            ecl.porte_haut, SLOT(arret()));
+}
+
     ui->progressPorteMontant->setMinimum(0);
     ui->progressPorteMontant->setMaximum(MAX_OUVERTURE);
 

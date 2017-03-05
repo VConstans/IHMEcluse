@@ -20,14 +20,15 @@ void Porte::ouverture(void){
 
     etat = OUVERTURE;
     timer_transition->start(FREQ_UPDATE);
+    cout << "Porte: ouverture" << endl;
 
 }
 
-void Porte::fermature(void){
+void Porte::fermeture(void){
     if (etat == FERME ||
         etat == ALARME ) return;
 
-    etat = FERMATURE;
+    etat = FERMETURE;
     timer_transition->start(FREQ_UPDATE);
 }
 
@@ -61,21 +62,24 @@ bool Porte::simulpanne(void){
 }
 
 void Porte::updateposition(void){
+    cout << "Porte: position "<< position << endl;
     if (simulpanne() == true) return;
 
     switch(etat){
         case OUVERTURE: position++;
          break;
-        case FERMATURE: position--;
+        case FERMETURE: position--;
          break;
         default: return;
      }
 
      if (position <= 0){
          etat = FERME;
+         cout << "Porte: ferme" << endl;
          timer_transition->stop();
      } else if (position >= MAX_OUVERTURE){
          etat = OUVERTE;
+         cout << "Porte: ouverte" << endl;
          timer_transition->stop();
      }
 

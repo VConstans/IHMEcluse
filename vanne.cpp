@@ -36,7 +36,7 @@ void Vanne::ouverture(void){
    emit signaletat(etat);
 }
 
-void Vanne::fermature(void){
+void Vanne::fermeture(void){
    if (etat != ALARME && simulpanne() == false){
        etat = FERME;
    }

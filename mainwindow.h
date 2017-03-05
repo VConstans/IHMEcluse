@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "ecluse.h"
 
 namespace Ui {
 class MainWindow;
@@ -10,6 +11,7 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    Ecluse ecl;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -19,8 +21,8 @@ private:
     Ui::MainWindow *ui;
 
 public slots:
-    void AvalantDoor(int position, int etat);
-    void MontantDoor(int position, int etat);
+    void avalantDoor(int position, int etat);
+    void montantDoor(int position, int etat);
     void setGreenSignalMontant();
     void setRedSignalMontant();
     void setRedSignalAvalant();

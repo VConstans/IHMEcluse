@@ -22,7 +22,7 @@ signals:
 public slots:
     void extinction(void);
     void ouverture(void);
-    void fermature(void);
+    void fermeture(void);
 
 private:
     bool simulpanne(void);
