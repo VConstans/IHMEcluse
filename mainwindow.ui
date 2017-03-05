@@ -220,12 +220,16 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">#ecluse{
-border-image: url(/home/victor/cours/IHM/IHMEcluse/images/ecluse.png)
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="images.qrc">:/images/ecluse.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
         </property>
        </widget>
        <widget class="QLabel" name="vanneMontant">
@@ -238,12 +242,16 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/ecluse.png)
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">#vanneMontant{
-border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_allume.png)
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="images.qrc">:/images/voyant_rouge_allume.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
         </property>
        </widget>
        <widget class="QLabel" name="vanneAvalant">
@@ -256,12 +264,16 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_allume.png)
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">#vanneAvalant{
-border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_allume.png)
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="images.qrc">:/images/voyant_rouge_allume.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
         </property>
        </widget>
        <widget class="QLabel" name="signalMontant">
@@ -274,12 +286,16 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_allume.png)
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">#signalMontant{
-border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_allume.png)
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="images.qrc">:/images/voyant_rouge_allume.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
         </property>
        </widget>
        <widget class="QLabel" name="signalAvalant">
@@ -292,12 +308,16 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_allume.png)
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">#signalAvalant{
-border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_allume.png)
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="images.qrc">:/images/voyant_rouge_allume.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
         </property>
        </widget>
        <widget class="QProgressBar" name="waterLevel">
@@ -651,6 +671,12 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.pn
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="images.qrc">:/images/voyant_rouge_eteind.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
            </property>
           </widget>
          </item>

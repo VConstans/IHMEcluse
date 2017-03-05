@@ -51,7 +51,7 @@ void MainWindow::MontantDoorClose()
 
 void MainWindow::setGreenSignalMontant()
 {
-    ui->signalMontant->setStyleSheet("border-image:url(/home/victor/cours/IHM/IHMEcluse/images/voyant_vert_allume.png);");
+    ui->signalMontant->setPixmap();
     ui->signalMontant->show();
 }
 
@@ -59,4 +59,6 @@ void MainWindow::setRedSignalMontant()
 {
     ui->signalMontant->setStyleSheet("border-image:url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_allume.png);");
     ui->signalMontant->show();
+
+    ui->
 }
