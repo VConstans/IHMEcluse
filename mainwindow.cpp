@@ -28,6 +28,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ecl.porte_haut, SIGNAL(signaletat(int,int)),
             this, SLOT(montantDoor(int,int)));
 
+    connect(&ecl, SIGNAL(newNivEau(int)),this, SLOT(setWaterLevel(int)));
+
     ui->progressPorteMontant->setMinimum(0);
     ui->progressPorteMontant->setMaximum(MAX_FERMETURE);
     ui->progressPorteMontant->setValue(MAX_FERMETURE);
@@ -35,6 +37,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->progressPorteAvalant->setMinimum(0);
     ui->progressPorteAvalant->setMaximum(MAX_FERMETURE);
     ui->progressPorteAvalant->setValue(MAX_FERMETURE);
+
+    ui->waterLevel->setMinimum(0);
+    ui->waterLevel->setMaximum(MAX_NIVEAU);
+    ui->waterLevel->setValue(0);
 }
 
 MainWindow::~MainWindow()
