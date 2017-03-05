@@ -15,6 +15,12 @@ Ecluse::Ecluse(QObject *parent) :
     porte_haut = new Porte();
     porte_bas = new Porte();
 
+    timer_remplissage = new QTimer(this);
+    connect(timer_remplissage,SIGNAL(timeout()),
+            this,SLOT(updateNivEau()));
+    timer_remplissage->start(FREQ_UPDATE);
+
+    nivEau = 0;
 }
 
 
@@ -56,4 +62,30 @@ void Ecluse::fermatureVanneMontant(void){
 
 void Ecluse::fermatureVanneAvalant(void){
     vanne_bas->fermature();
+}
+
+void Ecluse::ouverturePorteBas(void){
+}
+
+void Ecluse::ouverturePorteHaut(void){
+}
+
+void Ecluse::updateNivEau(void){
+    if (vanne_bas->getetat() == OUVERTE &&
+        vanne_haut->getetat() == OUVERTE){
+
+        if (nivEau > MID_NIVEAU) nivEau  -= DEBIT_EAU/2;
+        if (nivEau < MID_NIVEAU) nivEau += DEBIT_EAU/2;
+
+    } else if (vanne_bas->getetat() == OUVERTE) {
+
+        if (nivEau > MIN_NIVEAU) nivEau -= DEBIT_EAU;
+
+    } else if (vanne_haut->getetat() == OUVERTE){
+
+        if (nivEau < MAX_NIVEAU) nivEau += DEBIT_EAU;
+
+    } else return;
+
+    emit newNivEau(nivEau);
 }

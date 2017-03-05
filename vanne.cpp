@@ -18,6 +18,10 @@ bool Vanne::simulpanne(void){
    return false;
 }
 
+int Vanne::getetat(void){
+    return etat;
+}
+
 void Vanne::extinction(void){
     etat = FERME;
     emit signaletat(etat);

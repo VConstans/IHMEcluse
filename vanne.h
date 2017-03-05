@@ -14,6 +14,7 @@ private:
 
 public:
     explicit Vanne(QObject *parent = 0);
+    int getetat(void);
 
 signals:
     void signaletat(int etat);

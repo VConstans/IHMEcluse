@@ -12,6 +12,8 @@ class Ecluse : public QObject
     QThread threadVanne_haut, threadVanne_bas;
     Vanne *vanne_haut, *vanne_bas;
     Porte *porte_haut, *porte_bas;
+    QTimer *timer_remplissage;
+    int nivEau;
 
 public:
     explicit Ecluse(QObject *parent = 0);
@@ -19,12 +21,19 @@ public:
 
 signals:
     void error(int ecode);
+    void newNivEau(int nivEau);
 
 public slots:
     void ouvertureVanneMontant(void);
     void ouvertureVanneAvalant(void);
     void fermatureVanneMontant(void);
     void fermatureVanneAvalant(void);
+
+    void ouverturePorteBas(void);
+    void ouverturePorteHaut(void);
+
+private slots:
+    void updateNivEau(void);
 
 
 };
