@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1107</width>
+    <width>960</width>
     <height>843</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1091</width>
+      <width>941</width>
       <height>771</height>
      </rect>
     </property>
@@ -767,7 +767,7 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.pn
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1107</width>
+     <width>960</width>
      <height>25</height>
     </rect>
    </property>

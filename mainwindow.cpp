@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
             &ecl, SLOT(fermeturePorteBas()));
     connect(ui->porteAvalantArret, SIGNAL(clicked()),
             ecl.porte_bas, SLOT(arret()));
-    connect(ecl.porte_bas, SIGNAL(signaletat(int,int)),
+    connect(ecl.porte_bas, SIGNAL(signalEtatPorteBas(int,int)),
             this, SLOT(avalantDoor(int,int)));
 
     // Connect porte montant
@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
             &ecl, SLOT(fermeturePorteHaut()));
     connect(ui->porteMontantArret, SIGNAL(clicked()),
             ecl.porte_haut, SLOT(arret()));
-    connect(ecl.porte_haut, SIGNAL(signaletat(int,int)),
+    connect(ecl.porte_haut, SIGNAL(signalEtatPorteHaur(int,int)),
             this, SLOT(montantDoor(int,int)));
 
     // Connect vannes
@@ -51,9 +51,9 @@ MainWindow::MainWindow(QWidget *parent) :
             &ecl, SLOT(ouvertureVanneAvalant()));
     connect(ui->vanneAvalantFerm, SIGNAL(clicked()),
             &ecl, SLOT(fermetureVanneAvalant()));
-    connect(ecl.vanne_haut, SIGNAL(signaletat(int)),
+    connect(ecl.vanne_haut, SIGNAL(signalEtatVanneHaut(int)),
             this, SLOT(montantVanne(int)));
-    connect(ecl.vanne_bas, SIGNAL(signaletat(int)),
+    connect(ecl.vanne_bas, SIGNAL(signalEtatVanneBas(int)),
             this, SLOT(avalantVanne(int)));
 
 
