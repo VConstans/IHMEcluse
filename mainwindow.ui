@@ -27,7 +27,7 @@
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="IHMAuto">
      <widget class="QWidget" name="horizontalLayoutWidget">
@@ -181,9 +181,9 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
           </spacer>
          </item>
          <item>
-          <widget class="QLabel" name="label_5">
+          <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>Avalant</string>
+            <string>Montant</string>
            </property>
           </widget>
          </item>
@@ -201,9 +201,9 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
           </spacer>
          </item>
          <item>
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="label_5">
            <property name="text">
-            <string>Montant</string>
+            <string>Avalant</string>
            </property>
           </widget>
          </item>
@@ -253,9 +253,9 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_5">
            <item>
-            <widget class="QLabel" name="label_2">
+            <widget class="QLabel" name="label">
              <property name="text">
-              <string>Portes</string>
+              <string>Vannes</string>
              </property>
             </widget>
            </item>
@@ -273,9 +273,9 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
             </spacer>
            </item>
            <item>
-            <widget class="QLabel" name="label">
+            <widget class="QLabel" name="label_2">
              <property name="text">
-              <string>Vannes</string>
+              <string>Portes</string>
              </property>
             </widget>
            </item>
@@ -621,10 +621,6 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.pn
        </item>
       </layout>
      </widget>
-     <zorder>horizontalLayoutWidget_2</zorder>
-     <zorder>label</zorder>
-     <zorder>horizontalLayoutWidget_4</zorder>
-     <zorder>verticalLayoutWidget</zorder>
     </widget>
    </widget>
    <widget class="QTabWidget" name="tabWidget_2">
@@ -851,16 +847,6 @@ background-color: black;
        <bool>true</bool>
       </property>
      </widget>
-     <zorder>ecluse</zorder>
-     <zorder>vanneMontant</zorder>
-     <zorder>vanneAvalant</zorder>
-     <zorder>signalMontant</zorder>
-     <zorder>signalAvalant</zorder>
-     <zorder>waterLevel</zorder>
-     <zorder>porteAvalant</zorder>
-     <zorder>porteMontant</zorder>
-     <zorder>vanneMontant_4</zorder>
-     <zorder>horizontalLayoutWidget_4</zorder>
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
