@@ -41,6 +41,9 @@ void Porte::extinction(void){
 }
 
 void Porte::arret(void){
+    if (etat != FERMETURE ||
+        etat != OUVERTURE ) return;
+
     timer_transition->stop();
     etat = ARRETE;
 
@@ -70,22 +73,23 @@ void Porte::updateposition(void){
     if (simulpanne() == true) return;
 
     switch(etat){
-        case OUVERTURE: position++;
+        case OUVERTURE:
+            if (position >= MAX_OUVERTURE){
+                etat = OUVERTE;
+            cout << "Porte: ouverte" << endl;
+            timer_transition->stop();
+                } else position++;
          break;
-        case FERMETURE: position--;
+        case FERMETURE:
+            if (position <= 0){
+                etat = FERME;
+            cout << "Porte: ferme" << endl;
+            timer_transition->stop();
+                } else position--;
          break;
         default: return;
      }
 
-     if (position <= 0){
-         etat = FERME;
-         cout << "Porte: ferme" << endl;
-         timer_transition->stop();
-     } else if (position >= MAX_OUVERTURE){
-         etat = OUVERTE;
-         cout << "Porte: ouverte" << endl;
-         timer_transition->stop();
-     }
 
      emit signaletat(position, etat);
 }
