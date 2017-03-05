@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QThread>
-#include "etats.h"
+#include "common.h"
 
 class Vanne : public QObject
 {
@@ -11,14 +11,12 @@ class Vanne : public QObject
 
 private:
     int etat;
-    bool alarme;
-
 
 public:
     explicit Vanne(QObject *parent = 0);
 
 signals:
-    void envoiEtat(int etat, bool alarme);
+    void signaletat(int etat);
 
 public slots:
     void extinction(void);

@@ -5,7 +5,6 @@ Porte::Porte(QObject *parent) :
 {
     etat = FERME;
     position = 0;
-    alarme = false;
     timer_transition = new QTimer(this);
     connect(timer_transition,SIGNAL(timeout()),
             this,SLOT(updateposition()));
@@ -13,7 +12,7 @@ Porte::Porte(QObject *parent) :
 
 void Porte::ouverture(void){
     if (etat == OUVERTE ||
-        alarme == true ) return;
+        etat == ALARME ) return;
 
     etat = OUVERTURE;
     timer_transition->start(FREQ_UPDATE);
@@ -22,15 +21,16 @@ void Porte::ouverture(void){
 
 void Porte::fermature(void){
     if (etat == FERME ||
-        alarme == true ) return;
+        etat == ALARME ) return;
 
     etat = FERMATURE;
     timer_transition->start(FREQ_UPDATE);
 }
 
 void Porte::extinction(void){
-    alarme = false;
-    emit signalalarme(alarme);
+    if (etat != ALARME) return;
+    etat = ARRETE;
+    emit signaletat(position,etat);
 }
 
 void Porte::arret(void){
@@ -41,10 +41,10 @@ void Porte::arret(void){
 }
 
 void Porte::arreturgence(void){
-    arret();
-    alarme = true;
-    emit signalalarme(alarme);
+    timer_transition->stop();
+    etat = ALARME;
 
+    emit signaletat(position, etat);
 }
 
 bool Porte::simulpanne(void){
