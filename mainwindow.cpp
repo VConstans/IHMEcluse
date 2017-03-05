@@ -88,6 +88,7 @@ void MainWindow::avalantDoor(int position, int etat)
             break;
         case ALARME:
             ui->porteAvalant->setStyleSheet("background-color:red;");
+            ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
             break;
     }
     ui->porteAvalant->show();
@@ -117,6 +118,7 @@ void MainWindow::montantDoor(int position, int etat)
             break;
         case ALARME:
             ui->porteMontant->setStyleSheet("background-color:red;");
+            ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
             break;
     }
 
@@ -135,10 +137,10 @@ void MainWindow::montantVanne(int etat)
             break;
         case FERME:
             ui->vanneMontant->setStyleSheet("background-color: black;");
-                      cout << etat << endl;
             break;
         case ALARME:
             ui->vanneMontant->setStyleSheet("background-color:red;");
+            ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
             break;
     }
     ui->vanneMontant->show();
@@ -153,10 +155,10 @@ void MainWindow::avalantVanne(int etat)
             break;
         case FERME:
             ui->vanneAvalant->setStyleSheet("background-color: black;");
-            cout << etat << endl;
             break;
         case ALARME:
             ui->vanneAvalant->setStyleSheet("background-color:red;");
+            ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
             break;
     }
     ui->vanneAvalant->show();
