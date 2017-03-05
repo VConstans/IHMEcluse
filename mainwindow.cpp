@@ -51,6 +51,11 @@ MainWindow::MainWindow(QWidget *parent) :
             &ecl, SLOT(ouvertureVanneAvalant()));
     connect(ui->vanneAvalantFerm, SIGNAL(clicked()),
             &ecl, SLOT(fermetureVanneAvalant()));
+    connect(ecl.vanne_haut, SIGNAL(signaletat(int)),
+            this, SLOT(montantVanne(int)));
+    connect(ecl.vanne_bas, SIGNAL(signaletat(int)),
+            this, SLOT(avalantVanne(int)));
+
 
     // Connect niveau eau
     connect(&ecl, SIGNAL(newNivEau(int)),this, SLOT(setWaterLevel(int)));
@@ -119,6 +124,42 @@ void MainWindow::montantDoor(int position, int etat)
 
     ui->progressPorteMontant->setValue(position);
     ui->progressPorteMontant->show();
+}
+
+void MainWindow::montantVanne(int etat)
+{
+    switch(etat)
+    {
+        case OUVERTE:
+            ui->vanneMontant->setStyleSheet("background-color: none;");
+            break;
+        case FERME:
+            ui->vanneMontant->setStyleSheet("background-color: black;");
+                      cout << etat << endl;
+            break;
+        case ALARME:
+            ui->vanneMontant->setStyleSheet("background-color:red;");
+            break;
+    }
+    ui->vanneMontant->show();
+}
+
+void MainWindow::avalantVanne(int etat)
+{
+    switch(etat)
+    {
+        case OUVERTE:
+            ui->vanneAvalant->setStyleSheet("background-color: none;");
+            break;
+        case FERME:
+            ui->vanneAvalant->setStyleSheet("background-color: black;");
+            cout << etat << endl;
+            break;
+        case ALARME:
+            ui->vanneAvalant->setStyleSheet("background-color:red;");
+            break;
+    }
+    ui->vanneAvalant->show();
 }
 
 void MainWindow::setGreenSignalMontant()

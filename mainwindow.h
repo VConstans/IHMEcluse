@@ -23,6 +23,8 @@ private:
 public slots:
     void avalantDoor(int position, int etat);
     void montantDoor(int position, int etat);
+    void montantVanne(int etat);
+    void avalantVanne(int etat);
     void setGreenSignalMontant();
     void setRedSignalMontant();
     void setRedSignalAvalant();

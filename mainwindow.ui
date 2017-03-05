@@ -23,6 +23,9 @@
       <height>771</height>
      </rect>
     </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
     <property name="currentIndex">
      <number>1</number>
     </property>
@@ -236,19 +239,30 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
         <property name="geometry">
          <rect>
           <x>180</x>
-          <y>10</y>
-          <width>21</width>
-          <height>21</height>
+          <y>40</y>
+          <width>16</width>
+          <height>50</height>
          </rect>
         </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>50</height>
+         </size>
+        </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">#vanneMontant{
+background-color: black;
+}</string>
         </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="images.qrc">:/images/voyant_rouge_allume.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -258,22 +272,21 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
         <property name="geometry">
          <rect>
           <x>460</x>
-          <y>10</y>
-          <width>21</width>
-          <height>21</height>
+          <y>40</y>
+          <width>16</width>
+          <height>51</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">#vanneAvalant{
+background-color: black;
+}</string>
         </property>
         <property name="text">
          <string/>
         </property>
-        <property name="pixmap">
-         <pixmap resource="images.qrc">:/images/voyant_rouge_allume.png</pixmap>
-        </property>
         <property name="scaledContents">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
        <widget class="QLabel" name="signalMontant">
@@ -379,6 +392,27 @@ background-color: black
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="vanneMontant_2">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>230</y>
+          <width>16</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#vanneMontant{
+background-color: black;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
         </property>
        </widget>
       </widget>
@@ -725,14 +759,6 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.pn
        <string>Avalant</string>
       </property>
      </widget>
-     <zorder>label_2</zorder>
-     <zorder>label_3</zorder>
-     <zorder>tabWidget</zorder>
-     <zorder>label</zorder>
-     <zorder>label_4</zorder>
-     <zorder>horizontalLayoutWidget_2</zorder>
-     <zorder>label_5</zorder>
-     <zorder>buttonStopMan</zorder>
     </widget>
    </widget>
   </widget>
