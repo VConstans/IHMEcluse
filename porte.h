@@ -26,7 +26,7 @@ private slots:
 
 public slots:
     void ouverture(void);
-    void fermature(void);
+    void fermeture(void);
     void extinction(void);
     void arret(void);
     void arreturgence(void);

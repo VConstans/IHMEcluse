@@ -18,37 +18,37 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::AvalantDoorTransition()
+void MainWindow::avalantDoorTransition()
 {
     ui->porteAvalant->setStyleSheet("background-color:orange;");
     ui->porteAvalant->show();
 }
 
-void MainWindow::MontantDoorTransition()
+void MainWindow::montantDoorTransition()
 {
     ui->porteMontant->setStyleSheet("background-color:orange;");
     ui->porteMontant->show();
 }
 
-void MainWindow::AvalantDoorOpen()
+void MainWindow::avalantDoorOpen()
 {
     ui->porteAvalant->setStyleSheet("background-color: none;");
     ui->porteAvalant->show();
 }
 
-void MainWindow::MontantDoorOpen()
+void MainWindow::montantDoorOpen()
 {
     ui->porteMontant->setStyleSheet("background-color:none;");
     ui->porteMontant->show();
 }
 
-void MainWindow::AvalantDoorClose()
+void MainWindow::avalantDoorClose()
 {
     ui->porteAvalant->setStyleSheet("background-color: black;");
     ui->porteAvalant->show();
 }
 
-void MainWindow::MontantDoorClose()
+void MainWindow::montantDoorClose()
 {
     ui->porteMontant->setStyleSheet("background-color:black;");
     ui->porteMontant->show();

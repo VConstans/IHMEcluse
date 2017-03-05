@@ -21,12 +21,12 @@ private:
     Ui::MainWindow *ui;
 
 public slots:
-    void AvalantDoorTransition();
-    void MontantDoorTransition();
-    void AvalantDoorOpen();
-    void MontantDoorOpen();
-    void AvalantDoorClose();
-    void MontantDoorClose();
+    void avalantDoorTransition();
+    void montantDoorTransition();
+    void avalantDoorOpen();
+    void montantDoorOpen();
+    void avalantDoorClose();
+    void montantDoorClose();
     void setGreenSignalMontant();
     void setRedSignalMontant();
     void setRedSignalAvalant();

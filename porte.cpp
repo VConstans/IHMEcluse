@@ -24,11 +24,11 @@ void Porte::ouverture(void){
 
 }
 
-void Porte::fermature(void){
+void Porte::fermeture(void){
     if (etat == FERME ||
         etat == ALARME ) return;
 
-    etat = FERMATURE;
+    etat = FERMETURE;
     timer_transition->start(FREQ_UPDATE);
 }
 
@@ -68,7 +68,7 @@ void Porte::updateposition(void){
     switch(etat){
         case OUVERTURE: position++;
          break;
-        case FERMATURE: position--;
+        case FERMETURE: position--;
          break;
         default: return;
      }

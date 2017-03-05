@@ -15,7 +15,7 @@
 #include <iostream>
 using namespace std;
 
-enum etat_values {OUVERTE, FERME, OUVERTURE, FERMATURE, ARRETE, ALARME};
+enum etat_values {OUVERTE, FERME, OUVERTURE, FERMETURE, ARRETE, ALARME};
 enum error_valuer { EPORTE, EVANNE, EEAU };
 enum couleur_signaux {ROUGE, VERT };
 

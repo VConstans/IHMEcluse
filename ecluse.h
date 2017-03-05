@@ -26,13 +26,13 @@ signals:
 public slots:
     void ouvertureVanneMontant(void);
     void ouvertureVanneAvalant(void);
-    void fermatureVanneMontant(void);
-    void fermatureVanneAvalant(void);
+    void fermetureVanneMontant(void);
+    void fermetureVanneAvalant(void);
 
     void ouverturePorteBas(void);
     void ouverturePorteHaut(void);
-    void fermaturePorteBas(void);
-    void fermaturePorteHaut(void);
+    void fermeturePorteBas(void);
+    void fermeturePorteHaut(void);
 
 private slots:
     void updateNivEau(void);

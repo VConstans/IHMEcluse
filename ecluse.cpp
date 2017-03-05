@@ -56,12 +56,12 @@ void Ecluse::ouvertureVanneAvalant(void){
     vanne_bas->ouverture();
 }
 
-void Ecluse::fermatureVanneMontant(void){
-    vanne_haut->fermature();
+void Ecluse::fermetureVanneMontant(void){
+    vanne_haut->fermeture();
 }
 
-void Ecluse::fermatureVanneAvalant(void){
-    vanne_bas->fermature();
+void Ecluse::fermetureVanneAvalant(void){
+    vanne_bas->fermeture();
 }
 
 void Ecluse::ouverturePorteBas(void){
@@ -85,12 +85,12 @@ void Ecluse::ouverturePorteHaut(void){
     porte_haut->ouverture();
 }
 
-void Ecluse::fermaturePorteBas(void){
-    porte_bas->fermature();
+void Ecluse::fermeturePorteBas(void){
+    porte_bas->fermeture();
 }
 
-void Ecluse::fermaturePorteHaut(void){
-    porte_haut->fermature();
+void Ecluse::fermeturePorteHaut(void){
+    porte_haut->fermeture();
 }
 
 void Ecluse::updateNivEau(void){
