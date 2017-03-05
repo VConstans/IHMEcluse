@@ -20,7 +20,13 @@ Ecluse::Ecluse(QObject *parent) :
             this,SLOT(updateNivEau()));
     timer_remplissage->start(FREQ_UPDATE);
 
+    connect(porte_bas, SIGNAL(signaletat(int,int)),this,SLOT(getEtatPorteBas(int,int)));
+    connect(porte_haut, SIGNAL(signaletat(int,int)),this,SLOT(getEtatPorteHaut(int,int)));
+    connect(vanne_bas, SIGNAL(signaletat(int)),this,SLOT(getEtatVanneBas(int)));
+    connect(vanne_haut, SIGNAL(signaletat(int)),this,SLOT(getEtatVanneHaut(int)));
+
     nivEau = 0;
+    alarme = false;
 }
 
 
@@ -37,9 +43,12 @@ Ecluse::~Ecluse(){
 }
 
 void Ecluse::ouvertureVanneMontant(void){
-    if (porte_haut->getetat() != FERME ||
+    if (alarme == true) {
+        emit error(EVANNE);
+        return;
+    } else if (porte_haut->getetat() != FERME ||
         porte_bas->getetat() != FERME  ){
-        emit error(EPORTE);
+        emit error(EVANNE);
         return;
     }
 
@@ -47,9 +56,12 @@ void Ecluse::ouvertureVanneMontant(void){
 }
 
 void Ecluse::ouvertureVanneAvalant(void){
-    if (porte_haut->getetat() != FERME ||
+    if (alarme == true) {
+        emit error(EVANNE);
+        return;
+    } if (porte_haut->getetat() != FERME ||
         porte_bas->getetat() != FERME  ){
-        emit error(EPORTE);
+        emit error(EVANNE);
         return;
     }
 
@@ -57,15 +69,26 @@ void Ecluse::ouvertureVanneAvalant(void){
 }
 
 void Ecluse::fermetureVanneMontant(void){
+    if (alarme == true) {
+        emit error(EVANNE);
+        return;
+    }
     vanne_haut->fermeture();
 }
 
 void Ecluse::fermetureVanneAvalant(void){
+    if (alarme == true) {
+        emit error(EVANNE);
+        return;
+    }
     vanne_bas->fermeture();
 }
 
 void Ecluse::ouverturePorteBas(void){
-    if (nivEau > MIN_NIVEAU ||
+    if (alarme == true) {
+        emit error(EPORTE);
+        return;
+    } else if (nivEau > MIN_NIVEAU ||
         vanne_bas->getetat() == OUVERTE ||
         vanne_haut->getetat() == OUVERTE){
         emit error(EEAU);
@@ -77,7 +100,10 @@ void Ecluse::ouverturePorteBas(void){
 }
 
 void Ecluse::ouverturePorteHaut(void){
-    if (nivEau < MAX_NIVEAU ||
+    if (alarme == true) {
+        emit error(EPORTE);
+        return;
+    } else if (nivEau < MAX_NIVEAU ||
         vanne_bas->getetat() == OUVERTE ||
         vanne_haut->getetat() == OUVERTE){
         emit error(EEAU);
@@ -89,11 +115,35 @@ void Ecluse::ouverturePorteHaut(void){
 }
 
 void Ecluse::fermeturePorteBas(void){
+    if (alarme == true) {
+        emit error(EPORTE);
+        return;
+    }
     porte_bas->fermeture();
 }
 
 void Ecluse::fermeturePorteHaut(void){
+    if (alarme == true) {
+        emit error(EPORTE);
+        return;
+    }
     porte_haut->fermeture();
+}
+
+void Ecluse::arretPorteHaut(void){
+    if (alarme == true) {
+        emit error(EPORTE);
+        return;
+    }
+    porte_haut->arret();
+}
+
+void Ecluse::arretPorteBas(void){
+    if (alarme == true) {
+        emit error(EPORTE);
+        return;
+    }
+    porte_bas->arret();
 }
 
 void Ecluse::updateNivEau(void){
@@ -114,4 +164,24 @@ void Ecluse::updateNivEau(void){
     } else return;
 
     emit newNivEau(nivEau);
+}
+
+void Ecluse::getEtatPorteBas(int position,int etat){
+    if (etat == ALARME) alarme = true;
+    emit signalEtatPorteBas(position,etat);
+}
+
+void Ecluse::getEtatPorteHaut(int position,int etat){
+    if (etat == ALARME) alarme = true;
+    emit signalEtatPorteHaut(position,etat);
+}
+
+void Ecluse::getEtatVanneBas(int etat){
+    if (etat == ALARME) alarme = true;
+    emit signalEtatVanneBas(etat);
+}
+
+void Ecluse::getEtatVanneHaut(int etat){
+    if (etat == ALARME) alarme = true;
+    emit signalEtatVanneHaut(etat);
 }
