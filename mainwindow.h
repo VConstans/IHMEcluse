@@ -17,6 +17,14 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+public slots:
+    void AvalantDoorTransition();
+    void MontantDoorTransition();
+    void AvalantDoorOpen();
+    void MontantDoorOpen();
+    void AvalantDoorClose();
+    void MontantDoorClose();
 };
 
 #endif // MAINWINDOW_H

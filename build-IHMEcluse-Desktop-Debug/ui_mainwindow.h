@@ -37,7 +37,7 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QStackedWidget *stackedWidget;
-    QWidget *page;
+    QWidget *IHMAuto;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout_2;
@@ -51,7 +51,7 @@ public:
     QGridLayout *gridLayout_5;
     QPushButton *buttonStopAuto;
     QGraphicsView *display;
-    QWidget *page_2;
+    QWidget *IHMMan;
     QLabel *label_2;
     QLabel *label_3;
     QTabWidget *tabWidget;
@@ -61,13 +61,15 @@ public:
     QLabel *vanne_avalant;
     QLabel *signal_montant;
     QLabel *signal_avalant;
-    QProgressBar *progressBar;
+    QProgressBar *waterLevel;
+    QLabel *porteAvalant;
+    QLabel *porteMontant;
     QWidget *tab_2;
     QLabel *label;
     QLabel *label_4;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout;
-    QVBoxLayout *vannes;
+    QVBoxLayout *groupeButtonVannes;
     QVBoxLayout *vanneMontant;
     QPushButton *vanneMontantOuv;
     QPushButton *vanneMontantFerm;
@@ -75,27 +77,27 @@ public:
     QPushButton *vanneAvalantOuv;
     QPushButton *vanneAvalantFerm;
     QSpacerItem *horizontalSpacer_3;
-    QVBoxLayout *portes;
+    QVBoxLayout *groupeButtonPortes;
     QProgressBar *progressPorteMontant;
-    QVBoxLayout *porteMontant;
+    QVBoxLayout *groupePorteMontant;
     QPushButton *porteMontantOuv;
     QPushButton *porteMontantArret;
     QPushButton *porteMontantFerm;
-    QVBoxLayout *porteAvalant_;
+    QVBoxLayout *groupePorteAvalant;
     QProgressBar *progressBar_2;
     QPushButton *porteAvalantOuv;
     QPushButton *porteAvalantArret;
     QPushButton *porteAvalantFerm;
     QSpacerItem *horizontalSpacer_4;
-    QVBoxLayout *signaux;
+    QVBoxLayout *groupeButtonSignaux;
     QVBoxLayout *signauxMontant;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
+    QPushButton *vertMontant;
+    QPushButton *rougeMontant;
     QVBoxLayout *signauxAvalant;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton;
+    QPushButton *vertAvalant;
+    QPushButton *rougeAvalant;
     QSpacerItem *horizontalSpacer_5;
-    QVBoxLayout *verticalLayout_11;
+    QVBoxLayout *groupeButtonUrgence;
     QLabel *alarme;
     QPushButton *buttonStopMan;
     QLabel *label_5;
@@ -113,9 +115,9 @@ public:
         stackedWidget = new QStackedWidget(centralWidget);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
         stackedWidget->setGeometry(QRect(0, 0, 1091, 771));
-        page = new QWidget();
-        page->setObjectName(QStringLiteral("page"));
-        horizontalLayoutWidget = new QWidget(page);
+        IHMAuto = new QWidget();
+        IHMAuto->setObjectName(QStringLiteral("IHMAuto"));
+        horizontalLayoutWidget = new QWidget(IHMAuto);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
         horizontalLayoutWidget->setGeometry(QRect(30, 210, 581, 261));
         horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget);
@@ -191,19 +193,19 @@ public:
 
         horizontalLayout_3->addLayout(gridLayout_5);
 
-        display = new QGraphicsView(page);
+        display = new QGraphicsView(IHMAuto);
         display->setObjectName(QStringLiteral("display"));
         display->setGeometry(QRect(30, 20, 581, 171));
-        stackedWidget->addWidget(page);
-        page_2 = new QWidget();
-        page_2->setObjectName(QStringLiteral("page_2"));
-        label_2 = new QLabel(page_2);
+        stackedWidget->addWidget(IHMAuto);
+        IHMMan = new QWidget();
+        IHMMan->setObjectName(QStringLiteral("IHMMan"));
+        label_2 = new QLabel(IHMMan);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(300, 360, 67, 17));
-        label_3 = new QLabel(page_2);
+        label_3 = new QLabel(IHMMan);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(500, 360, 67, 17));
-        tabWidget = new QTabWidget(page_2);
+        tabWidget = new QTabWidget(IHMMan);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tabWidget->setGeometry(QRect(30, 10, 881, 331));
         tab = new QWidget();
@@ -213,7 +215,7 @@ public:
         ecluse->setGeometry(QRect(70, 40, 521, 231));
         ecluse->setMinimumSize(QSize(500, 200));
         ecluse->setStyleSheet(QLatin1String("#ecluse{\n"
-"border-image: url(/home/victor/cours/IHM/IHM_Ecluse/ecluse_ferme.png)\n"
+"border-image: url(/home/victor/cours/IHM/IHMEcluse/images/ecluse.png)\n"
 "}"));
         vanne_montant = new QLabel(tab);
         vanne_montant->setObjectName(QStringLiteral("vanne_montant"));
@@ -239,25 +241,37 @@ public:
         signal_avalant->setStyleSheet(QLatin1String("#signal_avalant{\n"
 "border-image: url(/home/victor/cours/IHM/IHM_Ecluse/voyant_allume.png)\n"
 "}"));
-        progressBar = new QProgressBar(tab);
-        progressBar->setObjectName(QStringLiteral("progressBar"));
-        progressBar->setGeometry(QRect(710, 40, 41, 231));
-        progressBar->setLayoutDirection(Qt::LeftToRight);
-        progressBar->setValue(24);
-        progressBar->setTextVisible(false);
-        progressBar->setOrientation(Qt::Vertical);
-        progressBar->setTextDirection(QProgressBar::TopToBottom);
+        waterLevel = new QProgressBar(tab);
+        waterLevel->setObjectName(QStringLiteral("waterLevel"));
+        waterLevel->setGeometry(QRect(710, 40, 41, 231));
+        waterLevel->setLayoutDirection(Qt::LeftToRight);
+        waterLevel->setValue(24);
+        waterLevel->setTextVisible(false);
+        waterLevel->setOrientation(Qt::Vertical);
+        waterLevel->setTextDirection(QProgressBar::TopToBottom);
+        porteAvalant = new QLabel(tab);
+        porteAvalant->setObjectName(QStringLiteral("porteAvalant"));
+        porteAvalant->setGeometry(QRect(450, 140, 21, 91));
+        porteAvalant->setStyleSheet(QLatin1String("#porteAvalant{\n"
+"background-color: black\n"
+"}"));
+        porteMontant = new QLabel(tab);
+        porteMontant->setObjectName(QStringLiteral("porteMontant"));
+        porteMontant->setGeometry(QRect(190, 140, 21, 91));
+        porteMontant->setStyleSheet(QLatin1String("#porteMontant{\n"
+"background-color: black\n"
+"}"));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
         tabWidget->addTab(tab_2, QString());
-        label = new QLabel(page_2);
+        label = new QLabel(IHMMan);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(100, 350, 67, 17));
-        label_4 = new QLabel(page_2);
+        label_4 = new QLabel(IHMMan);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(10, 480, 67, 17));
-        horizontalLayoutWidget_2 = new QWidget(page_2);
+        horizontalLayoutWidget_2 = new QWidget(IHMMan);
         horizontalLayoutWidget_2->setObjectName(QStringLiteral("horizontalLayoutWidget_2"));
         horizontalLayoutWidget_2->setGeometry(QRect(70, 380, 791, 371));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget_2);
@@ -265,9 +279,9 @@ public:
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        vannes = new QVBoxLayout();
-        vannes->setSpacing(6);
-        vannes->setObjectName(QStringLiteral("vannes"));
+        groupeButtonVannes = new QVBoxLayout();
+        groupeButtonVannes->setSpacing(6);
+        groupeButtonVannes->setObjectName(QStringLiteral("groupeButtonVannes"));
         vanneMontant = new QVBoxLayout();
         vanneMontant->setSpacing(6);
         vanneMontant->setObjectName(QStringLiteral("vanneMontant"));
@@ -283,7 +297,7 @@ public:
         vanneMontant->addWidget(vanneMontantFerm);
 
 
-        vannes->addLayout(vanneMontant);
+        groupeButtonVannes->addLayout(vanneMontant);
 
         vanneAvalant = new QVBoxLayout();
         vanneAvalant->setSpacing(6);
@@ -299,32 +313,32 @@ public:
         vanneAvalant->addWidget(vanneAvalantFerm);
 
 
-        vannes->addLayout(vanneAvalant);
+        groupeButtonVannes->addLayout(vanneAvalant);
 
 
-        horizontalLayout->addLayout(vannes);
+        horizontalLayout->addLayout(groupeButtonVannes);
 
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_3);
 
-        portes = new QVBoxLayout();
-        portes->setSpacing(6);
-        portes->setObjectName(QStringLiteral("portes"));
+        groupeButtonPortes = new QVBoxLayout();
+        groupeButtonPortes->setSpacing(6);
+        groupeButtonPortes->setObjectName(QStringLiteral("groupeButtonPortes"));
         progressPorteMontant = new QProgressBar(horizontalLayoutWidget_2);
         progressPorteMontant->setObjectName(QStringLiteral("progressPorteMontant"));
         progressPorteMontant->setValue(24);
 
-        portes->addWidget(progressPorteMontant);
+        groupeButtonPortes->addWidget(progressPorteMontant);
 
-        porteMontant = new QVBoxLayout();
-        porteMontant->setSpacing(6);
-        porteMontant->setObjectName(QStringLiteral("porteMontant"));
+        groupePorteMontant = new QVBoxLayout();
+        groupePorteMontant->setSpacing(6);
+        groupePorteMontant->setObjectName(QStringLiteral("groupePorteMontant"));
         porteMontantOuv = new QPushButton(horizontalLayoutWidget_2);
         porteMontantOuv->setObjectName(QStringLiteral("porteMontantOuv"));
         porteMontantOuv->setStyleSheet(QStringLiteral(""));
 
-        porteMontant->addWidget(porteMontantOuv);
+        groupePorteMontant->addWidget(porteMontantOuv);
 
         porteMontantArret = new QPushButton(horizontalLayoutWidget_2);
         porteMontantArret->setObjectName(QStringLiteral("porteMontantArret"));
@@ -333,31 +347,31 @@ public:
 "color: red\n"
 "}"));
 
-        porteMontant->addWidget(porteMontantArret);
+        groupePorteMontant->addWidget(porteMontantArret);
 
         porteMontantFerm = new QPushButton(horizontalLayoutWidget_2);
         porteMontantFerm->setObjectName(QStringLiteral("porteMontantFerm"));
         porteMontantFerm->setStyleSheet(QStringLiteral(""));
 
-        porteMontant->addWidget(porteMontantFerm);
+        groupePorteMontant->addWidget(porteMontantFerm);
 
 
-        portes->addLayout(porteMontant);
+        groupeButtonPortes->addLayout(groupePorteMontant);
 
-        porteAvalant_ = new QVBoxLayout();
-        porteAvalant_->setSpacing(6);
-        porteAvalant_->setObjectName(QStringLiteral("porteAvalant_"));
+        groupePorteAvalant = new QVBoxLayout();
+        groupePorteAvalant->setSpacing(6);
+        groupePorteAvalant->setObjectName(QStringLiteral("groupePorteAvalant"));
         progressBar_2 = new QProgressBar(horizontalLayoutWidget_2);
         progressBar_2->setObjectName(QStringLiteral("progressBar_2"));
         progressBar_2->setValue(24);
 
-        porteAvalant_->addWidget(progressBar_2);
+        groupePorteAvalant->addWidget(progressBar_2);
 
         porteAvalantOuv = new QPushButton(horizontalLayoutWidget_2);
         porteAvalantOuv->setObjectName(QStringLiteral("porteAvalantOuv"));
         porteAvalantOuv->setStyleSheet(QStringLiteral(""));
 
-        porteAvalant_->addWidget(porteAvalantOuv);
+        groupePorteAvalant->addWidget(porteAvalantOuv);
 
         porteAvalantArret = new QPushButton(horizontalLayoutWidget_2);
         porteAvalantArret->setObjectName(QStringLiteral("porteAvalantArret"));
@@ -365,73 +379,73 @@ public:
 "color: red\n"
 "}"));
 
-        porteAvalant_->addWidget(porteAvalantArret);
+        groupePorteAvalant->addWidget(porteAvalantArret);
 
         porteAvalantFerm = new QPushButton(horizontalLayoutWidget_2);
         porteAvalantFerm->setObjectName(QStringLiteral("porteAvalantFerm"));
         porteAvalantFerm->setStyleSheet(QStringLiteral(""));
 
-        porteAvalant_->addWidget(porteAvalantFerm);
+        groupePorteAvalant->addWidget(porteAvalantFerm);
 
 
-        portes->addLayout(porteAvalant_);
+        groupeButtonPortes->addLayout(groupePorteAvalant);
 
 
-        horizontalLayout->addLayout(portes);
+        horizontalLayout->addLayout(groupeButtonPortes);
 
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_4);
 
-        signaux = new QVBoxLayout();
-        signaux->setSpacing(6);
-        signaux->setObjectName(QStringLiteral("signaux"));
+        groupeButtonSignaux = new QVBoxLayout();
+        groupeButtonSignaux->setSpacing(6);
+        groupeButtonSignaux->setObjectName(QStringLiteral("groupeButtonSignaux"));
         signauxMontant = new QVBoxLayout();
         signauxMontant->setSpacing(6);
         signauxMontant->setObjectName(QStringLiteral("signauxMontant"));
-        pushButton_3 = new QPushButton(horizontalLayoutWidget_2);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setStyleSheet(QStringLiteral("#pushButton_3{color: green}"));
+        vertMontant = new QPushButton(horizontalLayoutWidget_2);
+        vertMontant->setObjectName(QStringLiteral("vertMontant"));
+        vertMontant->setStyleSheet(QStringLiteral("#pushButton_3{color: green}"));
 
-        signauxMontant->addWidget(pushButton_3);
+        signauxMontant->addWidget(vertMontant);
 
-        pushButton_4 = new QPushButton(horizontalLayoutWidget_2);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setStyleSheet(QStringLiteral("#pushButton_4{color: red}"));
+        rougeMontant = new QPushButton(horizontalLayoutWidget_2);
+        rougeMontant->setObjectName(QStringLiteral("rougeMontant"));
+        rougeMontant->setStyleSheet(QStringLiteral("#pushButton_4{color: red}"));
 
-        signauxMontant->addWidget(pushButton_4);
+        signauxMontant->addWidget(rougeMontant);
 
 
-        signaux->addLayout(signauxMontant);
+        groupeButtonSignaux->addLayout(signauxMontant);
 
         signauxAvalant = new QVBoxLayout();
         signauxAvalant->setSpacing(6);
         signauxAvalant->setObjectName(QStringLiteral("signauxAvalant"));
-        pushButton_2 = new QPushButton(horizontalLayoutWidget_2);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setStyleSheet(QStringLiteral("#pushButton_2{color: green}"));
+        vertAvalant = new QPushButton(horizontalLayoutWidget_2);
+        vertAvalant->setObjectName(QStringLiteral("vertAvalant"));
+        vertAvalant->setStyleSheet(QStringLiteral("#pushButton_2{color: green}"));
 
-        signauxAvalant->addWidget(pushButton_2);
+        signauxAvalant->addWidget(vertAvalant);
 
-        pushButton = new QPushButton(horizontalLayoutWidget_2);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setStyleSheet(QStringLiteral("#pushButton{color: red}"));
+        rougeAvalant = new QPushButton(horizontalLayoutWidget_2);
+        rougeAvalant->setObjectName(QStringLiteral("rougeAvalant"));
+        rougeAvalant->setStyleSheet(QStringLiteral("#pushButton{color: red}"));
 
-        signauxAvalant->addWidget(pushButton);
-
-
-        signaux->addLayout(signauxAvalant);
+        signauxAvalant->addWidget(rougeAvalant);
 
 
-        horizontalLayout->addLayout(signaux);
+        groupeButtonSignaux->addLayout(signauxAvalant);
+
+
+        horizontalLayout->addLayout(groupeButtonSignaux);
 
         horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_5);
 
-        verticalLayout_11 = new QVBoxLayout();
-        verticalLayout_11->setSpacing(6);
-        verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
+        groupeButtonUrgence = new QVBoxLayout();
+        groupeButtonUrgence->setSpacing(6);
+        groupeButtonUrgence->setObjectName(QStringLiteral("groupeButtonUrgence"));
         alarme = new QLabel(horizontalLayoutWidget_2);
         alarme->setObjectName(QStringLiteral("alarme"));
         alarme->setMaximumSize(QSize(100, 100));
@@ -439,7 +453,7 @@ public:
 "border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_eteind.png)\n"
 "}"));
 
-        verticalLayout_11->addWidget(alarme);
+        groupeButtonUrgence->addWidget(alarme);
 
         buttonStopMan = new QPushButton(horizontalLayoutWidget_2);
         buttonStopMan->setObjectName(QStringLiteral("buttonStopMan"));
@@ -453,15 +467,15 @@ public:
 "border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);\n"
 "}"));
 
-        verticalLayout_11->addWidget(buttonStopMan);
+        groupeButtonUrgence->addWidget(buttonStopMan);
 
 
-        horizontalLayout->addLayout(verticalLayout_11);
+        horizontalLayout->addLayout(groupeButtonUrgence);
 
-        label_5 = new QLabel(page_2);
+        label_5 = new QLabel(IHMMan);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(20, 670, 67, 17));
-        stackedWidget->addWidget(page_2);
+        stackedWidget->addWidget(IHMMan);
         label_2->raise();
         label_3->raise();
         tabWidget->raise();
@@ -484,7 +498,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
         tabWidget->setCurrentIndex(0);
 
 
@@ -506,6 +520,8 @@ public:
         vanne_avalant->setText(QString());
         signal_montant->setText(QString());
         signal_avalant->setText(QString());
+        porteAvalant->setText(QString());
+        porteMontant->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Tab 1", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Tab 2", 0));
         label->setText(QApplication::translate("MainWindow", "Vannes", 0));
@@ -520,10 +536,10 @@ public:
         porteAvalantOuv->setText(QApplication::translate("MainWindow", "Ouverture", 0));
         porteAvalantArret->setText(QApplication::translate("MainWindow", "Arr\303\252t", 0));
         porteAvalantFerm->setText(QApplication::translate("MainWindow", "Fermeture", 0));
-        pushButton_3->setText(QApplication::translate("MainWindow", "Vert", 0));
-        pushButton_4->setText(QApplication::translate("MainWindow", "Rouge", 0));
-        pushButton_2->setText(QApplication::translate("MainWindow", "Vert", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "Rouge", 0));
+        vertMontant->setText(QApplication::translate("MainWindow", "Vert", 0));
+        rougeMontant->setText(QApplication::translate("MainWindow", "Rouge", 0));
+        vertAvalant->setText(QApplication::translate("MainWindow", "Vert", 0));
+        rougeAvalant->setText(QApplication::translate("MainWindow", "Rouge", 0));
         alarme->setText(QString());
         buttonStopMan->setText(QString());
         label_5->setText(QApplication::translate("MainWindow", "Avalant", 0));
