@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>931</width>
-    <height>843</height>
+    <width>831</width>
+    <height>790</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,22 +19,22 @@
      <rect>
       <x>40</x>
       <y>340</y>
-      <width>831</width>
-      <height>431</height>
+      <width>781</width>
+      <height>401</height>
      </rect>
     </property>
     <property name="layoutDirection">
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="IHMAuto">
      <widget class="QWidget" name="horizontalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>120</y>
+        <x>100</x>
+        <y>90</y>
         <width>581</width>
         <height>211</height>
        </rect>
@@ -161,7 +161,7 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
         <x>20</x>
         <y>40</y>
         <width>751</width>
-        <height>301</height>
+        <height>341</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -223,7 +223,33 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
         </layout>
        </item>
        <item>
+        <spacer name="horizontalSpacer_8">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_5">
            <item>
@@ -274,6 +300,19 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
             </widget>
            </item>
           </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -387,6 +426,19 @@ color: red
              <item>
               <layout class="QVBoxLayout" name="groupePorteAvalant">
                <item>
+                <spacer name="verticalSpacer_5">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
                 <widget class="QProgressBar" name="progressPorteAvalant">
                  <property name="value">
                   <number>24</number>
@@ -499,6 +551,19 @@ color: red
         </layout>
        </item>
        <item>
+        <spacer name="horizontalSpacer_7">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <layout class="QVBoxLayout" name="groupeButtonUrgence">
          <item>
           <widget class="QLabel" name="alarme">
@@ -567,12 +632,12 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.pn
      <rect>
       <x>10</x>
       <y>-10</y>
-      <width>771</width>
+      <width>801</width>
       <height>331</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -804,9 +869,9 @@ background-color: black;
      <widget class="QTextBrowser" name="messageDisplay">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>30</y>
-        <width>831</width>
+        <x>10</x>
+        <y>40</y>
+        <width>771</width>
         <height>241</height>
        </rect>
       </property>
@@ -832,7 +897,7 @@ background-color: black;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>931</width>
+     <width>831</width>
      <height>25</height>
     </rect>
    </property>
