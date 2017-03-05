@@ -14,5 +14,6 @@
 
 enum etat_values {OUVERTE, FERME, OUVERTURE, FERMATURE, ARRETE, ALARME};
 enum error_valuer { EPORTE, EVANNE };
+enum couleur_signaux {ROUGE, VERT };
 
 #endif // ETATS_H
