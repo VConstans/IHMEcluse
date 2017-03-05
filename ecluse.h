@@ -12,6 +12,7 @@ class Ecluse : public QObject
     QThread threadVanne_haut, threadVanne_bas;
     QTimer *timer_remplissage;
     int nivEau;
+    bool alarme;
 
 public:
     Vanne *vanne_haut, *vanne_bas;
@@ -23,6 +24,10 @@ public:
 signals:
     void error(int ecode);
     void newNivEau(int nivEau);
+    void signalEtatPorteHaut(int position, int etat);
+    void signalEtatPorteBas(int position, int etat);
+    void signalEtatVanneHaut(int etat);
+    void signalEtatVanneBas(int etat);
 
 public slots:
     void ouvertureVanneMontant(void);
@@ -37,7 +42,10 @@ public slots:
 
 private slots:
     void updateNivEau(void);
-
+    void getEtatPorteHaut(int position,int etat);
+    void getEtatPorteBas(int position,int etat);
+    void getEtatVanneHaut(int etat);
+    void getEtatVanneBas(int etat);
 
 };
 

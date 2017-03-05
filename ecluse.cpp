@@ -20,7 +20,13 @@ Ecluse::Ecluse(QObject *parent) :
             this,SLOT(updateNivEau()));
     timer_remplissage->start(FREQ_UPDATE);
 
+    connect(porte_bas, SIGNAL(signaletat(int,int)),this,SLOT(getEtatPorteBas(int,int)));
+    connect(porte_haut, SIGNAL(signaletat(int,int)),this,SLOT(getEtatPorteHaut(int,int)));
+    connect(vanne_bas, SIGNAL(signaletat(int)),this,SLOT(getEtatVanneBas(int)));
+    connect(vanne_haut, SIGNAL(signaletat(int)),this,SLOT(getEtatVanneHaut(int)));
+
     nivEau = 0;
+    alarme = false;
 }
 
 
@@ -114,4 +120,24 @@ void Ecluse::updateNivEau(void){
     } else return;
 
     emit newNivEau(nivEau);
+}
+
+void Ecluse::getEtatPorteBas(int position,int etat){
+    if (etat == ALARME) alarme = true;
+    emit signalEtatPorteBas(position,etat);
+}
+
+void Ecluse::getEtatPorteHaut(int position,int etat){
+    if (etat == ALARME) alarme = true;
+    emit signalEtatPorteHaut(position,etat);
+}
+
+void Ecluse::getEtatVanneBas(int etat){
+    if (etat == ALARME) alarme = true;
+    emit signalEtatVanneBas(etat);
+}
+
+void Ecluse::getEtatVanneHaut(int etat){
+    if (etat == ALARME) alarme = true;
+    emit signalEtatVanneHaut(etat);
 }
