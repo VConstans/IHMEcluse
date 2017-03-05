@@ -65,9 +65,31 @@ void Ecluse::fermatureVanneAvalant(void){
 }
 
 void Ecluse::ouverturePorteBas(void){
+    if (nivEau > MIN_NIVEAU ||
+        vanne_bas->getetat() == OUVERTE ||
+        vanne_haut->getetat() == OUVERTE){
+        emit error(EEAU);
+        return ;
+    }
+    porte_bas->ouverture();
 }
 
 void Ecluse::ouverturePorteHaut(void){
+    if (nivEau < MAX_NIVEAU ||
+        vanne_bas->getetat() == OUVERTE ||
+        vanne_haut->getetat() == OUVERTE){
+        emit error(EEAU);
+        return ;
+    }
+    porte_haut->ouverture();
+}
+
+void Ecluse::fermaturePorteBas(void){
+    porte_bas->fermature();
+}
+
+void Ecluse::fermaturePorteHaut(void){
+    porte_haut->fermature();
 }
 
 void Ecluse::updateNivEau(void){

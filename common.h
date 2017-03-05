@@ -13,7 +13,7 @@
 #define DEBIT_EAU 2
 
 enum etat_values {OUVERTE, FERME, OUVERTURE, FERMATURE, ARRETE, ALARME};
-enum error_valuer { EPORTE, EVANNE };
+enum error_valuer { EPORTE, EVANNE, EEAU };
 enum couleur_signaux {ROUGE, VERT };
 
 #endif // ETATS_H
