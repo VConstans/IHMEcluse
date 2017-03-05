@@ -7,28 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    // Initialisation
     ui->waterLevel->setMinimum(MIN_NIVEAU);
     ui->waterLevel->setMaximum(MAX_NIVEAU);
-
-    connect(ui->porteAvalantOuv, SIGNAL(clicked()),
-            &ecl, SLOT(ouverturePorteBas()));
-    connect(ui->porteAvalantFerm, SIGNAL(clicked()),
-            &ecl, SLOT(fermeturePorteBas()));
-    connect(ui->porteAvalantArret, SIGNAL(clicked()),
-            ecl.porte_bas, SLOT(arret()));
-    connect(ecl.porte_bas, SIGNAL(signaletat(int,int)),
-            this, SLOT(avalantDoor(int,int)));
-
-    connect(ui->porteMontantOuv, SIGNAL(clicked()),
-            &ecl, SLOT(ouverturePorteHaut()));
-    connect(ui->porteMontantFerm, SIGNAL(clicked()),
-            &ecl, SLOT(fermeturePorteHaut()));
-    connect(ui->porteMontantArret, SIGNAL(clicked()),
-            ecl.porte_haut, SLOT(arret()));
-    connect(ecl.porte_haut, SIGNAL(signaletat(int,int)),
-            this, SLOT(montantDoor(int,int)));
-
-    connect(&ecl, SIGNAL(newNivEau(int)),this, SLOT(setWaterLevel(int)));
+    ui->waterLevel->setValue(0);
 
     ui->progressPorteMontant->setMinimum(0);
     ui->progressPorteMontant->setMaximum(MAX_FERMETURE);
@@ -38,9 +21,40 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->progressPorteAvalant->setMaximum(MAX_FERMETURE);
     ui->progressPorteAvalant->setValue(MAX_FERMETURE);
 
-    ui->waterLevel->setMinimum(0);
-    ui->waterLevel->setMaximum(MAX_NIVEAU);
-    ui->waterLevel->setValue(0);
+
+    // Connect porte avalant
+    connect(ui->porteAvalantOuv, SIGNAL(clicked()),
+            &ecl, SLOT(ouverturePorteBas()));
+    connect(ui->porteAvalantFerm, SIGNAL(clicked()),
+            &ecl, SLOT(fermeturePorteBas()));
+    connect(ui->porteAvalantArret, SIGNAL(clicked()),
+            ecl.porte_bas, SLOT(arret()));
+    connect(ecl.porte_bas, SIGNAL(signaletat(int,int)),
+            this, SLOT(avalantDoor(int,int)));
+
+    // Connect porte montant
+    connect(ui->porteMontantOuv, SIGNAL(clicked()),
+            &ecl, SLOT(ouverturePorteHaut()));
+    connect(ui->porteMontantFerm, SIGNAL(clicked()),
+            &ecl, SLOT(fermeturePorteHaut()));
+    connect(ui->porteMontantArret, SIGNAL(clicked()),
+            ecl.porte_haut, SLOT(arret()));
+    connect(ecl.porte_haut, SIGNAL(signaletat(int,int)),
+            this, SLOT(montantDoor(int,int)));
+
+    // Connect vannes
+    connect(ui->vanneMontantOuv, SIGNAL(clicked()),
+            &ecl, SLOT(ouvertureVanneMontant()));
+    connect(ui->vanneMontantFerm, SIGNAL(clicked()),
+            &ecl, SLOT(fermetureVanneMontant()));
+    connect(ui->vanneAvalantOuv, SIGNAL(clicked()),
+            &ecl, SLOT(ouvertureVanneAvalant()));
+    connect(ui->vanneAvalantFerm, SIGNAL(clicked()),
+            &ecl, SLOT(fermetureVanneAvalant()));
+
+    // Connect niveau eau
+    connect(&ecl, SIGNAL(newNivEau(int)),this, SLOT(setWaterLevel(int)));
+
 }
 
 MainWindow::~MainWindow()
