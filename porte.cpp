@@ -63,7 +63,7 @@ bool Porte::simulpanne(void){
 
 void Porte::updateposition(void){
     cout << "Porte: position "<< position << endl;
-   // if (simulpanne() == true) return;
+    if (simulpanne() == true) return;
 
     switch(etat){
         case OUVERTURE: position++;
