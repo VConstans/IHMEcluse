@@ -69,6 +69,7 @@ void Ecluse::ouverturePorteBas(void){
         vanne_bas->getetat() == OUVERTE ||
         vanne_haut->getetat() == OUVERTE){
         emit error(EEAU);
+        cout << "Ecluse: je peut pas ouvrir la porte" << endl;
         return ;
     }
     cout << "Ecluse: ouverture porte bas" << endl;
@@ -80,8 +81,10 @@ void Ecluse::ouverturePorteHaut(void){
         vanne_bas->getetat() == OUVERTE ||
         vanne_haut->getetat() == OUVERTE){
         emit error(EEAU);
+        cout << "Ecluse: je peut pas ouvrir la porte" << endl;
         return ;
     }
+    cout << "Ecluse: ouverture porte haut" << endl;
     porte_haut->ouverture();
 }
 
