@@ -31,6 +31,8 @@ public slots:
 
     void ouverturePorteBas(void);
     void ouverturePorteHaut(void);
+    void fermaturePorteBas(void);
+    void fermaturePorteHaut(void);
 
 private slots:
     void updateNivEau(void);
