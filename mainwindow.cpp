@@ -26,9 +26,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->progressPorteMontant->setMinimum(0);
     ui->progressPorteMontant->setMaximum(MAX_OUVERTURE);
+    ui->progressPorteMontant->setValue(0);
 
     ui->progressPorteAvalant->setMinimum(0);
     ui->progressPorteAvalant->setMaximum(MAX_OUVERTURE);
+    ui->progressPorteMontant->setValue(0);
 }
 
 MainWindow::~MainWindow()
