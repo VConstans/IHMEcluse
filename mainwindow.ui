@@ -596,7 +596,7 @@ color: red
            <item>
             <widget class="QPushButton" name="vertMontant">
              <property name="styleSheet">
-              <string notr="true">#pushButton_3{color: green}</string>
+              <string notr="true">#vertMontant{color: green}</string>
              </property>
              <property name="text">
               <string>Vert</string>
@@ -606,7 +606,7 @@ color: red
            <item>
             <widget class="QPushButton" name="rougeMontant">
              <property name="styleSheet">
-              <string notr="true">#pushButton_4{color: red}</string>
+              <string notr="true">#rougeMontant{color: red}</string>
              </property>
              <property name="text">
               <string>Rouge</string>
@@ -620,7 +620,7 @@ color: red
            <item>
             <widget class="QPushButton" name="vertAvalant">
              <property name="styleSheet">
-              <string notr="true">#pushButton_2{color: green}</string>
+              <string notr="true">#vertAvalant{color: green}</string>
              </property>
              <property name="text">
               <string>Vert</string>
@@ -630,7 +630,7 @@ color: red
            <item>
             <widget class="QPushButton" name="rougeAvalant">
              <property name="styleSheet">
-              <string notr="true">#pushButton{color: red}</string>
+              <string notr="true">#rougeAvalant{color: red}</string>
              </property>
              <property name="text">
               <string>Rouge</string>
