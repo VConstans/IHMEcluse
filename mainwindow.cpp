@@ -48,3 +48,15 @@ void MainWindow::MontantDoorClose()
     ui->porteMontant->setStyleSheet("background-color:black;");
     ui->porteMontant->show();
 }
+
+void MainWindow::setGreenSignalMontant()
+{
+    ui->signalMontant->setStyleSheet("border-image:url(/home/victor/cours/IHM/IHMEcluse/images/voyant_vert_allume.png);");
+    ui->signalMontant->show();
+}
+
+void MainWindow::setRedSignalMontant()
+{
+    ui->signalMontant->setStyleSheet("border-image:url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_allume.png);");
+    ui->signalMontant->show();
+}

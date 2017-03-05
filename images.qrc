@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/arret_urgence.png</file>
+        <file>images/bas.png</file>
+        <file>images/ecluse.odg</file>
+        <file>images/ecluse.png</file>
+        <file>images/ecluse_ferme.png</file>
+        <file>images/ecluse_ouverte_droit.png</file>
+        <file>images/ecluse_ouverte_gauche.png</file>
+        <file>images/fermeture_porte.png</file>
+        <file>images/fleche.png</file>
+        <file>images/haut.png</file>
+        <file>images/ouverture_porte.png</file>
+        <file>images/porte.png</file>
+        <file>images/urgence_relache.png</file>
+        <file>images/voyant_rouge_allume.png</file>
+        <file>images/voyant_rouge_eteind.png</file>
+        <file>images/voyant_vert_allume.png</file>
+    </qresource>
+</RCC>
