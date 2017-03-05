@@ -51,15 +51,19 @@ void MainWindow::avalantDoor(int position, int etat)
         case OUVERTURE:
             ui->porteAvalant->setStyleSheet("background-color:orange;");
             ui->porteAvalant->show();
+            break;
         case FERMETURE:
             ui->porteAvalant->setStyleSheet("background-color:orange;");
             ui->porteAvalant->show();
+            break;
         case ARRETE:
             ui->porteAvalant->setStyleSheet("background-color:orange;");
             ui->porteAvalant->show();
+            break;
         case ALARME:
             ui->porteAvalant->setStyleSheet("background-color:red;");
             ui->porteAvalant->show();
+            break;
     }
 
     ui->progressPorteAvalant->setValue(position);
@@ -80,15 +84,19 @@ void MainWindow::montantDoor(int position, int etat)
         case OUVERTURE:
             ui->porteMontant->setStyleSheet("background-color:orange;");
             ui->porteMontant->show();
+            break;
         case FERMETURE:
             ui->porteMontant->setStyleSheet("background-color:orange;");
             ui->porteMontant->show();
+            break;
         case ARRETE:
             ui->porteMontant->setStyleSheet("background-color:orange;");
             ui->porteMontant->show();
+            break;
         case ALARME:
             ui->porteMontant->setStyleSheet("background-color:red;");
             ui->porteMontant->show();
+            break;
     }
 
     ui->progressPorteMontant->setValue(position);
