@@ -90,11 +90,10 @@ void Ecluse::ouverturePorteBas(void){
         return;
     } else if (nivEau > MIN_NIVEAU) {
         emit error(EBADNIVEAU);
-
+        return ;
     } else if (vanne_bas->getetat() == OUVERTE ||
                vanne_haut->getetat() == OUVERTE){
         emit error(EVANNEOUV);
-        cout << "Ecluse: je peut pas ouvrir la porte" << endl;
         return ;
     }
     porte_bas->ouverture();
@@ -106,6 +105,7 @@ void Ecluse::ouverturePorteHaut(void){
         return;
     } else if (nivEau < MAX_NIVEAU) {
         emit error(EBADNIVEAU);
+        return ;
     } else if(vanne_bas->getetat() == OUVERTE ||
                vanne_haut->getetat() == OUVERTE){
         emit error(EVANNEOUV);
