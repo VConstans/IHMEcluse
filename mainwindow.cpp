@@ -73,6 +73,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->buttonEntrer,SIGNAL(clicked()),this,SLOT(autoTrans()));
     connect(ui->buttonSortir,SIGNAL(clicked()),this,SLOT(autoTrans()));
 
+    connect(&ecl,SIGNAL(error(int)),this,SLOT(logerr(int)));
+    connect(&ecl,SIGNAL(message(int)),this,SLOT(logmsg(int)));
+
+
 }
 
 MainWindow::~MainWindow()
@@ -212,13 +216,20 @@ void MainWindow::setWaterLevel(int wl)
     ui->waterLevel->setValue(wl);
 }
 
-void MainWindow::logmsg(int i)
+void MainWindow::logmsg(int mcode)
 {
     string s;
-  /*  switch(i)
+    switch(mcode)
     {
-        //Compléter
-    }*/
+       case OUVPORTE: s = "Ouverture porte";
+        break;
+       case FERMPORTE: s = "Fermature porte";
+        break;
+       case EAUUP: s = "Eau qui monte";
+        break;
+       case EAUDOWN: s = "Eau qui descent";
+        break;
+    }
 
     ui->messageDisplay->setTextColor(Qt::black);
     ui->messageDisplay->append(QString::fromStdString(s));
