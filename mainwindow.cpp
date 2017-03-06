@@ -21,6 +21,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->progressPorteAvalant->setMaximum(MAX_FERMETURE);
     ui->progressPorteAvalant->setValue(MAX_FERMETURE);
 
+    ui->signalAvalantVert->hide();
+    ui->signalMontantVert->hide();
+
     //Connect button changement mode
     connect(ui->buttonChangerMode,SIGNAL(triggered()),this,SLOT(changerMode()));
     connect(this,SIGNAL(changeStackedIndex(int)),ui->stackedWidget,SLOT(setCurrentIndex(int)));
