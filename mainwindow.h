@@ -19,6 +19,7 @@ public:
     ~MainWindow();
 
 private:
+    bool autoTransActive;
     Ui::MainWindow *ui;
 
 signals:

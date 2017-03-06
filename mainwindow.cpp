@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    autoTransActive = false;
     ui->setupUi(this);
 
     // Initialisation
@@ -266,6 +267,7 @@ void MainWindow::logerr(int i)
 /////////////////////////////////////////////////////////////////////////////////////
 
 void MainWindow::stopAutoMod(void){
+           autoTransActive = false;
            disconnect(&ecl, SIGNAL(signalPorteBasFerme()),&ecl,SLOT(ouvertureVanneMontant()));
            disconnect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(fermetureVanneMontant()));
            disconnect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(ouverturePorteHaut()));
@@ -278,6 +280,10 @@ void MainWindow::stopAutoMod(void){
 
 void MainWindow::autoTrans(void)
 {
+    if (autoTransActive == true) return;
+    autoTransActive = true;
+
+
     ecl.fermetureVanneAvalant();
     ecl.fermetureVanneMontant();
 
