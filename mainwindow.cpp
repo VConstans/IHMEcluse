@@ -62,7 +62,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///////////////////////////////
 
-    connect(ui->buttonEntrer,SIGNAL(clicked()),this,SLOT(autoEntrer()));
+    connect(ui->buttonEntrer,SIGNAL(clicked()),this,SLOT(autoTrans()));
+    connect(ui->buttonSortir,SIGNAL(clicked()),this,SLOT(autoTrans()));
 
 }
 
@@ -223,13 +224,15 @@ void MainWindow::stopAutoMod(void){
            disconnect(&ecl, SIGNAL(signalPorteBasOuverte()),this,SLOT(stopAutoMod()));
 }
 
-void MainWindow::autoEntrer(void)
+void MainWindow::autoTrans(void)
 {
     ecl.fermetureVanneAvalant();
     ecl.fermetureVanneMontant();
 
-    if(ui->buttonAvalant->isChecked())
+    if ((sender() == ui->buttonEntrer && ui->buttonAvalant->isChecked()) ||
+        (sender() == ui->buttonSortir && ui->buttonMontant->isChecked()) )
     {
+
         if(ecl.getNivEau() < MAX_NIVEAU)
         {
            connect(&ecl, SIGNAL(signalPorteBasFerme()),&ecl,SLOT(ouvertureVanneMontant()));
@@ -242,9 +245,9 @@ void MainWindow::autoEntrer(void)
            ecl.ouverturePorteHaut();
 
         }
-    }
-    else if(ui->buttonMontant->isChecked())
-    {
+    } else if ((sender() == ui->buttonEntrer && ui->buttonMontant->isChecked()) ||
+             (sender() == ui->buttonSortir && ui->buttonAvalant->isChecked()) ){
+
         if(ecl.getNivEau() > 0)
         {
            connect(&ecl, SIGNAL(signalPorteHautFerme()),&ecl,SLOT(ouvertureVanneAvalant()));
