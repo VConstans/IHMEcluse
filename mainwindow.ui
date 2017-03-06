@@ -271,6 +271,7 @@ background-color: black;
         </widget>
         <zorder>label_7</zorder>
         <zorder>messageDisplay</zorder>
+        <zorder>stackedWidget</zorder>
        </widget>
       </widget>
      </item>
@@ -280,7 +281,7 @@ background-color: black;
         <enum>Qt::LeftToRight</enum>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="IHMAuto">
         <widget class="QWidget" name="horizontalLayoutWidget">
@@ -414,6 +415,48 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
               </property>
               <property name="text">
                <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="auth">
+        <widget class="QWidget" name="verticalLayoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>90</y>
+           <width>391</width>
+           <height>131</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Mot de passe:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="mdp"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QPushButton" name="annulerMdp">
+              <property name="text">
+               <string>Annuler</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="validerMdp">
+              <property name="text">
+               <string>Valider</string>
               </property>
              </widget>
             </item>
@@ -738,9 +781,16 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.pn
      <x>0</x>
      <y>0</y>
      <width>723</width>
-     <height>29</height>
+     <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuOutils">
+    <property name="title">
+     <string>Outils</string>
+    </property>
+    <addaction name="buttonChangerMode"/>
+   </widget>
+   <addaction name="menuOutils"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -751,6 +801,11 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.pn
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="buttonChangerMode">
+   <property name="text">
+    <string>Changer de mode</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

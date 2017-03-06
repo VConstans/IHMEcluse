@@ -22,6 +22,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->progressPorteAvalant->setValue(MAX_FERMETURE);
 
 
+    //Connect button changement mode
+    connect(ui->buttonChangerMode,SIGNAL(triggered()),this,SLOT(changerMode()));
+    connect(this,SIGNAL(changeStackedIndex(int)),ui->stackedWidget,SLOT(setCurrentIndex(int)));
+    emit(changeStackedIndex(0));
+
+    //Connect mdp
+    connect(ui->validerMdp,SIGNAL(clicked()),this,SLOT(valideMdp()));
+    connect(ui->annulerMdp,SIGNAL(clicked()),this,SLOT(annuleMdp()));
+
     // Connect porte avalant
     connect(ui->porteAvalantOuv, SIGNAL(clicked()),
             &ecl, SLOT(ouverturePorteBas()));
@@ -259,4 +268,31 @@ void MainWindow::autoEntrer(void)
         }
 
     }
+}
+
+void MainWindow::changerMode()
+{
+    switch(ui->stackedWidget->currentIndex())
+    {
+        case 0: emit(changeStackedIndex(1)); break;
+        case 1: emit(changeStackedIndex(0)); break;
+        case 2: emit(changeStackedIndex(0)); break;
+    }
+}
+
+void MainWindow::valideMdp()
+{
+    if(ui->mdp->text()=="")
+    {
+        emit(changeStackedIndex(2));
+    }
+    else
+    {
+        ui->mdp->setText("");
+    }
+}
+
+void MainWindow::annuleMdp()
+{
+    emit(changeStackedIndex(0));
 }

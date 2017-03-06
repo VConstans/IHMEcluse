@@ -20,6 +20,9 @@ public:
 private:
     Ui::MainWindow *ui;
 
+signals:
+    void changeStackedIndex(int);
+
 public slots:
     void avalantDoor(int position, int etat);
     void montantDoor(int position, int etat);
@@ -35,6 +38,9 @@ public slots:
     void appendText(string s);
     void autoEntrer(void);
     void stopAutoMod(void);
+    void changerMode();
+    void valideMdp();
+    void annuleMdp();
 };
 
 #endif // MAINWINDOW_H
