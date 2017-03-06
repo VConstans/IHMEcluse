@@ -16,7 +16,7 @@
 using namespace std;
 
 enum etat_values {OUVERTE, FERME, OUVERTURE, FERMETURE, ARRETE, ALARME};
-enum error_valuer { EPORTE, EVANNE, EEAU };
+enum error_valuer { EALARMEON, EPORTEOUV, EVANNEOUV, EBADNIVEAU };
 enum couleur_signaux {ROUGE, VERT };
 
 #endif // ETATS_H

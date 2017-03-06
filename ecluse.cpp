@@ -44,11 +44,11 @@ Ecluse::~Ecluse(){
 
 void Ecluse::ouvertureVanneMontant(void){
     if (alarme == true) {
-        emit error(EVANNE);
+        emit error(EALARMEON);
         return;
     } else if (porte_haut->getetat() != FERME ||
-        porte_bas->getetat() != FERME  ){
-        emit error(EVANNE);
+               porte_bas->getetat() != FERME  ){
+        emit error(EPORTEOUV);
         return;
     }
 
@@ -57,11 +57,11 @@ void Ecluse::ouvertureVanneMontant(void){
 
 void Ecluse::ouvertureVanneAvalant(void){
     if (alarme == true) {
-        emit error(EVANNE);
+        emit error(EALARMEON);
         return;
     } if (porte_haut->getetat() != FERME ||
-        porte_bas->getetat() != FERME  ){
-        emit error(EVANNE);
+          porte_bas->getetat() != FERME  ){
+        emit error(EPORTEOUV);
         return;
     }
 
@@ -70,7 +70,7 @@ void Ecluse::ouvertureVanneAvalant(void){
 
 void Ecluse::fermetureVanneMontant(void){
     if (alarme == true) {
-        emit error(EVANNE);
+        emit error(EALARMEON);
         return;
     }
     vanne_haut->fermeture();
@@ -78,7 +78,7 @@ void Ecluse::fermetureVanneMontant(void){
 
 void Ecluse::fermetureVanneAvalant(void){
     if (alarme == true) {
-        emit error(EVANNE);
+        emit error(EALARMEON);
         return;
     }
     vanne_bas->fermeture();
@@ -86,37 +86,37 @@ void Ecluse::fermetureVanneAvalant(void){
 
 void Ecluse::ouverturePorteBas(void){
     if (alarme == true) {
-        emit error(EPORTE);
+        emit error(EALARMEON);
         return;
-    } else if (nivEau > MIN_NIVEAU ||
-        vanne_bas->getetat() == OUVERTE ||
-        vanne_haut->getetat() == OUVERTE){
-        emit error(EEAU);
-        cout << "Ecluse: je peut pas ouvrir la porte" << endl;
+    } else if (nivEau > MIN_NIVEAU) {
+        emit error(EBADNIVEAU);
+        return ;
+    } else if (vanne_bas->getetat() == OUVERTE ||
+               vanne_haut->getetat() == OUVERTE){
+        emit error(EVANNEOUV);
         return ;
     }
-    cout << "Ecluse: ouverture porte bas" << endl;
     porte_bas->ouverture();
 }
 
 void Ecluse::ouverturePorteHaut(void){
     if (alarme == true) {
-        emit error(EPORTE);
+        emit error(EALARMEON);
         return;
-    } else if (nivEau < MAX_NIVEAU ||
-        vanne_bas->getetat() == OUVERTE ||
-        vanne_haut->getetat() == OUVERTE){
-        emit error(EEAU);
-        cout << "Ecluse: je peut pas ouvrir la porte" << endl;
+    } else if (nivEau < MAX_NIVEAU) {
+        emit error(EBADNIVEAU);
+        return ;
+    } else if(vanne_bas->getetat() == OUVERTE ||
+               vanne_haut->getetat() == OUVERTE){
+        emit error(EVANNEOUV);
         return ;
     }
-    cout << "Ecluse: ouverture porte haut" << endl;
     porte_haut->ouverture();
 }
 
 void Ecluse::fermeturePorteBas(void){
     if (alarme == true) {
-        emit error(EPORTE);
+        emit error(EALARMEON);
         return;
     }
     porte_bas->fermeture();
@@ -124,7 +124,7 @@ void Ecluse::fermeturePorteBas(void){
 
 void Ecluse::fermeturePorteHaut(void){
     if (alarme == true) {
-        emit error(EPORTE);
+        emit error(EALARMEON);
         return;
     }
     porte_haut->fermeture();
@@ -132,7 +132,7 @@ void Ecluse::fermeturePorteHaut(void){
 
 void Ecluse::arretPorteHaut(void){
     if (alarme == true) {
-        emit error(EPORTE);
+        emit error(EALARMEON);
         return;
     }
     porte_haut->arret();
@@ -140,7 +140,7 @@ void Ecluse::arretPorteHaut(void){
 
 void Ecluse::arretPorteBas(void){
     if (alarme == true) {
-        emit error(EPORTE);
+        emit error(EALARMEON);
         return;
     }
     porte_bas->arret();
