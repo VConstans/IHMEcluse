@@ -52,6 +52,7 @@ void Ecluse::ouvertureVanneMontant(void){
         return;
     }
 
+    emit message(EAUUP);
     vanne_haut->ouverture();
 }
 
@@ -65,6 +66,7 @@ void Ecluse::ouvertureVanneAvalant(void){
         return;
     }
 
+    emit message(EAUDOWN);
     vanne_bas->ouverture();
 }
 
@@ -96,6 +98,7 @@ void Ecluse::ouverturePorteBas(void){
         emit error(EVANNEOUV);
         return ;
     }
+    emit message(OUVPORTE);
     porte_bas->ouverture();
 }
 
@@ -111,6 +114,7 @@ void Ecluse::ouverturePorteHaut(void){
         emit error(EVANNEOUV);
         return ;
     }
+    emit message(OUVPORTE);
     porte_haut->ouverture();
 }
 
@@ -119,6 +123,7 @@ void Ecluse::fermeturePorteBas(void){
         emit error(EALARMEON);
         return;
     }
+    emit message(FERMPORTE);
     porte_bas->fermeture();
 }
 
@@ -127,6 +132,7 @@ void Ecluse::fermeturePorteHaut(void){
         emit error(EALARMEON);
         return;
     }
+    emit message(FERMPORTE);
     porte_haut->fermeture();
 }
 
@@ -189,9 +195,9 @@ void Ecluse::getEtatPorteHaut(int position,int etat){
     switch (etat){
         case ALARME: alarme =true;
         break;
-         case FERME: emit signalPorteHautFerme();
+        case FERME: emit signalPorteHautFerme();
         break;
-         case OUVERTE: emit signalPorteHautOuverte();
+        case OUVERTE: emit signalPorteHautOuverte();
         break;
     }
     emit signalEtatPorteHaut(position,etat);

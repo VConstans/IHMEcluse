@@ -23,6 +23,7 @@ public:
 
 signals:
     void error(int ecode);
+    void message(int mcode);
     void newNivEau(int nivEau);
     void signalEauMax(void);
     void signalEauMin(void);
