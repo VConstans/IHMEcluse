@@ -823,6 +823,7 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.pn
      <string>Outils</string>
     </property>
     <addaction name="buttonChangerMode"/>
+    <addaction name="buttonConfigPanne"/>
    </widget>
    <addaction name="menuOutils"/>
   </widget>
@@ -838,6 +839,11 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.pn
   <action name="buttonChangerMode">
    <property name="text">
     <string>Changer de mode</string>
+   </property>
+  </action>
+  <action name="buttonConfigPanne">
+   <property name="text">
+    <string>Config panne</string>
    </property>
   </action>
  </widget>

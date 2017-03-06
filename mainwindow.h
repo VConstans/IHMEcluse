@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QInputDialog>
 #include "ecluse.h"
 
 namespace Ui {
@@ -32,6 +33,7 @@ public slots:
     void setRedSignalMontant();
     void setRedSignalAvalant();
     void setGreenSignalAvalant();
+    void inputValeurPanne();
     void setAlarme();
     void resetAlarme();
     void setWaterLevel(int wl);
