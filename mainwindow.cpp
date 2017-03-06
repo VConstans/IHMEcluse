@@ -79,6 +79,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(&ecl,SIGNAL(error(int)),this,SLOT(logerr(int)));
     connect(&ecl,SIGNAL(message(int)),this,SLOT(logmsg(int)));
 
+    connect(ui->buttonConfigPanne,SIGNAL(triggered()),this,SLOT(inputValeurPanne()));
+
 
 }
 
@@ -339,4 +341,14 @@ void MainWindow::valideMdp()
 void MainWindow::annuleMdp()
 {
     emit(changeStackedIndex(0));
+}
+
+void MainWindow::inputValeurPanne(void){
+
+bool ok;
+   int i = QInputDialog::getInt(this, tr("Config pannes"),
+                                tr("Percentage pannes:"), 25, 0, 100, 1, &ok);
+   if (ok)
+       cout << i << endl;
+
 }
