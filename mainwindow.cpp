@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include "common.h"
 
+unsigned char freqPannes = 0;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -345,10 +347,8 @@ void MainWindow::annuleMdp()
 
 void MainWindow::inputValeurPanne(void){
 
-bool ok;
+   bool ok;
    int i = QInputDialog::getInt(this, tr("Config pannes"),
-                                tr("Percentage pannes:"), 25, 0, 100, 1, &ok);
-   if (ok)
-       cout << i << endl;
-
+             tr("Percentage pannes:"), freqPannes, 0, 100, 1, &ok);
+   freqPannes = i;
 }
