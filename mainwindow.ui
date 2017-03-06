@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>831</width>
+    <width>723</width>
     <height>790</height>
    </rect>
   </property>
@@ -14,128 +14,381 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QStackedWidget" name="stackedWidget">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>340</y>
-      <width>781</width>
-      <height>401</height>
+      <x>10</x>
+      <y>0</y>
+      <width>711</width>
+      <height>731</height>
      </rect>
     </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="currentIndex">
-     <number>1</number>
-    </property>
-    <widget class="QWidget" name="IHMAuto">
-     <widget class="QWidget" name="horizontalLayoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>90</y>
-        <width>581</width>
-        <height>211</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <widget class="QPushButton" name="buttonMontant">
-           <property name="minimumSize">
-            <size>
-             <width>77</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">#buttonMontant{
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTabWidget" name="tabWidget_2">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>Tab 1</string>
+        </attribute>
+        <widget class="QLabel" name="ecluse">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>40</y>
+           <width>521</width>
+           <height>231</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>500</width>
+           <height>200</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="images.qrc">:/images/ecluse.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="vanneMontant">
+         <property name="geometry">
+          <rect>
+           <x>180</x>
+           <y>40</y>
+           <width>16</width>
+           <height>50</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#vanneMontant{
+background-color: black;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="vanneAvalant">
+         <property name="geometry">
+          <rect>
+           <x>460</x>
+           <y>40</y>
+           <width>16</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#vanneAvalant{
+background-color: black;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="signalMontant">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>250</y>
+           <width>21</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="images.qrc">:/images/voyant_rouge_allume.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="signalAvalant">
+         <property name="geometry">
+          <rect>
+           <x>560</x>
+           <y>250</y>
+           <width>21</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="images.qrc">:/images/voyant_rouge_allume.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QProgressBar" name="waterLevel">
+         <property name="geometry">
+          <rect>
+           <x>630</x>
+           <y>40</y>
+           <width>41</width>
+           <height>231</height>
+          </rect>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="value">
+          <number>24</number>
+         </property>
+         <property name="textVisible">
+          <bool>false</bool>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="textDirection">
+          <enum>QProgressBar::TopToBottom</enum>
+         </property>
+        </widget>
+        <widget class="QLabel" name="porteAvalant">
+         <property name="geometry">
+          <rect>
+           <x>450</x>
+           <y>140</y>
+           <width>21</width>
+           <height>91</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#porteAvalant{
+background-color: black
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="porteMontant">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>140</y>
+           <width>21</width>
+           <height>91</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#porteMontant{
+background-color: black
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="vanneMontant_4">
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>230</y>
+           <width>16</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#vanneMontant{
+background-color: black;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_4">
+        <attribute name="title">
+         <string>Tab 2</string>
+        </attribute>
+        <widget class="QTextBrowser" name="messageDisplay">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>40</y>
+           <width>681</width>
+           <height>241</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_7">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>10</y>
+           <width>81</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Messages:</string>
+         </property>
+        </widget>
+        <zorder>label_7</zorder>
+        <zorder>messageDisplay</zorder>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QStackedWidget" name="stackedWidget">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <widget class="QWidget" name="IHMAuto">
+        <widget class="QWidget" name="horizontalLayoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>90</y>
+           <width>581</width>
+           <height>211</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QPushButton" name="buttonMontant">
+              <property name="minimumSize">
+               <size>
+                <width>77</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#buttonMontant{
 border-image: url(/home/victor/cours/IHM/IHMEcluse/images/haut.png);
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="buttonAvalant">
-           <property name="minimumSize">
-            <size>
-             <width>89</width>
-             <height>74</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">#buttonAvalant{
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="buttonAvalant">
+              <property name="minimumSize">
+               <size>
+                <width>89</width>
+                <height>74</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#buttonAvalant{
 border-image: url(/home/victor/cours/IHM/IHMEcluse/images/bas.png);
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <item>
-          <widget class="QPushButton" name="buttonEnter">
-           <property name="text">
-            <string>Entrer</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="buttonExit">
-           <property name="text">
-            <string>Sortir</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <layout class="QGridLayout" name="gridLayout_5">
-         <item row="0" column="0">
-          <widget class="QPushButton" name="buttonStopAuto">
-           <property name="minimumSize">
-            <size>
-             <width>172</width>
-             <height>170</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">#buttonStopAuto{
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QPushButton" name="buttonEnter">
+              <property name="text">
+               <string>Entrer</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="buttonExit">
+              <property name="text">
+               <string>Sortir</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_5">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="buttonStopAuto">
+              <property name="minimumSize">
+               <size>
+                <width>172</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#buttonStopAuto{
 border-image: url(/home/victor/cours/IHM/IHMEcluse/images/urgence_relache.png);
 }
 
@@ -143,739 +396,325 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/urgence_relache.png);
 #buttonStopAuto:pressed{
 border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="IHMMan">
-     <widget class="QWidget" name="horizontalLayoutWidget_4">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>40</y>
-        <width>751</width>
-        <height>341</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_5">
-         <item>
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_4">
-           <property name="text">
-            <string>Montant</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="verticalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_5">
-           <property name="text">
-            <string>Avalant</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="verticalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_8">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="IHMMan">
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>0</y>
+           <width>578</width>
+           <height>336</height>
+          </rect>
          </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_4">
-         <item>
-          <spacer name="verticalSpacer_4">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_5">
-           <item>
-            <widget class="QLabel" name="label">
-             <property name="text">
-              <string>Vannes</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_5">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_2">
-             <property name="text">
-              <string>Portes</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_6">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_3">
-             <property name="text">
-              <string>Signaux</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <spacer name="verticalSpacer_6">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <layout class="QVBoxLayout" name="groupeButtonVannes">
-             <item>
-              <layout class="QVBoxLayout" name="groupeVanneMontant">
-               <item>
-                <widget class="QPushButton" name="vanneMontantOuv">
-                 <property name="styleSheet">
-                  <string notr="true">#vanneMontantOuv{background-image: url(:/fleche.png)}</string>
-                 </property>
-                 <property name="text">
-                  <string>Ouverture</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="vanneMontantFerm">
-                 <property name="text">
-                  <string>Fermeture</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="groupeVanneAvalant">
-               <item>
-                <widget class="QPushButton" name="vanneAvalantOuv">
-                 <property name="text">
-                  <string>Ouverture</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="vanneAvalantFerm">
-                 <property name="text">
-                  <string>Fermeture</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <layout class="QVBoxLayout" name="groupeButtonPortes">
-             <item>
-              <widget class="QProgressBar" name="progressPorteMontant">
-               <property name="value">
-                <number>24</number>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="groupePorteMontant">
-               <item>
-                <widget class="QPushButton" name="porteMontantOuv">
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                 <property name="text">
-                  <string>Ouverture</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="porteMontantArret">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">#porteMontantArret{
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="1" column="3">
+             <layout class="QVBoxLayout" name="signauxMontant">
+              <item>
+               <widget class="QPushButton" name="vertMontant">
+                <property name="styleSheet">
+                 <string notr="true">#vertMontant{color: green}</string>
+                </property>
+                <property name="text">
+                 <string>Vert</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="rougeMontant">
+                <property name="styleSheet">
+                 <string notr="true">#rougeMontant{color: red}</string>
+                </property>
+                <property name="text">
+                 <string>Rouge</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="3">
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Signaux</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <layout class="QVBoxLayout" name="groupePorteAvalant">
+              <item>
+               <widget class="QProgressBar" name="progressPorteAvalant">
+                <property name="value">
+                 <number>24</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="porteAvalantOuv">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string>Ouverture</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="porteAvalantArret">
+                <property name="styleSheet">
+                 <string notr="true">#porteAvalantArret{
 color: red
 }</string>
-                 </property>
-                 <property name="text">
-                  <string>Arrêt</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="porteMontantFerm">
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                 <property name="text">
-                  <string>Fermeture</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <spacer name="verticalSpacer_5">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="groupePorteAvalant">
-               <item>
-                <widget class="QProgressBar" name="progressPorteAvalant">
-                 <property name="value">
-                  <number>24</number>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="porteAvalantOuv">
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                 <property name="text">
-                  <string>Ouverture</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="porteAvalantArret">
-                 <property name="styleSheet">
-                  <string notr="true">#porteAvalantArret{
+                </property>
+                <property name="text">
+                 <string>Arrêt</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="porteAvalantFerm">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string>Fermeture</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="1">
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <widget class="QPushButton" name="vanneMontantOuv">
+                <property name="styleSheet">
+                 <string notr="true">#vanneMontantOuv{background-image: url(:/fleche.png)}</string>
+                </property>
+                <property name="text">
+                 <string>Ouverture</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="vanneMontantFerm">
+                <property name="text">
+                 <string>Fermeture</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>Vannes</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Montant</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="3">
+             <layout class="QVBoxLayout" name="signauxAvalant">
+              <item>
+               <widget class="QPushButton" name="vertAvalant">
+                <property name="styleSheet">
+                 <string notr="true">#vertAvalant{color: green}</string>
+                </property>
+                <property name="text">
+                 <string>Vert</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="rougeAvalant">
+                <property name="styleSheet">
+                 <string notr="true">#rougeAvalant{color: red}</string>
+                </property>
+                <property name="text">
+                 <string>Rouge</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>Avalant</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QPushButton" name="vanneAvalantOuv">
+                <property name="text">
+                 <string>Ouverture</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="vanneAvalantFerm">
+                <property name="text">
+                 <string>Fermeture</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>Portes</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="1" column="2">
+             <layout class="QVBoxLayout" name="groupePorteMontant">
+              <item>
+               <widget class="QProgressBar" name="progressPorteMontant">
+                <property name="value">
+                 <number>24</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="porteMontantOuv">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string>Ouverture</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="porteMontantArret">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#porteMontantArret{
 color: red
 }</string>
-                 </property>
-                 <property name="text">
-                  <string>Arrêt</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="porteAvalantFerm">
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                 <property name="text">
-                  <string>Fermeture</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <layout class="QVBoxLayout" name="groupeButtonSignaux">
-             <item>
-              <layout class="QVBoxLayout" name="signauxMontant">
-               <item>
-                <widget class="QPushButton" name="vertMontant">
-                 <property name="styleSheet">
-                  <string notr="true">#vertMontant{color: green}</string>
-                 </property>
-                 <property name="text">
-                  <string>Vert</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="rougeMontant">
-                 <property name="styleSheet">
-                  <string notr="true">#rougeMontant{color: red}</string>
-                 </property>
-                 <property name="text">
-                  <string>Rouge</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="signauxAvalant">
-               <item>
-                <widget class="QPushButton" name="vertAvalant">
-                 <property name="styleSheet">
-                  <string notr="true">#vertAvalant{color: green}</string>
-                 </property>
-                 <property name="text">
-                  <string>Vert</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="rougeAvalant">
-                 <property name="styleSheet">
-                  <string notr="true">#rougeAvalant{color: red}</string>
-                 </property>
-                 <property name="text">
-                  <string>Rouge</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_7">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="groupeButtonUrgence">
-         <item>
-          <widget class="QLabel" name="alarme">
-           <property name="maximumSize">
-            <size>
-             <width>100</width>
-             <height>100</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">#alarme{
+                </property>
+                <property name="text">
+                 <string>Arrêt</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="porteMontantFerm">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string>Fermeture</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="groupeButtonUrgence">
+            <item>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="0" column="0">
+               <widget class="QLabel" name="alarme">
+                <property name="maximumSize">
+                 <size>
+                  <width>100</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#alarme{
 border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.png)
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="images.qrc">:/images/voyant_rouge_eteind.png</pixmap>
-           </property>
-           <property name="scaledContents">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="buttonStopMan">
-           <property name="minimumSize">
-            <size>
-             <width>172</width>
-             <height>170</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="images.qrc">
-             <normaloff>:/images/urgence_relache.png</normaloff>
-             <normalon>:/images/urgence_relache.png</normalon>
-             <activeoff>:/images/arret_urgence.png</activeoff>:/images/urgence_relache.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>100</width>
-             <height>100</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QTabWidget" name="tabWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>-10</y>
-      <width>801</width>
-      <height>331</height>
-     </rect>
-    </property>
-    <property name="currentIndex">
-     <number>1</number>
-    </property>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Tab 1</string>
-     </attribute>
-     <widget class="QLabel" name="ecluse">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>40</y>
-        <width>521</width>
-        <height>231</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>500</width>
-        <height>200</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="images.qrc">:/images/ecluse.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="vanneMontant">
-      <property name="geometry">
-       <rect>
-        <x>180</x>
-        <y>40</y>
-        <width>16</width>
-        <height>50</height>
-       </rect>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>30</width>
-        <height>50</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#vanneMontant{
-background-color: black;
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="vanneAvalant">
-      <property name="geometry">
-       <rect>
-        <x>460</x>
-        <y>40</y>
-        <width>16</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#vanneAvalant{
-background-color: black;
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="scaledContents">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="signalMontant">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>250</y>
-        <width>21</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="images.qrc">:/images/voyant_rouge_allume.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="signalAvalant">
-      <property name="geometry">
-       <rect>
-        <x>560</x>
-        <y>250</y>
-        <width>21</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="images.qrc">:/images/voyant_rouge_allume.png</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QProgressBar" name="waterLevel">
-      <property name="geometry">
-       <rect>
-        <x>710</x>
-        <y>40</y>
-        <width>41</width>
-        <height>231</height>
-       </rect>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="value">
-       <number>24</number>
-      </property>
-      <property name="textVisible">
-       <bool>false</bool>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="textDirection">
-       <enum>QProgressBar::TopToBottom</enum>
-      </property>
-     </widget>
-     <widget class="QLabel" name="porteAvalant">
-      <property name="geometry">
-       <rect>
-        <x>450</x>
-        <y>140</y>
-        <width>21</width>
-        <height>91</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#porteAvalant{
-background-color: black
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="porteMontant">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>140</y>
-        <width>21</width>
-        <height>91</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#porteMontant{
-background-color: black
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="vanneMontant_4">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>230</y>
-        <width>16</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#vanneMontant{
-background-color: black;
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_4">
-     <attribute name="title">
-      <string>Tab 2</string>
-     </attribute>
-     <widget class="QTextBrowser" name="messageDisplay">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>771</width>
-        <height>241</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>81</width>
-        <height>17</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Messages:</string>
-      </property>
-     </widget>
-    </widget>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap resource="images.qrc">:/images/voyant_rouge_eteind.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QPushButton" name="buttonStopMan">
+              <property name="minimumSize">
+               <size>
+                <width>172</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="images.qrc">
+                <normaloff>:/images/urgence_relache.png</normaloff>
+                <normalon>:/images/urgence_relache.png</normalon>
+                <activeoff>:/images/arret_urgence.png</activeoff>:/images/urgence_relache.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -883,8 +722,8 @@ background-color: black;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>831</width>
-     <height>25</height>
+     <width>723</width>
+     <height>29</height>
     </rect>
    </property>
   </widget>
