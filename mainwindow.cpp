@@ -179,22 +179,26 @@ void MainWindow::avalantVanne(int etat)
 
 void MainWindow::setGreenSignalMontant()
 {
-    ui->signalMontant->setPixmap(QPixmap(":/images/voyant_vert_allume.png"));
+    ui->signalMontantRouge->hide();
+    ui->signalMontantVert->show();
 }
 
 void MainWindow::setRedSignalMontant()
 {
-    ui->signalMontant->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+    ui->signalMontantRouge->show();
+    ui->signalMontantVert->hide();
 }
 
 void MainWindow::setRedSignalAvalant()
 {
-    ui->signalAvalant->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+    ui->signalAvalantRouge->hide();
+    ui->signalAvalantVert->show();
 }
 
 void MainWindow::setGreenSignalAvalant()
 {
-    ui->signalAvalant->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+    ui->signalAvalantRouge->show();
+    ui->signalAvalantVert->hide();
 }
 
 void MainWindow::setAlarme()
@@ -227,10 +231,13 @@ void MainWindow::logmsg(int i)
 void MainWindow::logerr(int i)
 {
     string s;
-  /*  switch(i)
+    switch(i)
     {
-        //Compléter
-    }*/
+        case EALARMEON: s="Alarme actif"; break;
+        case EPORTEOUV: s="Porte ouverte"; break;
+        case EVANNEOUV: s="Vanne ouverte"; break;
+        case EBADNIVEAU: s="Mauvais niveau d'eau"; break;
+    }
 
     ui->messageDisplay->setTextColor(Qt::red);
     ui->messageDisplay->append(QString::fromStdString(s));
