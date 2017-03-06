@@ -20,6 +20,7 @@ public:
 
     explicit Ecluse(QObject *parent = 0);
     virtual ~Ecluse();
+    void setAlarme(bool v);
 
 signals:
     void error(int ecode);

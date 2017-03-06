@@ -24,6 +24,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->signalAvalantVert->hide();
     ui->signalMontantVert->hide();
 
+    //Connect buton urgence
+    connect(ui->buttonAlarme,SIGNAL(clicked()),this,SLOT(arretUrgence()));
+    connect(ui->buttonDasacAlarme,SIGNAL(clicked()),this,SLOT(desacAlarme()));
+
     //Connect button changement mode
     connect(ui->buttonChangerMode,SIGNAL(triggered()),this,SLOT(changerMode()));
     connect(this,SIGNAL(changeStackedIndex(int)),ui->stackedWidget,SLOT(setCurrentIndex(int)));
@@ -259,6 +263,15 @@ void MainWindow::logerr(int i)
     ui->messageDisplay->append(QString::fromStdString(s));
 }
 
+void MainWindow::arretUrgence()
+{
+    ecl.setAlarme(true);
+}
+
+void MainWindow::desacAlarme()
+{
+    ecl.setAlarme(false);
+}
 
 
 /////////////////////////////////////////////////////////////////////////////////////

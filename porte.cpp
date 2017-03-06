@@ -59,8 +59,8 @@ void Porte::arreturgence(void){
 bool Porte::simulpanne(void){
    if (qrand() % PANNE_FREQMOYENNE == 0){
       cout << "Porte: panne!!"<< endl;
-  //     arreturgence();
-   //    return true;
+       arreturgence();
+       return true;
    }
 
    return false;
