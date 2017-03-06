@@ -15,8 +15,7 @@ int Porte::getetat(void){
 }
 
 void Porte::ouverture(void){
-    if (etat == OUVERTE ||
-        etat == ALARME ) return;
+    if (etat == ALARME ) return;
 
     etat = OUVERTURE;
     timer_transition->start(FREQ_UPDATE);
@@ -25,8 +24,7 @@ void Porte::ouverture(void){
 }
 
 void Porte::fermeture(void){
-    if (etat == FERME ||
-        etat == ALARME ) return;
+    if (etat == ALARME ) return;
 
     etat = FERMETURE;
     timer_transition->start(FREQ_UPDATE);
@@ -61,8 +59,8 @@ void Porte::arreturgence(void){
 bool Porte::simulpanne(void){
    if (qrand() % PANNE_FREQMOYENNE == 0){
       cout << "Porte: panne!!"<< endl;
-       arreturgence();
-       return true;
+  //     arreturgence();
+   //    return true;
    }
 
    return false;

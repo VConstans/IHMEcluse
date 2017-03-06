@@ -164,15 +164,36 @@ void Ecluse::updateNivEau(void){
     } else return;
 
     emit newNivEau(nivEau);
+
+    if (nivEau == MAX_NIVEAU){
+       emit signalEauMax();
+    } else if (nivEau == 0) {
+       emit signalEauMin();
+    }
 }
 
 void Ecluse::getEtatPorteBas(int position,int etat){
-    if (etat == ALARME) alarme = true;
+    switch (etat){
+        case ALARME: alarme =true;
+        break;
+         case FERME: emit signalPorteBasFerme();
+        break;
+         case OUVERTE: emit signalPorteBasOuverte();
+        break;
+    }
+
     emit signalEtatPorteBas(position,etat);
 }
 
 void Ecluse::getEtatPorteHaut(int position,int etat){
-    if (etat == ALARME) alarme = true;
+    switch (etat){
+        case ALARME: alarme =true;
+        break;
+         case FERME: emit signalPorteHautFerme();
+        break;
+         case OUVERTE: emit signalPorteHautOuverte();
+        break;
+    }
     emit signalEtatPorteHaut(position,etat);
 }
 
@@ -185,3 +206,8 @@ void Ecluse::getEtatVanneHaut(int etat){
     if (etat == ALARME) alarme = true;
     emit signalEtatVanneHaut(etat);
 }
+
+ int Ecluse::getNivEau()
+ {
+     return nivEau;
+ }

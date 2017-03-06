@@ -24,10 +24,16 @@ public:
 signals:
     void error(int ecode);
     void newNivEau(int nivEau);
+    void signalEauMax(void);
+    void signalEauMin(void);
     void signalEtatPorteHaut(int position, int etat);
     void signalEtatPorteBas(int position, int etat);
     void signalEtatVanneHaut(int etat);
     void signalEtatVanneBas(int etat);
+    void signalPorteBasFerme();
+    void signalPorteBasOuverte();
+    void signalPorteHautOuverte();
+    void signalPorteHautFerme();
 
 public slots:
     void ouvertureVanneMontant(void);
@@ -41,6 +47,7 @@ public slots:
     void fermeturePorteHaut(void);
     void arretPorteBas(void);
     void arretPorteHaut(void);
+    int getNivEau();
 
 private slots:
     void updateNivEau(void);
