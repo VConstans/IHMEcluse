@@ -241,6 +241,16 @@ background-color: black;
           <bool>true</bool>
          </property>
         </widget>
+        <zorder>ecluse</zorder>
+        <zorder>vanneMontant</zorder>
+        <zorder>vanneAvalant</zorder>
+        <zorder>signalMontant</zorder>
+        <zorder>signalAvalant</zorder>
+        <zorder>waterLevel</zorder>
+        <zorder>porteAvalant</zorder>
+        <zorder>porteMontant</zorder>
+        <zorder>vanneMontant_4</zorder>
+        <zorder>stackedWidget</zorder>
        </widget>
        <widget class="QWidget" name="tab_4">
         <attribute name="title">
@@ -281,7 +291,7 @@ background-color: black;
         <enum>Qt::LeftToRight</enum>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>2</number>
        </property>
        <widget class="QWidget" name="IHMAuto">
         <widget class="QWidget" name="horizontalLayoutWidget">
@@ -602,7 +612,7 @@ color: red
             <item row="3" column="0">
              <widget class="QLabel" name="label_4">
               <property name="text">
-               <string>Montant</string>
+               <string>Avalant</string>
               </property>
              </widget>
             </item>
@@ -633,7 +643,7 @@ color: red
             <item row="1" column="0">
              <widget class="QLabel" name="label_5">
               <property name="text">
-               <string>Avalant</string>
+               <string>Montant</string>
               </property>
              </widget>
             </item>
