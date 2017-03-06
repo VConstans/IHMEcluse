@@ -15,5 +15,7 @@
         <file>images/voyant_rouge_eteind.png</file>
         <file>images/voyant_vert_allume.png</file>
         <file>images/ecluse.png</file>
+        <file>images/feux_avalant.png</file>
+        <file>images/feux_montant.png</file>
     </qresource>
 </RCC>
