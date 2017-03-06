@@ -15,6 +15,8 @@
 #include <iostream>
 using namespace std;
 
+extern unsigned char freqPannes;
+
 enum etat_values {OUVERTE, FERME, OUVERTURE, FERMETURE, ARRETE, ALARME};
 enum error_valuer { EALARMEON, EPORTEOUV, EVANNEOUV, EBADNIVEAU };
 enum message_valeur { OUVPORTE, FERMPORTE, EAUUP, EAUDOWN};

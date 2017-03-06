@@ -1,6 +1,7 @@
 #include "ecluse.h"
 #include <iostream>
 
+
 Ecluse::Ecluse(QObject *parent) :
     QObject(parent)
 {

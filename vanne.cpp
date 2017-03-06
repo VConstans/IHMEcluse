@@ -10,7 +10,7 @@ Vanne::Vanne(QObject *parent) :
 }
 
 bool Vanne::simulpanne(void){
-   if (qrand() % PANNE_FREQMOYENNE == 0){
+   if (freqPannes >  (qrand() % 100)){
        etat = ALARME;
        return true;
    }

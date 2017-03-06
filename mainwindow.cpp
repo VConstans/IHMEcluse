@@ -2,10 +2,13 @@
 #include "ui_mainwindow.h"
 #include "common.h"
 
+unsigned char freqPannes = 0;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    autoTransActive = false;
     ui->setupUi(this);
 
     // Initialisation
@@ -277,6 +280,7 @@ void MainWindow::desacAlarme()
 /////////////////////////////////////////////////////////////////////////////////////
 
 void MainWindow::stopAutoMod(void){
+           autoTransActive = false;
            disconnect(&ecl, SIGNAL(signalPorteBasFerme()),&ecl,SLOT(ouvertureVanneMontant()));
            disconnect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(fermetureVanneMontant()));
            disconnect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(ouverturePorteHaut()));
@@ -289,6 +293,10 @@ void MainWindow::stopAutoMod(void){
 
 void MainWindow::autoTrans(void)
 {
+    if (autoTransActive == true) return;
+    autoTransActive = true;
+
+
     ecl.fermetureVanneAvalant();
     ecl.fermetureVanneMontant();
 
@@ -358,10 +366,8 @@ void MainWindow::annuleMdp()
 
 void MainWindow::inputValeurPanne(void){
 
-bool ok;
+   bool ok;
    int i = QInputDialog::getInt(this, tr("Config pannes"),
-                                tr("Percentage pannes:"), 25, 0, 100, 1, &ok);
-   if (ok)
-       cout << i << endl;
-
+             tr("Percentage pannes:"), freqPannes, 0, 100, 1, &ok);
+   freqPannes = i;
 }
