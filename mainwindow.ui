@@ -27,7 +27,7 @@
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="IHMAuto">
      <widget class="QWidget" name="horizontalLayoutWidget">
@@ -58,6 +58,15 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/haut.png);
            <property name="text">
             <string/>
            </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item>
@@ -75,6 +84,12 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/bas.png);
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -96,14 +111,14 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/bas.png);
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
-          <widget class="QPushButton" name="buttonEnter">
+          <widget class="QPushButton" name="buttonEntrer">
            <property name="text">
             <string>Entrer</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="buttonExit">
+          <widget class="QPushButton" name="buttonSortir">
            <property name="text">
             <string>Sortir</string>
            </property>
