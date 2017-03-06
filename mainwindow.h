@@ -35,7 +35,8 @@ public slots:
     void setAlarme();
     void resetAlarme();
     void setWaterLevel(int wl);
-    void appendText(string s);
+    void logmsg(int i);
+    void logerr(int i);
     void autoTrans(void);
     void stopAutoMod(void);
     void changerMode();

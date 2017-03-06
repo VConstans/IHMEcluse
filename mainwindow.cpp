@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->progressPorteAvalant->setMaximum(MAX_FERMETURE);
     ui->progressPorteAvalant->setValue(MAX_FERMETURE);
 
-
     //Connect button changement mode
     connect(ui->buttonChangerMode,SIGNAL(triggered()),this,SLOT(changerMode()));
     connect(this,SIGNAL(changeStackedIndex(int)),ui->stackedWidget,SLOT(setCurrentIndex(int)));
@@ -213,8 +212,27 @@ void MainWindow::setWaterLevel(int wl)
     ui->waterLevel->setValue(wl);
 }
 
-void MainWindow::appendText(string s)
+void MainWindow::logmsg(int i)
 {
+    string s;
+  /*  switch(i)
+    {
+        //Compléter
+    }*/
+
+    ui->messageDisplay->setTextColor(Qt::black);
+    ui->messageDisplay->append(QString::fromStdString(s));
+}
+
+void MainWindow::logerr(int i)
+{
+    string s;
+  /*  switch(i)
+    {
+        //Compléter
+    }*/
+
+    ui->messageDisplay->setTextColor(Qt::red);
     ui->messageDisplay->append(QString::fromStdString(s));
 }
 
@@ -282,6 +300,8 @@ void MainWindow::changerMode()
         case 2: emit(changeStackedIndex(0)); break;
     }
 }
+
+/////////////////////////////////////////////////////////
 
 void MainWindow::valideMdp()
 {
