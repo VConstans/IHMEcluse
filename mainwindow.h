@@ -36,7 +36,7 @@ public slots:
     void resetAlarme();
     void setWaterLevel(int wl);
     void appendText(string s);
-    void autoEntrer(void);
+    void autoTrans(void);
     void stopAutoMod(void);
     void changerMode();
     void valideMdp();
