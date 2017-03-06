@@ -27,7 +27,7 @@
      <item>
       <widget class="QTabWidget" name="tabWidget_2">
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="tab">
         <attribute name="title">
@@ -281,7 +281,7 @@ background-color: black;
         <enum>Qt::LeftToRight</enum>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="IHMAuto">
         <widget class="QWidget" name="horizontalLayoutWidget">
@@ -305,12 +305,20 @@ background-color: black;
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">#buttonMontant{
-border-image: url(/home/victor/cours/IHM/IHMEcluse/images/haut.png);
-}</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="images.qrc">
+                <normaloff>:/images/haut.png</normaloff>:/images/haut.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>70</width>
+                <height>70</height>
+               </size>
               </property>
               <property name="checkable">
                <bool>true</bool>
@@ -332,12 +340,20 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/haut.png);
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">#buttonAvalant{
-border-image: url(/home/victor/cours/IHM/IHMEcluse/images/bas.png);
-}</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="images.qrc">
+                <normaloff>:/images/bas.png</normaloff>:/images/bas.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>70</width>
+                <height>70</height>
+               </size>
               </property>
               <property name="checkable">
                <bool>true</bool>
@@ -404,17 +420,20 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/bas.png);
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">#buttonStopAuto{
-border-image: url(/home/victor/cours/IHM/IHMEcluse/images/urgence_relache.png);
-}
-
-
-#buttonStopAuto:pressed{
-border-image: url(/home/victor/cours/IHM/IHMEcluse/images/arret_urgence.png);
-}</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="images.qrc">
+                <normaloff>:/images/urgence_relache.png</normaloff>:/images/urgence_relache.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
               </property>
              </widget>
             </item>
