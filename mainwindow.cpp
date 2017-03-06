@@ -60,6 +60,10 @@ MainWindow::MainWindow(QWidget *parent) :
     // Connect niveau eau
     connect(&ecl, SIGNAL(newNivEau(int)),this, SLOT(setWaterLevel(int)));
 
+    ///////////////////////////////
+
+    connect(ui->buttonEntrer,SIGNAL(clicked()),this,SLOT(autoEntrer()));
+
 }
 
 MainWindow::~MainWindow()
@@ -202,4 +206,57 @@ void MainWindow::setWaterLevel(int wl)
 void MainWindow::appendText(string s)
 {
     ui->messageDisplay->append(QString::fromStdString(s));
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+void MainWindow::stopAutoMod(void){
+           disconnect(&ecl, SIGNAL(signalPorteBasFerme()),&ecl,SLOT(ouvertureVanneMontant()));
+           disconnect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(fermetureVanneMontant()));
+           disconnect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(ouverturePorteHaut()));
+           disconnect(&ecl, SIGNAL(signalPorteHautOuverte()),this,SLOT(stopAutoMod()));
+           disconnect(&ecl, SIGNAL(signalPorteHautFerme()),&ecl,SLOT(ouvertureVanneAvalant()));
+           disconnect(&ecl, SIGNAL(signalEauMin()),&ecl,SLOT(fermetureVanneAvalant()));
+           disconnect(&ecl, SIGNAL(signalEauMin()),&ecl,SLOT(ouverturePorteBas()));
+           disconnect(&ecl, SIGNAL(signalPorteBasOuverte()),this,SLOT(stopAutoMod()));
+}
+
+void MainWindow::autoEntrer(void)
+{
+    ecl.fermetureVanneAvalant();
+    ecl.fermetureVanneMontant();
+
+    if(ui->buttonAvalant->isChecked())
+    {
+        if(ecl.getNivEau() < MAX_NIVEAU)
+        {
+           connect(&ecl, SIGNAL(signalPorteBasFerme()),&ecl,SLOT(ouvertureVanneMontant()));
+           connect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(fermetureVanneMontant()));
+           connect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(ouverturePorteHaut()));
+           connect(&ecl, SIGNAL(signalPorteHautOuverte()),this,SLOT(stopAutoMod()));
+           ecl.fermeturePorteBas();
+        } else
+        {
+           ecl.ouverturePorteHaut();
+
+        }
+    }
+    else if(ui->buttonMontant->isChecked())
+    {
+        if(ecl.getNivEau() > 0)
+        {
+           connect(&ecl, SIGNAL(signalPorteHautFerme()),&ecl,SLOT(ouvertureVanneAvalant()));
+           connect(&ecl, SIGNAL(signalEauMin()),&ecl,SLOT(fermetureVanneAvalant()));
+           connect(&ecl, SIGNAL(signalEauMin()),&ecl,SLOT(ouverturePorteBas()));
+           connect(&ecl, SIGNAL(signalPorteBasOuverte()),this,SLOT(stopAutoMod()));
+           ecl.fermeturePorteHaut();
+        } else
+        {
+           ecl.ouverturePorteBas();
+
+        }
+
+    }
 }
