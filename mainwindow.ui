@@ -241,16 +241,6 @@ background-color: black;
           <bool>true</bool>
          </property>
         </widget>
-        <zorder>ecluse</zorder>
-        <zorder>vanneMontant</zorder>
-        <zorder>vanneAvalant</zorder>
-        <zorder>signalMontant</zorder>
-        <zorder>signalAvalant</zorder>
-        <zorder>waterLevel</zorder>
-        <zorder>porteAvalant</zorder>
-        <zorder>porteMontant</zorder>
-        <zorder>vanneMontant_4</zorder>
-        <zorder>stackedWidget</zorder>
        </widget>
        <widget class="QWidget" name="tab_4">
         <attribute name="title">
@@ -281,7 +271,6 @@ background-color: black;
         </widget>
         <zorder>label_7</zorder>
         <zorder>messageDisplay</zorder>
-        <zorder>stackedWidget</zorder>
        </widget>
       </widget>
      </item>
@@ -291,7 +280,7 @@ background-color: black;
         <enum>Qt::LeftToRight</enum>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="IHMAuto">
         <widget class="QWidget" name="horizontalLayoutWidget">
@@ -315,7 +304,9 @@ background-color: black;
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true"/>
+               <string notr="true">QPushButton:checked {
+    background-color: rgb(255, 123, 15)
+}</string>
               </property>
               <property name="text">
                <string/>
@@ -336,8 +327,20 @@ background-color: black;
               <property name="checked">
                <bool>true</bool>
               </property>
+              <property name="autoRepeat">
+               <bool>false</bool>
+              </property>
               <property name="autoExclusive">
                <bool>true</bool>
+              </property>
+              <property name="autoDefault">
+               <bool>false</bool>
+              </property>
+              <property name="default">
+               <bool>false</bool>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
               </property>
              </widget>
             </item>
@@ -350,7 +353,9 @@ background-color: black;
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true"/>
+               <string notr="true">QPushButton:checked {
+    background-color: rgb(255, 123, 15)
+}</string>
               </property>
               <property name="text">
                <string/>
@@ -810,7 +815,7 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.pn
      <x>0</x>
      <y>0</y>
      <width>723</width>
-     <height>25</height>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuOutils">
