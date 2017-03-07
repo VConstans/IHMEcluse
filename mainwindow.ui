@@ -593,7 +593,7 @@ background-color: black;
     <property name="geometry">
      <rect>
       <x>440</x>
-      <y>160</y>
+      <y>170</y>
       <width>21</width>
       <height>91</height>
      </rect>
@@ -611,7 +611,7 @@ background-color: black
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>160</y>
+      <y>170</y>
       <width>21</width>
       <height>91</height>
      </rect>
@@ -629,9 +629,9 @@ background-color: black
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>120</y>
+      <y>130</y>
       <width>261</width>
-      <height>161</height>
+      <height>171</height>
      </rect>
     </property>
     <property name="layoutDirection">
@@ -686,8 +686,8 @@ background-color: black;
    <widget class="QLabel" name="feuMontant">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>260</y>
+      <x>50</x>
+      <y>280</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -708,7 +708,7 @@ background-color: black;
       <x>60</x>
       <y>60</y>
       <width>521</width>
-      <height>231</height>
+      <height>251</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -733,8 +733,8 @@ background-color: black;
    <widget class="QLabel" name="feuAvalant">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>260</y>
+      <x>490</x>
+      <y>280</y>
       <width>91</width>
       <height>31</height>
      </rect>
