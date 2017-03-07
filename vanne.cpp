@@ -25,11 +25,13 @@ int Vanne::getetat(void){
 }
 
 void Vanne::arreturgence(void){
+    if (etat == ALARME) return;
     bkpetat = etat;
     etat = ALARME;
 }
 
 void Vanne::extinction(void){
+    if (etat != ALARME) return;
     etat = bkpetat;
     emit signaletat(etat);
 }

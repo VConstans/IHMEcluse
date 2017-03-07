@@ -49,10 +49,9 @@ void Porte::arret(void){
 }
 
 void Porte::arreturgence(void){
-    timer_transition->stop();
+    if (etat == ALARME) return;
     bkpetat = etat;
     etat = ALARME;
-
 }
 
 bool Porte::simulpanne(void){
