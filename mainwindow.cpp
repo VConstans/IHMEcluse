@@ -207,17 +207,30 @@ void MainWindow::setWaterLevel(int wl)
     ui->waterLevel->setValue(wl);
 }
 
-void MainWindow::logmsg(string s)
+void MainWindow::logmsgAuto(string s)
 {
-    ui->messageDisplay->setTextColor(Qt::black);
-    ui->messageDisplay->append(QString::fromStdString(s));
+    ui->messageDisplayAuto->setTextColor(Qt::black);
+    ui->messageDisplayAuto->append(QString::fromStdString(s));
 }
 
-void MainWindow::logerr(string s)
+void MainWindow::logerrAuto(string s)
 {
-    ui->messageDisplay->setTextColor(Qt::red);
-    ui->messageDisplay->append(QString::fromStdString(s));
+    ui->messageDisplayAuto->setTextColor(Qt::red);
+    ui->messageDisplayAuto->append(QString::fromStdString(s));
 }
+
+void MainWindow::logmsgMan(string s)
+{
+    ui->messageDisplayMan->setTextColor(Qt::black);
+    ui->messageDisplayMan->append(QString::fromStdString(s));
+}
+
+void MainWindow::logerrMan(string s)
+{
+    ui->messageDisplayMan->setTextColor(Qt::red);
+    ui->messageDisplayMan->append(QString::fromStdString(s));
+}
+
 
 void MainWindow::arretUrgence()
 {
