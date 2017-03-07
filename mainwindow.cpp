@@ -85,10 +85,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->buttonEntrer,SIGNAL(clicked()),this,SLOT(autoTrans()));
     connect(ui->buttonSortir,SIGNAL(clicked()),this,SLOT(autoTrans()));
 
-    connect(&ecl,SIGNAL(baseError(string)),this,SLOT(logerr(string)));
-    connect(&ecl,SIGNAL(verbError(string)),this,SLOT(logerr(string)));
-    connect(&ecl,SIGNAL(baseMessage(string)),this,SLOT(logmsg(string)));
-    connect(&ecl,SIGNAL(verbMessage(string)),this,SLOT(logmsg(string)));
+    connect(&ecl,SIGNAL(baseError(string)),this,SLOT(logerrAuto(string)));
+    connect(&ecl,SIGNAL(verbError(string)),this,SLOT(logerrMan(string)));
+    connect(&ecl,SIGNAL(baseMessage(string)),this,SLOT(logmsgAuto(string)));
+    connect(&ecl,SIGNAL(verbMessage(string)),this,SLOT(logmsgMan(string)));
 
     connect(ui->buttonConfigPanne,SIGNAL(triggered()),this,SLOT(inputValeurPanne()));
 
