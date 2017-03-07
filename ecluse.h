@@ -23,8 +23,10 @@ public:
     void setAlarme(bool v);
 
 signals:
-    void error(int ecode);
-    void message(int mcode);
+    void baseError(string s);
+    void baseMessage(string s);
+    void verbError(string s);
+    void verbMessage(string s);
     void newNivEau(int nivEau);
     void signalEauMax(void);
     void signalEauMin(void);
