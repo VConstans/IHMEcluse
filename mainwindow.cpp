@@ -57,6 +57,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(&ecl, SIGNAL(signalEtatPorteHaut(int,int)),
             this, SLOT(montantDoor(int,int)));
 
+    connect(ui->vertAvalant,SIGNAL(clicked()),ui->feuAvalant,SLOT(setVert()));
+    connect(ui->rougeAvalant,SIGNAL(clicked()),ui->feuAvalant,SLOT(setRouge()));
+    connect(ui->vertMontant,SIGNAL(clicked()),ui->feuMontant,SLOT(setVert()));
+    connect(ui->rougeMontant,SIGNAL(clicked()),ui->feuMontant,SLOT(setRouge()));
+
     // Connect vannes
     connect(ui->vanneMontantOuv, SIGNAL(clicked()),
             &ecl, SLOT(ouvertureVanneMontant()));
@@ -80,10 +85,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->buttonEntrer,SIGNAL(clicked()),this,SLOT(autoTrans()));
     connect(ui->buttonSortir,SIGNAL(clicked()),this,SLOT(autoTrans()));
 
-    connect(&ecl,SIGNAL(baseError(string)),this,SLOT(logerr(string)));
-    connect(&ecl,SIGNAL(verbError(string)),this,SLOT(logerr(string)));
-    connect(&ecl,SIGNAL(baseMessage(string)),this,SLOT(logmsg(string)));
-    connect(&ecl,SIGNAL(verbMessage(string)),this,SLOT(logmsg(string)));
+    connect(&ecl,SIGNAL(baseError(string)),this,SLOT(logerrAuto(string)));
+    connect(&ecl,SIGNAL(verbError(string)),this,SLOT(logerrMan(string)));
+    connect(&ecl,SIGNAL(baseMessage(string)),this,SLOT(logmsgAuto(string)));
+    connect(&ecl,SIGNAL(verbMessage(string)),this,SLOT(logmsgMan(string)));
 
     connect(ui->buttonConfigPanne,SIGNAL(triggered()),this,SLOT(inputValeurPanne()));
 
@@ -190,26 +195,6 @@ void MainWindow::avalantVanne(int etat)
             break;
     }
     ui->vanneAvalant->show();
-}
-
-void MainWindow::setGreenSignalMontant()
-{
-    ui->feuMontant->setPixmap(QPixmap(":/images/feu_vert_montant.png"));
-}
-
-void MainWindow::setRedSignalMontant()
-{
-    ui->feuMontant->setPixmap(QPixmap(":/images/feu_rouge_montant.png"));
-}
-
-void MainWindow::setRedSignalAvalant()
-{
-    ui->feuAvalant->setPixmap(QPixmap(":/images/feu_rouge_avalant.png"));
-}
-
-void MainWindow::setGreenSignalAvalant()
-{
-    ui->feuAvalant->setPixmap(QPixmap(":/images/feu_vert_avalant.png"));
 }
 
 void MainWindow::setAlarme()

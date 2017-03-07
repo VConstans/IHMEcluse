@@ -33,9 +33,8 @@ void Porte::fermeture(void){
 
 void Porte::extinction(void){
     if (etat != ALARME) return;
-    etat = ARRETE;
+    etat = bkpetat;
     emit signaletat(position,etat);
-    cout << "Porte: extintion"<< endl;
 }
 
 void Porte::arret(void){
@@ -45,20 +44,20 @@ void Porte::arret(void){
     timer_transition->stop();
     etat = ARRETE;
 
-    cout << "Porte: arret"<< endl;
     emit signaletat(position, etat);
 }
 
 void Porte::arreturgence(void){
     timer_transition->stop();
+    bkpetat = etat;
     etat = ALARME;
-
-    emit signaletat(position, etat);
 }
 
 bool Porte::simulpanne(void){
    if (freqPannes >  (qrand() % 100)){
-       arreturgence();
+       bkpetat = etat;
+       etat = ALARME;
+       emit signaletat(position, etat);
        return true;
    }
 
@@ -66,21 +65,18 @@ bool Porte::simulpanne(void){
 }
 
 void Porte::updateposition(void){
-    cout << "Porte: position "<< position << endl;
     if (simulpanne() == true) return;
 
     switch(etat){
         case OUVERTURE:
             if (position <= 0){
                 etat = OUVERTE;
-                cout << "Porte: ouverte" << endl;
                 timer_transition->stop();
             } else position--;
          break;
         case FERMETURE:
             if (position >= MAX_FERMETURE){
                 etat = FERME;
-                cout << "Porte: ferme" << endl;
                 timer_transition->stop();
             } else position++;
          break;

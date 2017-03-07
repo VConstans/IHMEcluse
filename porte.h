@@ -10,6 +10,7 @@
 class Porte : public QObject
 {
     Q_OBJECT
+    int bkpetat;
     int etat;
     int position;
     QTimer *timer_transition;

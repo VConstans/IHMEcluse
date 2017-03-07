@@ -23,8 +23,8 @@ HEADERS  += mainwindow.h \
     vanne.h \
     porte.h \
     ecluse.h \
-    signallum.h \
-    common.h
+    common.h \
+    signallum.h
 
 FORMS    += mainwindow.ui
 
