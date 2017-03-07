@@ -25,8 +25,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->progressPorteAvalant->setValue(MAX_FERMETURE);
 
     //Connect buton urgence
-    connect(ui->buttonAlarme,SIGNAL(clicked()),this,SLOT(arretUrgence()));
-    connect(ui->buttonDasacAlarme,SIGNAL(clicked()),this,SLOT(desacAlarme()));
+    connect(ui->buttonAlarme,SIGNAL(clicked()),&ecl,SLOT(arretUrgence()));
+    connect(ui->buttonDasacAlarme,SIGNAL(clicked()),&ecl,SLOT(stopArretUrgence()));
 
     //Connect button changement mode
     connect(ui->buttonChangerMode,SIGNAL(triggered()),this,SLOT(changerMode()));
@@ -234,17 +234,6 @@ void MainWindow::logerrMan(string s)
 {
     ui->messageDisplayMan->setTextColor(Qt::red);
     ui->messageDisplayMan->append(QString::fromStdString(s));
-}
-
-
-void MainWindow::arretUrgence()
-{
-    ecl.setAlarme(true);
-}
-
-void MainWindow::desacAlarme()
-{
-    ecl.setAlarme(false);
 }
 
 

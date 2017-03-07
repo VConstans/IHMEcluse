@@ -20,7 +20,6 @@ public:
 
     explicit Ecluse(QObject *parent = 0);
     virtual ~Ecluse();
-    void setAlarme(bool v);
 
 signals:
     void baseError(string s);
@@ -52,6 +51,9 @@ public slots:
     void arretPorteBas(void);
     void arretPorteHaut(void);
     int getNivEau();
+
+    void arretUrgence();
+    void stopArretUrgence();
 
 private slots:
     void updateNivEau(void);

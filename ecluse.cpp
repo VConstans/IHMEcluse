@@ -43,10 +43,6 @@ Ecluse::~Ecluse(){
     delete porte_haut;
 }
 
-void Ecluse::setAlarme(bool v)
-{
-    this->alarme=v;
-}
 
 void Ecluse::ouvertureVanneMontant(void){
     if (alarme == true) {
@@ -243,4 +239,24 @@ void Ecluse::getEtatVanneHaut(int etat){
  int Ecluse::getNivEau()
  {
      return nivEau;
+ }
+
+ void Ecluse::arretUrgence()
+ {
+     this->alarme=true;
+
+     this->porte_bas->arreturgence();
+     this->porte_haut->arreturgence();
+     this->vanne_bas->arreturgence();
+     this->vanne_haut->arreturgence();
+ }
+
+void Ecluse::stopArretUrgence()
+ {
+     this->alarme=false;
+
+     this->porte_bas->extinction();
+     this->porte_haut->extinction();
+     this->vanne_bas->extinction();
+     this->vanne_haut->extinction();
  }
