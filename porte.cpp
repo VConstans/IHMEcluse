@@ -4,6 +4,7 @@ Porte::Porte(QObject *parent) :
     QObject(parent)
 {
     etat = FERME;
+    bkpetat = etat;
     position = MAX_FERMETURE;
     timer_transition = new QTimer(this);
     connect(timer_transition,SIGNAL(timeout()),
@@ -51,6 +52,7 @@ void Porte::arreturgence(void){
     timer_transition->stop();
     bkpetat = etat;
     etat = ALARME;
+
 }
 
 bool Porte::simulpanne(void){

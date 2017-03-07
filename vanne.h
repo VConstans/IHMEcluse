@@ -10,6 +10,7 @@ class Vanne : public QObject
     Q_OBJECT
 
 private:
+    int bkpetat;
     int etat;
 
 public:
@@ -21,6 +22,7 @@ signals:
 
 public slots:
     void extinction(void);
+    void arreturgence(void);
     void ouverture(void);
     void fermeture(void);
 

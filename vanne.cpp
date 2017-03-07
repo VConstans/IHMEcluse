@@ -5,12 +5,14 @@ Vanne::Vanne(QObject *parent) :
     QObject(parent)
 {
     etat = FERME;
+    bkpetat = etat;
     qsrand(0);
 
 }
 
 bool Vanne::simulpanne(void){
    if (freqPannes >  (qrand() % 100)){
+       bkpetat = etat;
        etat = ALARME;
        return true;
    }
@@ -22,8 +24,13 @@ int Vanne::getetat(void){
     return etat;
 }
 
+void Vanne::arreturgence(void){
+    bkpetat = etat;
+    etat = ALARME;
+}
+
 void Vanne::extinction(void){
-    etat = FERME;
+    etat = bkpetat;
     emit signaletat(etat);
 }
 
