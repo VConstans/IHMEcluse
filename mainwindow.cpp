@@ -57,6 +57,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(&ecl, SIGNAL(signalEtatPorteHaut(int,int)),
             this, SLOT(montantDoor(int,int)));
 
+    connect(ui->vertAvalant,SIGNAL(clicked()),ui->feuAvalant,SLOT(setVert()));
+    connect(ui->rougeAvalant,SIGNAL(clicked()),ui->feuAvalant,SLOT(setRouge()));
+    connect(ui->vertMontant,SIGNAL(clicked()),ui->feuMontant,SLOT(setVert()));
+    connect(ui->rougeMontant,SIGNAL(clicked()),ui->feuMontant,SLOT(setRouge()));
+
     // Connect vannes
     connect(ui->vanneMontantOuv, SIGNAL(clicked()),
             &ecl, SLOT(ouvertureVanneMontant()));

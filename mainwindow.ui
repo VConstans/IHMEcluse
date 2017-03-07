@@ -32,7 +32,7 @@
           <enum>Qt::LeftToRight</enum>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="IHMAuto">
           <widget class="QWidget" name="horizontalLayoutWidget">
@@ -190,18 +190,6 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;5. Sortir de l'écluse&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
-          <zorder>horizontalLayoutWidget</zorder>
-          <zorder>textBrowser</zorder>
-          <zorder>tabWidget_2</zorder>
-          <zorder>tabWidget_2</zorder>
-          <zorder>feuMontant</zorder>
-          <zorder>vanneAvalant</zorder>
-          <zorder>porteAvalant</zorder>
-          <zorder>porteMontant</zorder>
-          <zorder>waterLevel</zorder>
-          <zorder>vanneMontant</zorder>
-          <zorder>ecluse</zorder>
-          <zorder>feuAvalant</zorder>
          </widget>
          <widget class="QWidget" name="auth">
           <widget class="QWidget" name="verticalLayoutWidget">
@@ -251,7 +239,7 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>30</x>
              <y>10</y>
-             <width>381</width>
+             <width>395</width>
              <height>334</height>
             </rect>
            </property>
@@ -683,7 +671,7 @@ background-color: black;
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="feuMontant">
+   <widget class="SignalLum" name="feuMontant">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -730,7 +718,7 @@ background-color: black;
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="feuAvalant">
+   <widget class="SignalLum" name="feuAvalant">
     <property name="geometry">
      <rect>
       <x>490</x>
@@ -817,7 +805,7 @@ background-color: black;
      <x>0</x>
      <y>0</y>
      <width>872</width>
-     <height>25</height>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuOutils">
@@ -850,6 +838,13 @@ background-color: black;
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>SignalLum</class>
+   <extends>QLabel</extends>
+   <header location="global">signallum.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="images.qrc"/>
  </resources>

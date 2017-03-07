@@ -18,6 +18,5 @@ using namespace std;
 extern unsigned char freqPannes;
 
 enum etat_values {OUVERTE, FERME, OUVERTURE, FERMETURE, ARRETE, ALARME};
-enum couleur_signaux {ROUGE, VERT };
 
 #endif // ETATS_H

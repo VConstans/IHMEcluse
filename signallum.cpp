@@ -1,7 +1,7 @@
 #include "signallum.h"
 
-SignalLum::SignalLum(QWidget *parent, Qt::WindowFlags f) :
-    QLabel(parent, f)
+SignalLum::SignalLum(QWidget *parent) :
+    QLabel(parent)
 {
     setRouge();
 }

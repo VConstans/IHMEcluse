@@ -10,7 +10,7 @@ class SignalLum : public QLabel
 private:
     couleur_feu c;
 public:
-    explicit SignalLum(QWidget *parent, Qt::WindowFlags f);
+    explicit SignalLum(QWidget *parent);
 
 public slots:
     void setVert(void);
