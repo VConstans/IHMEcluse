@@ -25,13 +25,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->progressPorteAvalant->setValue(MAX_FERMETURE);
 
     //Connect buton urgence
-    connect(ui->buttonAlarme,SIGNAL(clicked()),&ecl,SLOT(arretUrgence()));
+    connect(ui->buttonAlarme,SIGNAL(clicked()),this,SLOT(arretUrgence()));
     connect(ui->buttonDasacAlarme,SIGNAL(clicked()),&ecl,SLOT(stopArretUrgence()));
+
+    connect(this,SIGNAL(arretUrg()),&ecl,SLOT(arretUrgence()));
+    connect(this,SIGNAL(stopArretUrg()),&ecl,SLOT(stopArretUrgence()));
 
     //Connect button changement mode
     connect(ui->buttonChangerMode,SIGNAL(triggered()),this,SLOT(changerMode()));
-    connect(this,SIGNAL(changeStackedIndex(int)),ui->stackedWidget,SLOT(setCurrentIndex(int)));
-    emit(changeStackedIndex(0));
+    connect(this,SIGNAL(changeStackedIndexCommande(int)),ui->stackedWidgetCommande,SLOT(setCurrentIndex(int)));
+    connect(this,SIGNAL(changeStackedIndexMessage(int)),ui->stackedWidgetMessage,SLOT(setCurrentIndex(int)));
+    emit(changeStackedIndexCommande(0));
+    emit(changeStackedIndexMessage(0));
 
     //Connect mdp
     connect(ui->validerMdp,SIGNAL(clicked()),this,SLOT(valideMdp()));
@@ -236,6 +241,18 @@ void MainWindow::logerrMan(string s)
     ui->messageDisplayMan->append(QString::fromStdString(s));
 }
 
+void MainWindow::arretUrgence()
+{
+    ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+    emit(arretUrg());
+}
+
+void MainWindow::stopArretUrgence()
+{
+    ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_eteind.png"));
+    emit(stopArretUrg());
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -297,11 +314,14 @@ void MainWindow::autoTrans(void)
 
 void MainWindow::changerMode()
 {
-    switch(ui->stackedWidget->currentIndex())
+    switch(ui->stackedWidgetCommande->currentIndex())
     {
-        case 0: emit(changeStackedIndex(1)); break;
-        case 1: emit(changeStackedIndex(0)); break;
-        case 2: emit(changeStackedIndex(0)); break;
+        case 0: emit(changeStackedIndexCommande(1));
+                break;
+        case 1: emit(changeStackedIndexCommande(0));
+                break;
+        case 2: emit(changeStackedIndexCommande(0));
+                emit(changeStackedIndexMessage(0));break;
     }
 }
 
@@ -311,7 +331,8 @@ void MainWindow::valideMdp()
 {
     if(ui->mdp->text()=="")
     {
-        emit(changeStackedIndex(2));
+        emit(changeStackedIndexCommande(2));
+        emit(changeStackedIndexMessage(1));
     }
     else
     {
@@ -321,7 +342,7 @@ void MainWindow::valideMdp()
 
 void MainWindow::annuleMdp()
 {
-    emit(changeStackedIndex(0));
+    emit(changeStackedIndexCommande(0));
 }
 
 void MainWindow::inputValeurPanne(void){

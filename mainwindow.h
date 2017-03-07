@@ -23,7 +23,11 @@ private:
     Ui::MainWindow *ui;
 
 signals:
-    void changeStackedIndex(int);
+    void changeStackedIndexCommande(int);
+    void changeStackedIndexMessage(int);
+
+    void arretUrg();
+    void stopArretUrg();
 
 public slots:
     void avalantDoor(int position, int etat);
@@ -43,6 +47,8 @@ public slots:
     void changerMode();
     void valideMdp();
     void annuleMdp();
+    void arretUrgence();
+    void stopArretUrgence();
 };
 
 #endif // MAINWINDOW_H
