@@ -192,26 +192,6 @@ void MainWindow::avalantVanne(int etat)
     ui->vanneAvalant->show();
 }
 
-void MainWindow::setGreenSignalMontant()
-{
-    ui->feuMontant->setPixmap(QPixmap(":/images/feu_vert_montant.png"));
-}
-
-void MainWindow::setRedSignalMontant()
-{
-    ui->feuMontant->setPixmap(QPixmap(":/images/feu_rouge_montant.png"));
-}
-
-void MainWindow::setRedSignalAvalant()
-{
-    ui->feuAvalant->setPixmap(QPixmap(":/images/feu_rouge_avalant.png"));
-}
-
-void MainWindow::setGreenSignalAvalant()
-{
-    ui->feuAvalant->setPixmap(QPixmap(":/images/feu_vert_avalant.png"));
-}
-
 void MainWindow::setAlarme()
 {
     ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));

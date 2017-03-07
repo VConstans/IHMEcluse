@@ -1,18 +1,17 @@
 #include "signallum.h"
 
-SignalLum::SignalLum(QObject *parent) :
-    QObject(parent)
+SignalLum::SignalLum(QWidget *parent, Qt::WindowFlags f) :
+    QLabel(parent, f)
 {
+    setRouge();
 }
 
-void SignalLum::setrouge(void){
-    couleur = ROUGE;
+void SignalLum::setVert(){
+    c = VERT;
+    setPixmap(QPixmap(":/images/feu_vert_montant.png"));
 }
 
-void SignalLum::setvert(void){
-    couleur = VERT;
-}
-
-int SignalLum::getcouleur(void){
-    return couleur;
+void SignalLum::setRouge(){
+    c = ROUGE;
+    setPixmap(QPixmap(":/images/feu_rouge_montant.png"));
 }

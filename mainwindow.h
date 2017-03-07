@@ -30,10 +30,6 @@ public slots:
     void montantDoor(int position, int etat);
     void montantVanne(int etat);
     void avalantVanne(int etat);
-    void setGreenSignalMontant();
-    void setRedSignalMontant();
-    void setRedSignalAvalant();
-    void setGreenSignalAvalant();
     void inputValeurPanne();
     void setAlarme();
     void resetAlarme();

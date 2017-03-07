@@ -1,21 +1,20 @@
 #ifndef SIGNALLUM_H
 #define SIGNALLUM_H
 
-#include <QObject>
-#include "common.h"
+#include <QLabel>
+enum couleur_feu {ROUGE, VERT};
 
-class SignalLum : public QObject
+class SignalLum : public QLabel
 {
     Q_OBJECT
-    int couleur;
-
+private:
+    couleur_feu c;
 public:
-    explicit SignalLum(QObject *parent = 0);
-    int getcouleur(void);
+    explicit SignalLum(QWidget *parent, Qt::WindowFlags f);
 
 public slots:
-    void setrouge(void);
-    void setvert(void);
+    void setVert(void);
+    void setRouge(void);
 
 };
 
