@@ -8,10 +8,10 @@ SignalLum::SignalLum(QWidget *parent) :
 
 void SignalLum::setVert(){
     c = VERT;
-    setPixmap(QPixmap(":/images/feu_vert_montant.png"));
+    setPixmap(QPixmap(":/images/feu_vert.png"));
 }
 
 void SignalLum::setRouge(){
     c = ROUGE;
-    setPixmap(QPixmap(":/images/feu_rouge_montant.png"));
+    setPixmap(QPixmap(":/images/feu_rouge.png"));
 }
