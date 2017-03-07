@@ -43,6 +43,11 @@ Ecluse::~Ecluse(){
     delete porte_haut;
 }
 
+void Ecluse::setAlarme(bool v)
+{
+    this->alarme=v;
+}
+
 void Ecluse::ouvertureVanneMontant(void){
     if (alarme == true) {
         emit error(EALARMEON);

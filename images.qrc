@@ -17,5 +17,9 @@
         <file>images/ecluse.png</file>
         <file>images/feux_avalant.png</file>
         <file>images/feux_montant.png</file>
+        <file>images/feu_rouge_avalant.png</file>
+        <file>images/feu_rouge_montant.png</file>
+        <file>images/feu_vert_avalant.png</file>
+        <file>images/feu_vert_montant.png</file>
     </qresource>
 </RCC>
