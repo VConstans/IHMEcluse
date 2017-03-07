@@ -26,6 +26,9 @@ signals:
     void changeStackedIndexCommande(int);
     void changeStackedIndexMessage(int);
 
+    void arretUrg();
+    void stopArretUrg();
+
 public slots:
     void avalantDoor(int position, int etat);
     void montantDoor(int position, int etat);
@@ -44,6 +47,8 @@ public slots:
     void changerMode();
     void valideMdp();
     void annuleMdp();
+    void arretUrgence();
+    void stopArretUrgence();
 };
 
 #endif // MAINWINDOW_H
