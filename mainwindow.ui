@@ -762,7 +762,7 @@ background-color: black;
      <number>1</number>
     </property>
     <widget class="QWidget" name="page">
-     <widget class="QTextBrowser" name="messageAuto">
+     <widget class="QTextBrowser" name="messageDisplayAuto">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -774,7 +774,7 @@ background-color: black;
      </widget>
     </widget>
     <widget class="QWidget" name="page_2">
-     <widget class="QTextBrowser" name="messageMan">
+     <widget class="QTextBrowser" name="messageDisplayMan">
       <property name="geometry">
        <rect>
         <x>20</x>
