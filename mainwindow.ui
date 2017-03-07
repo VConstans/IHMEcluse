@@ -179,9 +179,9 @@ background-color: black
         <widget class="QLabel" name="feuMontant">
          <property name="geometry">
           <rect>
-           <x>20</x>
+           <x>50</x>
            <y>240</y>
-           <width>121</width>
+           <width>91</width>
            <height>31</height>
           </rect>
          </property>
@@ -200,7 +200,7 @@ background-color: black
           <rect>
            <x>470</x>
            <y>240</y>
-           <width>121</width>
+           <width>91</width>
            <height>31</height>
           </rect>
          </property>
