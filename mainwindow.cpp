@@ -297,12 +297,12 @@ void MainWindow::autoTrans(void)
         (sender() == ui->buttonSortir && ui->buttonMontant->isChecked()) )
     {
 
+        connect(&ecl, SIGNAL(signalPorteHautOuverte()),this,SLOT(stopAutoMod()));
         if(ecl.getNivEau() < MAX_NIVEAU)
         {
            connect(&ecl, SIGNAL(signalPorteBasFerme()),&ecl,SLOT(ouvertureVanneMontant()));
            connect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(fermetureVanneMontant()));
            connect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(ouverturePorteHaut()));
-           connect(&ecl, SIGNAL(signalPorteHautOuverte()),this,SLOT(stopAutoMod()));
            ecl.fermeturePorteBas();
         } else
         {
@@ -312,12 +312,12 @@ void MainWindow::autoTrans(void)
     } else if ((sender() == ui->buttonEntrer && ui->buttonMontant->isChecked()) ||
              (sender() == ui->buttonSortir && ui->buttonAvalant->isChecked()) ){
 
+        connect(&ecl, SIGNAL(signalPorteBasOuverte()),this,SLOT(stopAutoMod()));
         if(ecl.getNivEau() > 0)
         {
            connect(&ecl, SIGNAL(signalPorteHautFerme()),&ecl,SLOT(ouvertureVanneAvalant()));
            connect(&ecl, SIGNAL(signalEauMin()),&ecl,SLOT(fermetureVanneAvalant()));
            connect(&ecl, SIGNAL(signalEauMin()),&ecl,SLOT(ouverturePorteBas()));
-           connect(&ecl, SIGNAL(signalPorteBasOuverte()),this,SLOT(stopAutoMod()));
            ecl.fermeturePorteHaut();
         } else
         {
