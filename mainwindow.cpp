@@ -80,8 +80,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->buttonEntrer,SIGNAL(clicked()),this,SLOT(autoTrans()));
     connect(ui->buttonSortir,SIGNAL(clicked()),this,SLOT(autoTrans()));
 
-    connect(&ecl,SIGNAL(error(int)),this,SLOT(logerr(int)));
-    connect(&ecl,SIGNAL(message(int)),this,SLOT(logmsg(int)));
+    connect(&ecl,SIGNAL(baseError(string)),this,SLOT(logerr(string)));
+    connect(&ecl,SIGNAL(verbError(string)),this,SLOT(logerr(string)));
+    connect(&ecl,SIGNAL(baseMessage(string)),this,SLOT(logmsg(string)));
+    connect(&ecl,SIGNAL(verbMessage(string)),this,SLOT(logmsg(string)));
 
     connect(ui->buttonConfigPanne,SIGNAL(triggered()),this,SLOT(inputValeurPanne()));
 
@@ -225,36 +227,14 @@ void MainWindow::setWaterLevel(int wl)
     ui->waterLevel->setValue(wl);
 }
 
-void MainWindow::logmsg(int mcode)
+void MainWindow::logmsg(string s)
 {
-    string s;
-    switch(mcode)
-    {
-       case OUVPORTE: s = "Ouverture porte";
-        break;
-       case FERMPORTE: s = "Fermature porte";
-        break;
-       case EAUUP: s = "Eau qui monte";
-        break;
-       case EAUDOWN: s = "Eau qui descent";
-        break;
-    }
-
     ui->messageDisplay->setTextColor(Qt::black);
     ui->messageDisplay->append(QString::fromStdString(s));
 }
 
-void MainWindow::logerr(int i)
+void MainWindow::logerr(string s)
 {
-    string s;
-    switch(i)
-    {
-        case EALARMEON: s="Alarme actif"; break;
-        case EPORTEOUV: s="Porte ouverte"; break;
-        case EVANNEOUV: s="Vanne ouverte"; break;
-        case EBADNIVEAU: s="Mauvais niveau d'eau"; break;
-    }
-
     ui->messageDisplay->setTextColor(Qt::red);
     ui->messageDisplay->append(QString::fromStdString(s));
 }
