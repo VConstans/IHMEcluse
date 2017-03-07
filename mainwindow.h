@@ -23,7 +23,8 @@ private:
     Ui::MainWindow *ui;
 
 signals:
-    void changeStackedIndex(int);
+    void changeStackedIndexCommande(int);
+    void changeStackedIndexMessage(int);
 
 public slots:
     void avalantDoor(int position, int etat);

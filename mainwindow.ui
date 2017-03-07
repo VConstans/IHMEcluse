@@ -27,7 +27,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_15">
        <item>
-        <widget class="QStackedWidget" name="stackedWidget">
+        <widget class="QStackedWidget" name="stackedWidgetCommande">
          <property name="layoutDirection">
           <enum>Qt::LeftToRight</enum>
          </property>
@@ -674,9 +674,9 @@ background-color: black;
    <widget class="SignalLum" name="feuMontant">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>60</x>
       <y>280</y>
-      <width>91</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
@@ -723,7 +723,7 @@ background-color: black;
      <rect>
       <x>490</x>
       <y>280</y>
-      <width>91</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
@@ -737,7 +737,7 @@ background-color: black;
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QStackedWidget" name="stackedWidget_2">
+   <widget class="QStackedWidget" name="stackedWidgetMessage">
     <property name="geometry">
      <rect>
       <x>610</x>
@@ -747,7 +747,7 @@ background-color: black;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QTextBrowser" name="messageDisplayAuto">
@@ -796,7 +796,7 @@ background-color: black;
    <zorder>layoutWidget</zorder>
    <zorder>porteAvalant</zorder>
    <zorder>porteMontant</zorder>
-   <zorder>stackedWidget_2</zorder>
+   <zorder>stackedWidgetMessage</zorder>
    <zorder>label_7</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -805,7 +805,7 @@ background-color: black;
      <x>0</x>
      <y>0</y>
      <width>872</width>
-     <height>29</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuOutils">
