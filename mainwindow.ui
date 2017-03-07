@@ -680,9 +680,9 @@ background-color: black;
    <widget class="SignalLum" name="feuMontant">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>70</x>
       <y>280</y>
-      <width>81</width>
+      <width>71</width>
       <height>31</height>
      </rect>
     </property>
@@ -690,7 +690,7 @@ background-color: black;
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="images.qrc">:/images/feu_rouge_montant.png</pixmap>
+     <pixmap resource="images.qrc">:/images/feu_rouge.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -729,7 +729,7 @@ background-color: black;
      <rect>
       <x>490</x>
       <y>280</y>
-      <width>81</width>
+      <width>71</width>
       <height>31</height>
      </rect>
     </property>
@@ -737,7 +737,7 @@ background-color: black;
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="images.qrc">:/images/feu_rouge_avalant.png</pixmap>
+     <pixmap resource="images.qrc">:/images/feu_rouge.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
