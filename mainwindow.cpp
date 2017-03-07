@@ -24,9 +24,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->progressPorteAvalant->setMaximum(MAX_FERMETURE);
     ui->progressPorteAvalant->setValue(MAX_FERMETURE);
 
-    ui->signalAvalantVert->hide();
-    ui->signalMontantVert->hide();
-
     //Connect buton urgence
     connect(ui->buttonAlarme,SIGNAL(clicked()),this,SLOT(arretUrgence()));
     connect(ui->buttonDasacAlarme,SIGNAL(clicked()),this,SLOT(desacAlarme()));
@@ -195,26 +192,22 @@ void MainWindow::avalantVanne(int etat)
 
 void MainWindow::setGreenSignalMontant()
 {
-    ui->signalMontantRouge->hide();
-    ui->signalMontantVert->show();
+    ui->feuMontant->setPixmap(QPixmap(":/images/feu_vert_montant.png"));
 }
 
 void MainWindow::setRedSignalMontant()
 {
-    ui->signalMontantRouge->show();
-    ui->signalMontantVert->hide();
+    ui->feuMontant->setPixmap(QPixmap(":/images/feu_rouge_montant.png"));
 }
 
 void MainWindow::setRedSignalAvalant()
 {
-    ui->signalAvalantRouge->hide();
-    ui->signalAvalantVert->show();
+    ui->feuAvalant->setPixmap(QPixmap(":/images/feu_rouge_avalant.png"));
 }
 
 void MainWindow::setGreenSignalAvalant()
 {
-    ui->signalAvalantRouge->show();
-    ui->signalAvalantVert->hide();
+    ui->feuAvalant->setPixmap(QPixmap(":/images/feu_vert_avalant.png"));
 }
 
 void MainWindow::setAlarme()

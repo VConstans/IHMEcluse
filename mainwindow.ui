@@ -115,50 +115,6 @@ background-color: black;
           <bool>false</bool>
          </property>
         </widget>
-        <widget class="QLabel" name="signalMontantRouge">
-         <property name="geometry">
-          <rect>
-           <x>120</x>
-           <y>240</y>
-           <width>21</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="images.qrc">:/images/voyant_rouge_allume.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-        <widget class="QLabel" name="signalAvalantRouge">
-         <property name="geometry">
-          <rect>
-           <x>490</x>
-           <y>240</y>
-           <width>21</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="images.qrc">:/images/voyant_rouge_allume.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
         <widget class="QProgressBar" name="waterLevel">
          <property name="geometry">
           <rect>
@@ -226,14 +182,14 @@ background-color: black
            <x>20</x>
            <y>240</y>
            <width>121</width>
-           <height>21</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="images.qrc">:/images/feux_montant.png</pixmap>
+          <pixmap resource="images.qrc">:/images/feu_rouge_montant.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -242,72 +198,22 @@ background-color: black
         <widget class="QLabel" name="feuAvalant">
          <property name="geometry">
           <rect>
-           <x>490</x>
+           <x>470</x>
            <y>240</y>
            <width>121</width>
-           <height>21</height>
+           <height>31</height>
           </rect>
          </property>
          <property name="text">
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="images.qrc">:/images/feux_avalant.png</pixmap>
+          <pixmap resource="images.qrc">:/images/feu_rouge_avalant.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
          </property>
         </widget>
-        <widget class="QLabel" name="signalAvalantVert">
-         <property name="geometry">
-          <rect>
-           <x>520</x>
-           <y>240</y>
-           <width>21</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="images.qrc">:/images/voyant_vert_allume.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-        <widget class="QLabel" name="signalMontantVert">
-         <property name="geometry">
-          <rect>
-           <x>90</x>
-           <y>240</y>
-           <width>20</width>
-           <height>20</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="images.qrc">:/images/voyant_vert_allume.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-        <zorder>ecluse</zorder>
-        <zorder>vanneMontant</zorder>
-        <zorder>vanneAvalant</zorder>
-        <zorder>waterLevel</zorder>
-        <zorder>porteAvalant</zorder>
-        <zorder>porteMontant</zorder>
-        <zorder>feuMontant</zorder>
-        <zorder>signalMontantRouge</zorder>
-        <zorder>feuAvalant</zorder>
-        <zorder>signalAvalantRouge</zorder>
-        <zorder>signalAvalantVert</zorder>
-        <zorder>signalMontantVert</zorder>
        </widget>
        <widget class="QWidget" name="tab_4">
         <attribute name="title">
