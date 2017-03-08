@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //Connect buton urgence
     connect(ui->buttonAlarme,SIGNAL(clicked()),this,SLOT(arretUrgence()));
     connect(ui->buttonDasacAlarme,SIGNAL(clicked()),&ecl,SLOT(stopArretUrgence()));
+    connect(ui->buttonDasacAlarme,SIGNAL(clicked()),this,SLOT(resetAlarme()));
 
     connect(this,SIGNAL(arretUrg()),&ecl,SLOT(arretUrgence()));
     connect(this,SIGNAL(stopArretUrg()),&ecl,SLOT(stopArretUrgence()));
