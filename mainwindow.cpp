@@ -94,8 +94,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->buttonSortir,SIGNAL(clicked()),this,SLOT(autoTrans()));
 
     connect(&ecl,SIGNAL(baseError(string)),this,SLOT(logerrAuto(string)));
+    connect(&ecl,SIGNAL(baseError(string)),this,SLOT(logerrMan(string)));
     connect(&ecl,SIGNAL(verbError(string)),this,SLOT(logerrMan(string)));
     connect(&ecl,SIGNAL(baseMessage(string)),this,SLOT(logmsgAuto(string)));
+    connect(&ecl,SIGNAL(baseMessage(string)),this,SLOT(logmsgMan(string)));
     connect(&ecl,SIGNAL(verbMessage(string)),this,SLOT(logmsgMan(string)));
 
     connect(ui->buttonConfigPanne,SIGNAL(triggered()),this,SLOT(inputValeurPanne()));
@@ -226,24 +228,28 @@ void MainWindow::logmsgAuto(string s)
 {
     ui->messageDisplayAuto->setTextColor(Qt::black);
     ui->messageDisplayAuto->append(QString::fromStdString(s));
+    ui->messageDisplayAuto->append(QString::fromStdString(""));
 }
 
 void MainWindow::logerrAuto(string s)
 {
     ui->messageDisplayAuto->setTextColor(Qt::red);
     ui->messageDisplayAuto->append(QString::fromStdString(s));
+    ui->messageDisplayAuto->append(QString::fromStdString(""));
 }
 
 void MainWindow::logmsgMan(string s)
 {
     ui->messageDisplayMan->setTextColor(Qt::black);
     ui->messageDisplayMan->append(QString::fromStdString(s));
+    ui->messageDisplayMan->append(QString::fromStdString(""));
 }
 
 void MainWindow::logerrMan(string s)
 {
     ui->messageDisplayMan->setTextColor(Qt::red);
     ui->messageDisplayMan->append(QString::fromStdString(s));
+    ui->messageDisplayMan->append(QString::fromStdString(""));
 }
 
 void MainWindow::arretUrgence()
