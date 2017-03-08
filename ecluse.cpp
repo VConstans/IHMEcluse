@@ -46,133 +46,133 @@ Ecluse::~Ecluse(){
 
 void Ecluse::ouvertureVanneMontant(void){
     if (alarme == true) {
-        emit baseError("Error: alarme actif");
-        emit verbError("--> Impossible ouvrir vanne montant");
+        emit baseError("Erreur: alarme actif");
+        emit verbError("--> Impossible d'ouvrir vanne montante");
         return;
     } else if (porte_haut->getetat() != FERME ||
                porte_bas->getetat() != FERME  ){
-        emit baseError("Error: impossible ouvrir vanne montant");
+        emit baseError("Erreur: impossible d'ouvrir vanne montante");
         emit verbError("--> Porte ouverte");
         return;
     }
 
     vanne_haut->ouverture();
-    emit baseMessage("L'eau monte");
-    emit verbMessage("--> Vanne montant ouverte");
+    emit baseMessage("Bassin en cours de remplissage");
+    emit verbMessage("--> Vanne montante ouverte");
 }
 
 void Ecluse::ouvertureVanneAvalant(void){
     if (alarme == true) {
-        emit baseError("Error: alarme actif");
-        emit verbError("--> Impossible ouvrir vanne avalant");
+        emit baseError("Erreur: alarme actif");
+        emit verbError("--> Impossible d'ouvrir vanne avalante");
         return;
     } if (porte_haut->getetat() != FERME ||
           porte_bas->getetat() != FERME  ){
-        emit baseError("Error: impossible ouvrir vanne avalant");
+        emit baseError("Erreur: impossible d'ouvrir vanne avalante");
         emit verbError("--> Porte ouverte");
         return;
     }
 
     vanne_bas->ouverture();
-    emit baseMessage("L'eau baisse");
-    emit verbMessage("--> Vanne avalant ouverte");
+    emit baseMessage("Bassin en cours de vidange");
+    emit verbMessage("--> Vanne avalante ouverte");
 }
 
 void Ecluse::fermetureVanneMontant(void){
     if (alarme == true) {
-        emit baseError("Error: alarme actif");
-        emit verbError("--> Impossible fermer vanne montant");
+        emit baseError("Erreur: alarme actif");
+        emit verbError("--> Impossible de fermer vanne montante");
         return;
     }
     vanne_haut->fermeture();
-    emit verbMessage("Fermature vanne montant");
+    emit verbMessage("Fermeture vanne montante");
 }
 
 void Ecluse::fermetureVanneAvalant(void){
     if (alarme == true) {
-        emit baseError("Error: alarme actif");
-        emit verbError("--> Impossible fermer vanne avalant");
+        emit baseError("Erreur: alarme actif");
+        emit verbError("--> Impossible de fermer vanne avalante");
         return;
     }
     vanne_bas->fermeture();
-    emit verbMessage("Fermature vanne avalant");
+    emit verbMessage("Fermeture vanne avalante");
 }
 
 void Ecluse::ouverturePorteBas(void){
     if (alarme == true) {
-        emit baseError("Error: alarme actif");
-        emit verbError("--> Impossible ouvrir porte avalant");
+        emit baseError("Erreur: alarme actif");
+        emit verbError("--> Impossible d'ouvrir porte avalante");
         return;
     } else if (nivEau > MIN_NIVEAU) {
-        emit baseError("Error: impossible ouvrir porte avalant");
-        emit verbError("--> Niveau de l'eau trop eleve");
+        emit baseError("Error: impossible d'ouvrir porte avalante");
+        emit verbError("--> Niveau de l'eau trop élevé");
         return ;
     } else if (vanne_bas->getetat() == OUVERTE ||
                vanne_haut->getetat() == OUVERTE){
-        emit baseError("Error: impossible ouvrir porte avalant");
+        emit baseError("Erreur: impossible d'ouvrir porte avalante");
         emit verbError("--> Vanne ouverte");
         return ;
     }
-    emit baseMessage("Ouverture porte avalant");
+    emit baseMessage("Ouverture porte avalante");
     porte_bas->ouverture();
 }
 
 void Ecluse::ouverturePorteHaut(void){
     if (alarme == true) {
-        emit baseError("Error: alarme actif");
-        emit verbError("--> Impossible ouvrir porte montant");
+        emit baseError("Erreur: alarme actif");
+        emit verbError("--> Impossible d'ouvrir porte montante");
         return;
     } else if (nivEau < MAX_NIVEAU) {
-        emit baseError("Error: impossible ouvrir porte montant");
-        emit verbError("--> Niveau de l'eau trop eleve");
+        emit baseError("Erreur: impossible d'ouvrir porte montante");
+        emit verbError("--> Niveau de l'eau trop élevé");
         return ;
     } else if(vanne_bas->getetat() == OUVERTE ||
                vanne_haut->getetat() == OUVERTE){
-        emit baseError("Error: impossible ouvrir porte montant");
+        emit baseError("Erreur: impossible d'ouvrir porte montante");
         emit verbError("--> Vanne ouverte");
         return ;
     }
-    emit baseMessage("Ouverture porte montant");
+    emit baseMessage("Ouverture porte montante");
     porte_haut->ouverture();
 }
 
 void Ecluse::fermeturePorteBas(void){
     if (alarme == true) {
-        emit baseError("Error: alarme actif");
-        emit verbError("--> Impossible fermer porte avalant");
+        emit baseError("Erreur: alarme actif");
+        emit verbError("--> Impossible de fermer porte avalante");
         return;
     }
-    emit baseMessage("Fermature porte avalant");
+    emit baseMessage("Fermeture porte avalante");
     porte_bas->fermeture();
 }
 
 void Ecluse::fermeturePorteHaut(void){
     if (alarme == true) {
-        emit baseError("Error: alarme actif");
-        emit verbError("--> Impossible fermer porte montant");
+        emit baseError("Erreur: alarme actif");
+        emit verbError("--> Impossible de fermer porte montante");
         return;
     }
-    emit baseMessage("Fermature porte montant");
+    emit baseMessage("Fermeture porte montante");
     porte_haut->fermeture();
 }
 
 void Ecluse::arretPorteHaut(void){
     if (alarme == true) {
-        emit baseError("Error: alarme actif");
-        emit verbError("--> Impossible arreter porte montant");
+        emit baseError("Erreur: alarme actif");
+        emit verbError("--> Impossible arrêter porte montante");
         return;
     }
-    emit verbMessage("Arret porte montant");
+    emit verbMessage("Arrêt porte montante");
     porte_haut->arret();
 }
 
 void Ecluse::arretPorteBas(void){
     if (alarme == true) {
-        emit baseError("Error: alarme actif");
-        emit verbError("--> Impossible arreter porte avalant");
+        emit baseError("Erreur: alarme actif");
+        emit verbError("--> Impossible d'arrêter porte avalante");
         return;
     }
-    emit verbMessage("Arret porte avalant");
+    emit verbMessage("Arrêt porte avalante");
 }
 
 void Ecluse::updateNivEau(void){
