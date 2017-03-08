@@ -18,5 +18,6 @@
         <file>images/feu_vert.png</file>
         <file>images/entrer.png</file>
         <file>images/sortir.png</file>
+        <file>images/bateau.png</file>
     </qresource>
 </RCC>

@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
-    <normaloff>:/images/ecluse_ferme.png</normaloff>:/images/ecluse_ferme.png</iconset>
+    <normaloff>:/images/bateau.png</normaloff>:/images/bateau.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="layoutWidget">
