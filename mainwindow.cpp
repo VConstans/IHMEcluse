@@ -338,12 +338,53 @@ void MainWindow::changerMode()
 
 /////////////////////////////////////////////////////////
 
+void MainWindow::manualFirst(){
+
+    connect(ui->porteAvalantOuv, SIGNAL(clicked()),
+            this, SLOT(stopAutoMod()));
+    connect(ui->porteAvalantFerm, SIGNAL(clicked()),
+            this, SLOT(stopAutoMod()));
+    connect(ui->porteAvalantArret, SIGNAL(clicked()),
+            this, SLOT(stopAutoMod()));
+
+    // Connect porte montant
+    connect(ui->porteMontantOuv, SIGNAL(clicked()),
+            this, SLOT(stopAutoMod()));
+    connect(ui->porteMontantFerm, SIGNAL(clicked()),
+            this, SLOT(stopAutoMod()));
+    connect(ui->porteMontantArret, SIGNAL(clicked()),
+            this, SLOT(stopAutoMod()));
+
+    connect(ui->vertAvalant,SIGNAL(clicked()),
+            this,SLOT(stopAutoMod()));
+    connect(ui->rougeAvalant,SIGNAL(clicked()),
+            this,SLOT(stopAutoMod()));
+    connect(ui->vertMontant,SIGNAL(clicked()),
+            this,SLOT(stopAutoMod()));
+    connect(ui->rougeMontant,SIGNAL(clicked()),this,
+            SLOT(stopAutoMod()));
+
+    // Connect vannes
+    connect(ui->vanneMontantOuv, SIGNAL(clicked()),
+            this, SLOT(stopAutoMod()));
+    connect(ui->vanneMontantFerm, SIGNAL(clicked()),
+            this, SLOT(stopAutoMod()));
+    connect(ui->vanneAvalantOuv, SIGNAL(clicked()),
+            this, SLOT(stopAutoMod()));
+    connect(ui->vanneAvalantFerm, SIGNAL(clicked()),
+            this, SLOT(stopAutoMod()));
+}
+
 void MainWindow::valideMdp()
 {
     if(ui->mdp->text()=="")
     {
+
         emit(changeStackedIndexCommande(2));
         emit(changeStackedIndexMessage(1));
+        if (autoTransActive == true){
+            manualFirst();
+        }
     }
     else
     {

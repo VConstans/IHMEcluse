@@ -49,6 +49,7 @@ public slots:
     void annuleMdp();
     void arretUrgence();
     void stopArretUrgence();
+    void manualFirst();
 };
 
 #endif // MAINWINDOW_H
