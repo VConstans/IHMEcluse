@@ -94,8 +94,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->buttonSortir,SIGNAL(clicked()),this,SLOT(autoTrans()));
 
     connect(&ecl,SIGNAL(baseError(string)),this,SLOT(logerrAuto(string)));
+    connect(&ecl,SIGNAL(baseError(string)),this,SLOT(logerrMan(string)));
     connect(&ecl,SIGNAL(verbError(string)),this,SLOT(logerrMan(string)));
     connect(&ecl,SIGNAL(baseMessage(string)),this,SLOT(logmsgAuto(string)));
+    connect(&ecl,SIGNAL(baseMessage(string)),this,SLOT(logmsgMan(string)));
     connect(&ecl,SIGNAL(verbMessage(string)),this,SLOT(logmsgMan(string)));
 
     connect(ui->buttonConfigPanne,SIGNAL(triggered()),this,SLOT(inputValeurPanne()));
@@ -129,7 +131,7 @@ void MainWindow::avalantDoor(int position, int etat)
             break;
         case PANNE:
             ui->porteAvalant->setStyleSheet("background-color:red;");
-            ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+            setAlarme();
             break;
     }
     ui->porteAvalant->show();
@@ -159,7 +161,7 @@ void MainWindow::montantDoor(int position, int etat)
             break;
         case PANNE:
             ui->porteMontant->setStyleSheet("background-color:red;");
-            ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+            setAlarme();
             break;
     }
 
@@ -182,7 +184,7 @@ void MainWindow::montantVanne(int etat)
             break;
         case PANNE:
             ui->vanneMontant->setStyleSheet("background-color:red;");
-            ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+            setAlarme();
             break;
     }
     ui->vanneMontant->show();
@@ -201,7 +203,7 @@ void MainWindow::avalantVanne(int etat)
             break;
         case PANNE:
             ui->vanneAvalant->setStyleSheet("background-color:red;");
-            ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+            setAlarme();
             break;
     }
     ui->vanneAvalant->show();
@@ -210,11 +212,15 @@ void MainWindow::avalantVanne(int etat)
 void MainWindow::setAlarme()
 {
     ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+    logerrAuto("ALARME ACTIVE");
+    logerrMan("ALARME ACTIVE");
 }
 
 void MainWindow::resetAlarme()
 {
     ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_eteind.png"));
+    logmsgMan("Alarme désactivé");
+    logmsgAuto("Alarme désactivé");
 }
 
 void MainWindow::setWaterLevel(int wl)
@@ -226,29 +232,33 @@ void MainWindow::logmsgAuto(string s)
 {
     ui->messageDisplayAuto->setTextColor(Qt::black);
     ui->messageDisplayAuto->append(QString::fromStdString(s));
+    ui->messageDisplayAuto->append(QString::fromStdString(""));
 }
 
 void MainWindow::logerrAuto(string s)
 {
     ui->messageDisplayAuto->setTextColor(Qt::red);
     ui->messageDisplayAuto->append(QString::fromStdString(s));
+    ui->messageDisplayMan->append(QString::fromStdString(""));
 }
 
 void MainWindow::logmsgMan(string s)
 {
     ui->messageDisplayMan->setTextColor(Qt::black);
     ui->messageDisplayMan->append(QString::fromStdString(s));
+    ui->messageDisplayMan->append(QString::fromStdString(""));
 }
 
 void MainWindow::logerrMan(string s)
 {
     ui->messageDisplayMan->setTextColor(Qt::red);
     ui->messageDisplayMan->append(QString::fromStdString(s));
+    ui->messageDisplayMan->append(QString::fromStdString(""));
 }
 
 void MainWindow::arretUrgence()
 {
-    ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+    setAlarme();
     emit(arretUrg());
 }
 
