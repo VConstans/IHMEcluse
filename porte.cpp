@@ -11,34 +11,36 @@ Porte::Porte(QObject *parent) :
             this,SLOT(updateposition()));
 }
 
-int Porte::getetat(void){
+int Porte::getetat(void)
+{
     return etat;
 }
 
-void Porte::ouverture(void){
+void Porte::ouverture(void)
+{
     if (etat == ALARME ) return;
 
     etat = OUVERTURE;
     timer_transition->start(FREQ_UPDATE);
-    cout << "Porte: ouverture" << endl;
 
 }
 
-void Porte::fermeture(void){
+void Porte::fermeture(void)
+{
     if (etat == ALARME ) return;
 
     etat = FERMETURE;
     timer_transition->start(FREQ_UPDATE);
-    cout << "Porte: fermeture"<< endl;
 }
 
-void Porte::extinction(void){
+void Porte::extinction(void)
+{
     if (etat != ALARME && etat != PANNE) return;
     etat = bkpetat;
-    cout << "Extinction porte" << endl;
 }
 
-void Porte::arret(void){
+void Porte::arret(void)
+{
     if (etat != FERMETURE &&
         etat != OUVERTURE ) return;
 
@@ -48,15 +50,17 @@ void Porte::arret(void){
     emit signaletat(position, etat);
 }
 
-void Porte::arreturgence(void){
+void Porte::arreturgence(void)
+{
     if (etat == ALARME || etat == PANNE) return;
     bkpetat = etat;
     etat = ALARME;
-    cout << "Porte = ALARME" << endl;
 }
 
-bool Porte::simulpanne(void){
-   if (freqPannes >  (qrand() % 100)){
+bool Porte::simulpanne(void)
+{
+   if (freqPannes >  (qrand() % 100))
+   {
        bkpetat = etat;
        etat = PANNE;
        emit signaletat(position, etat);
@@ -66,19 +70,23 @@ bool Porte::simulpanne(void){
    return false;
 }
 
-void Porte::updateposition(void){
+void Porte::updateposition(void)
+{
 
-    switch(etat){
+    switch(etat)
+    {
         case OUVERTURE:
-    if (simulpanne() == true) return;
-            if (position <= 0){
+            if (simulpanne() == true) return;
+            if (position <= 0)
+            {
                 etat = OUVERTE;
                 timer_transition->stop();
             } else position--;
          break;
         case FERMETURE:
-    if (simulpanne() == true) return;
-            if (position >= MAX_FERMETURE){
+            if (simulpanne() == true) return;
+            if (position >= MAX_FERMETURE)
+            {
                 etat = FERME;
                 timer_transition->stop();
             } else position++;

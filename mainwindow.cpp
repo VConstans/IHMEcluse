@@ -276,7 +276,8 @@ void MainWindow::stopArretUrgence()
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-void MainWindow::stopAutoMod(void){
+void MainWindow::stopAutoMod(void)
+{
            autoTransActive = false;
            disconnect(&ecl, SIGNAL(signalPorteBasFerme()),&ecl,SLOT(ouvertureVanneMontant()));
            disconnect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(fermetureVanneMontant()));
@@ -353,7 +354,8 @@ void MainWindow::changerMode()
 
 /////////////////////////////////////////////////////////
 
-void MainWindow::manualFirst(){
+void MainWindow::manualFirst()
+{
 
     connect(ui->porteAvalantOuv, SIGNAL(clicked()),
             this, SLOT(stopAutoMod()));
@@ -398,7 +400,8 @@ void MainWindow::valideMdp()
 
         emit(changeStackedIndexCommande(2));
         emit(changeStackedIndexMessage(1));
-        if (autoTransActive == true){
+        if (autoTransActive == true)
+        {
             manualFirst();
         }
     }
@@ -415,7 +418,8 @@ void MainWindow::annuleMdp()
     emit(changeStackedIndexCommande(0));
 }
 
-void MainWindow::inputValeurPanne(void){
+void MainWindow::inputValeurPanne(void)
+{
 
    bool ok;
    int i = QInputDialog::getInt(this, tr("Config pannes"),

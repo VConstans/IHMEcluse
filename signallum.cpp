@@ -6,12 +6,14 @@ SignalLum::SignalLum(QWidget *parent) :
     setRouge();
 }
 
-void SignalLum::setVert(){
+void SignalLum::setVert()
+{
     c = VERT;
     setPixmap(QPixmap(":/images/feu_vert.png"));
 }
 
-void SignalLum::setRouge(){
+void SignalLum::setRouge()
+{
     c = ROUGE;
     setPixmap(QPixmap(":/images/feu_rouge.png"));
 }
