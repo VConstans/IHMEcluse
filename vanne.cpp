@@ -6,7 +6,7 @@ Vanne::Vanne(QObject *parent) :
 {
     etat = FERME;
     bkpetat = etat;
-    qsrand(0);
+    qsrand(QTime::currentTime().msec());
 
 }
 

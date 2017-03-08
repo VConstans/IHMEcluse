@@ -11,10 +11,7 @@ Porte::Porte(QObject *parent) :
             this,SLOT(updateposition()));
 }
 
-int Porte::getetat(void)
-{
-    return etat;
-}
+int Porte::getetat(void){return etat;}
 
 void Porte::ouverture(void)
 {
