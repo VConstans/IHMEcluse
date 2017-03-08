@@ -14,7 +14,6 @@ bool Vanne::simulpanne(void){
    if (freqPannes >  (qrand() % 100)){
        bkpetat = etat;
        etat = PANNE;
-       emit signaletat(etat);
        return true;
    }
 

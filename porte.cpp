@@ -67,16 +67,17 @@ bool Porte::simulpanne(void){
 }
 
 void Porte::updateposition(void){
-    if (simulpanne() == true) return;
 
     switch(etat){
         case OUVERTURE:
+    if (simulpanne() == true) return;
             if (position <= 0){
                 etat = OUVERTE;
                 timer_transition->stop();
             } else position--;
          break;
         case FERMETURE:
+    if (simulpanne() == true) return;
             if (position >= MAX_FERMETURE){
                 etat = FERME;
                 timer_transition->stop();
