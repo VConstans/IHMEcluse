@@ -33,9 +33,9 @@ void Porte::fermeture(void){
 }
 
 void Porte::extinction(void){
-    if (etat != ALARME) return;
+    if (etat != ALARME && etat != PANNE) return;
     etat = bkpetat;
-    emit signaletat(position,etat);
+    cout << "Extinction porte" << endl;
 }
 
 void Porte::arret(void){
@@ -49,15 +49,16 @@ void Porte::arret(void){
 }
 
 void Porte::arreturgence(void){
-    if (etat == ALARME) return;
+    if (etat == ALARME || etat == PANNE) return;
     bkpetat = etat;
     etat = ALARME;
+    cout << "Porte = ALARME" << endl;
 }
 
 bool Porte::simulpanne(void){
    if (freqPannes >  (qrand() % 100)){
        bkpetat = etat;
-       etat = ALARME;
+       etat = PANNE;
        emit signaletat(position, etat);
        return true;
    }
