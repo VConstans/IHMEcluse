@@ -7,20 +7,24 @@
     <x>0</x>
     <y>0</y>
     <width>872</width>
-    <height>793</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Ecluse 2.0 </string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="images.qrc">
+    <normaloff>:/images/ecluse_ferme.png</normaloff>:/images/ecluse_ferme.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>370</y>
+      <x>0</x>
+      <y>290</y>
       <width>841</width>
-      <height>361</height>
+      <height>371</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -40,7 +44,7 @@
             <rect>
              <x>20</x>
              <y>30</y>
-             <width>111</width>
+             <width>121</width>
              <height>241</height>
             </rect>
            </property>
@@ -159,6 +163,9 @@ border-radius: 20px</string>
                <layout class="QVBoxLayout" name="verticalLayout_2">
                 <item>
                  <widget class="QPushButton" name="buttonMontant">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
                   <property name="minimumSize">
                    <size>
                     <width>77</width>
@@ -210,8 +217,8 @@ border-radius: 20px</string>
                  <widget class="QPushButton" name="buttonAvalant">
                   <property name="minimumSize">
                    <size>
-                    <width>89</width>
-                    <height>74</height>
+                    <width>77</width>
+                    <height>50</height>
                    </size>
                   </property>
                   <property name="styleSheet">
@@ -400,7 +407,6 @@ border-radius: 20px</string>
           </widget>
           <zorder>label_15</zorder>
           <zorder>label_11</zorder>
-          <zorder>horizontalLayoutWidget</zorder>
           <zorder>label_8</zorder>
           <zorder>verticalLayoutWidget_2</zorder>
          </widget>
@@ -408,8 +414,8 @@ border-radius: 20px</string>
           <widget class="QWidget" name="verticalLayoutWidget">
            <property name="geometry">
             <rect>
-             <x>70</x>
-             <y>100</y>
+             <x>140</x>
+             <y>120</y>
              <width>391</width>
              <height>131</height>
             </rect>
@@ -453,7 +459,7 @@ border-radius: 20px</string>
              <x>30</x>
              <y>10</y>
              <width>481</width>
-             <height>334</height>
+             <height>351</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_4">
@@ -715,9 +721,9 @@ color: red
           <widget class="QPushButton" name="buttonDasacAlarme">
            <property name="geometry">
             <rect>
-             <x>540</x>
+             <x>516</x>
              <y>170</y>
-             <width>111</width>
+             <width>141</width>
              <height>31</height>
             </rect>
            </property>
@@ -733,7 +739,7 @@ color: red
             <rect>
              <x>10</x>
              <y>180</y>
-             <width>511</width>
+             <width>501</width>
              <height>16</height>
             </rect>
            </property>
@@ -835,10 +841,10 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.pn
    <widget class="QLabel" name="vanneAvalant">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>60</y>
-      <width>16</width>
-      <height>51</height>
+      <x>442</x>
+      <y>10</y>
+      <width>11</width>
+      <height>52</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -856,8 +862,8 @@ background-color: black;
    <widget class="QLabel" name="porteAvalant">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>170</y>
+      <x>430</x>
+      <y>119</y>
       <width>21</width>
       <height>91</height>
      </rect>
@@ -874,8 +880,8 @@ background-color: black
    <widget class="QLabel" name="porteMontant">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>170</y>
+      <x>168</x>
+      <y>117</y>
       <width>21</width>
       <height>91</height>
      </rect>
@@ -892,8 +898,8 @@ background-color: black
    <widget class="QProgressBar" name="waterLevel">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>130</y>
+      <x>180</x>
+      <y>80</y>
       <width>261</width>
       <height>171</height>
      </rect>
@@ -903,7 +909,7 @@ background-color: black
     </property>
     <property name="styleSheet">
      <string notr="true">QProgressBar::chunk {
-     background-color: rgb(0, 131, 208) ;
+     background-color: rgb(0, 132, 209);
 
  }</string>
     </property>
@@ -923,10 +929,10 @@ background-color: black
    <widget class="QLabel" name="vanneMontant">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>60</y>
-      <width>16</width>
-      <height>50</height>
+      <x>161</x>
+      <y>11</y>
+      <width>11</width>
+      <height>49</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -956,8 +962,8 @@ background-color: black;
    <widget class="SignalLum" name="feuMontant">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>280</y>
+      <x>60</x>
+      <y>230</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -975,8 +981,8 @@ background-color: black;
    <widget class="QLabel" name="ecluse">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>60</y>
+      <x>50</x>
+      <y>10</y>
       <width>521</width>
       <height>251</height>
      </rect>
@@ -1003,8 +1009,8 @@ background-color: black;
    <widget class="SignalLum" name="feuAvalant">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>280</y>
+      <x>480</x>
+      <y>230</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -1025,11 +1031,11 @@ background-color: black;
       <x>610</x>
       <y>20</y>
       <width>251</width>
-      <height>341</height>
+      <height>241</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QTextBrowser" name="messageDisplayAuto">
@@ -1038,29 +1044,18 @@ background-color: black;
         <x>20</x>
         <y>10</y>
         <width>211</width>
-        <height>321</height>
+        <height>281</height>
        </rect>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_2">
-     <widget class="QTextBrowser" name="messageDisplayMan">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>211</width>
-        <height>321</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
+    <widget class="QWidget" name="page_2"/>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
       <x>630</x>
-      <y>10</y>
+      <y>0</y>
       <width>71</width>
       <height>17</height>
      </rect>
@@ -1073,13 +1068,23 @@ background-color: black;
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>350</y>
+      <y>270</y>
       <width>821</width>
       <height>16</height>
      </rect>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="messageDisplayMan">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>20</y>
+      <width>211</width>
+      <height>241</height>
+     </rect>
     </property>
    </widget>
    <zorder>ecluse</zorder>
@@ -1094,6 +1099,8 @@ background-color: black;
    <zorder>stackedWidgetMessage</zorder>
    <zorder>label_7</zorder>
    <zorder>line</zorder>
+   <zorder>stackedWidgetCommande</zorder>
+   <zorder>messageDisplayMan</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -1101,7 +1108,7 @@ background-color: black;
      <x>0</x>
      <y>0</y>
      <width>872</width>
-     <height>25</height>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuOutils">
