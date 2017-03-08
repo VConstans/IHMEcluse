@@ -5,27 +5,31 @@
 Ecluse::Ecluse(QObject *parent) :
     QObject(parent)
 {
+    // Creation des vannes asyncrones
     vanne_bas = new Vanne();
     vanne_bas->moveToThread(&threadVanne_bas);
     threadVanne_bas.start();
-
     vanne_haut = new Vanne();
     vanne_haut->moveToThread(&threadVanne_haut);
     threadVanne_haut.start();
 
+    // Creation des portes
     porte_haut = new Porte();
     porte_bas = new Porte();
 
+    // Simulation flux d'eau
     timer_remplissage = new QTimer(this);
     connect(timer_remplissage,SIGNAL(timeout()),
             this,SLOT(updateNivEau()));
     timer_remplissage->start(FREQ_UPDATE);
 
+    // Capture mise a jour
     connect(porte_bas, SIGNAL(signaletat(int,int)),this,SLOT(getEtatPorteBas(int,int)));
     connect(porte_haut, SIGNAL(signaletat(int,int)),this,SLOT(getEtatPorteHaut(int,int)));
     connect(vanne_bas, SIGNAL(signaletat(int)),this,SLOT(getEtatVanneBas(int)));
     connect(vanne_haut, SIGNAL(signaletat(int)),this,SLOT(getEtatVanneHaut(int)));
 
+    // Initialisation des attributs
     nivEau = 0;
     alarme = false;
 }
@@ -43,6 +47,8 @@ Ecluse::~Ecluse()
     delete porte_bas;
     delete porte_haut;
 }
+
+
 
 
 void Ecluse::ouvertureVanneMontant(void)
@@ -65,6 +71,9 @@ void Ecluse::ouvertureVanneMontant(void)
     emit verbMessage("--> Vanne montante ouverte");
 }
 
+
+
+
 void Ecluse::ouvertureVanneAvalant(void)
 {
     if (alarme == true)
@@ -85,6 +94,9 @@ void Ecluse::ouvertureVanneAvalant(void)
     emit verbMessage("--> Vanne avalante ouverte");
 }
 
+
+
+
 void Ecluse::fermetureVanneMontant(void)
 {
     if (alarme == true)
@@ -97,6 +109,9 @@ void Ecluse::fermetureVanneMontant(void)
     emit verbMessage("Fermeture vanne montante");
 }
 
+
+
+
 void Ecluse::fermetureVanneAvalant(void)
 {
     if (alarme == true)
@@ -108,6 +123,9 @@ void Ecluse::fermetureVanneAvalant(void)
     vanne_bas->fermeture();
     emit verbMessage("Fermeture vanne avalante");
 }
+
+
+
 
 void Ecluse::ouverturePorteBas(void)
 {
@@ -132,6 +150,10 @@ void Ecluse::ouverturePorteBas(void)
     porte_bas->ouverture();
 }
 
+
+
+
+
 void Ecluse::ouverturePorteHaut(void)
 {
     if (alarme == true)
@@ -155,6 +177,10 @@ void Ecluse::ouverturePorteHaut(void)
     porte_haut->ouverture();
 }
 
+
+
+
+
 void Ecluse::fermeturePorteBas(void)
 {
     if (alarme == true)
@@ -166,6 +192,10 @@ void Ecluse::fermeturePorteBas(void)
     emit baseMessage("Fermeture porte avalante");
     porte_bas->fermeture();
 }
+
+
+
+
 
 void Ecluse::fermeturePorteHaut(void)
 {
@@ -179,6 +209,9 @@ void Ecluse::fermeturePorteHaut(void)
     porte_haut->fermeture();
 }
 
+
+
+
 void Ecluse::arretPorteHaut(void)
 {
     if (alarme == true)
@@ -191,6 +224,9 @@ void Ecluse::arretPorteHaut(void)
     porte_haut->arret();
 }
 
+
+
+
 void Ecluse::arretPorteBas(void)
 {
     if (alarme == true)
@@ -201,6 +237,9 @@ void Ecluse::arretPorteBas(void)
     }
     emit verbMessage("Arrêt porte avalante");
 }
+
+
+
 
 void Ecluse::updateNivEau(void)
 {
@@ -234,10 +273,14 @@ void Ecluse::updateNivEau(void)
     }
 }
 
+
+
+
 void Ecluse::getEtatPorteBas(int position,int etat)
 {
     switch (etat)
     {
+        case PANNE:
         case ALARME: alarme =true;
         break;
          case FERME: emit signalPorteBasFerme();
@@ -249,10 +292,14 @@ void Ecluse::getEtatPorteBas(int position,int etat)
     emit signalEtatPorteBas(position,etat);
 }
 
+
+
+
 void Ecluse::getEtatPorteHaut(int position,int etat)
 {
     switch (etat)
     {
+        case PANNE:
         case ALARME: alarme =true;
         break;
         case FERME: emit signalPorteHautFerme();
@@ -263,22 +310,31 @@ void Ecluse::getEtatPorteHaut(int position,int etat)
     emit signalEtatPorteHaut(position,etat);
 }
 
+
+
+
 void Ecluse::getEtatVanneBas(int etat)
 {
-    if (etat == ALARME) alarme = true;
+    if (etat == ALARME || etat == PANNE) alarme = true;
     emit signalEtatVanneBas(etat);
 }
 
+
+
+
 void Ecluse::getEtatVanneHaut(int etat)
 {
-    if (etat == ALARME) alarme = true;
+    if (etat == ALARME || etat == PANNE) alarme = true;
     emit signalEtatVanneHaut(etat);
 }
 
- int Ecluse::getNivEau()
- {
-     return nivEau;
- }
+
+
+
+ int Ecluse::getNivEau(){return nivEau;}
+
+
+
 
  void Ecluse::arretUrgence()
  {
@@ -289,6 +345,9 @@ void Ecluse::getEtatVanneHaut(int etat)
      this->vanne_bas->arreturgence();
      this->vanne_haut->arreturgence();
  }
+
+
+
 
 void Ecluse::stopArretUrgence()
  {
