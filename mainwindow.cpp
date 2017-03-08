@@ -110,10 +110,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+
+
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
+
+
+//Changement de couleur des portes
 
 void MainWindow::avalantDoor(int position, int etat)
 {
@@ -144,6 +151,10 @@ void MainWindow::avalantDoor(int position, int etat)
     ui->progressPorteAvalant->setValue(position);
     ui->progressPorteAvalant->show();
 }
+
+
+
+
 
 void MainWindow::montantDoor(int position, int etat)
 {
@@ -176,6 +187,12 @@ void MainWindow::montantDoor(int position, int etat)
     ui->progressPorteMontant->show();
 }
 
+
+
+
+
+//Changement de couleur des vannes
+
 void MainWindow::montantVanne(int etat)
 {
     switch(etat)
@@ -194,6 +211,9 @@ void MainWindow::montantVanne(int etat)
     }
     ui->vanneMontant->show();
 }
+
+
+
 
 void MainWindow::avalantVanne(int etat)
 {
@@ -214,12 +234,19 @@ void MainWindow::avalantVanne(int etat)
     ui->vanneAvalant->show();
 }
 
+
+
+//Changement graphique de l'alarme
+
 void MainWindow::setAlarme()
 {
     ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
     logerrAuto("ALARME ACTIVE");
     logerrMan("ALARME ACTIVE");
 }
+
+
+
 
 void MainWindow::resetAlarme()
 {
@@ -228,10 +255,22 @@ void MainWindow::resetAlarme()
     logmsgAuto("Alarme désactivé");
 }
 
+
+
+
+
+//Mise à jour du niveau d'eau
+
 void MainWindow::setWaterLevel(int wl)
 {
     ui->waterLevel->setValue(wl);
 }
+
+
+
+
+
+//Insert des messages
 
 void MainWindow::logmsgAuto(string s)
 {
@@ -240,12 +279,18 @@ void MainWindow::logmsgAuto(string s)
     ui->messageDisplayAuto->append(QString::fromStdString(""));
 }
 
+
+
+
 void MainWindow::logerrAuto(string s)
 {
     ui->messageDisplayAuto->setTextColor(Qt::red);
     ui->messageDisplayAuto->append(QString::fromStdString(s));
     ui->messageDisplayMan->append(QString::fromStdString(""));
 }
+
+
+
 
 void MainWindow::logmsgMan(string s)
 {
@@ -254,6 +299,9 @@ void MainWindow::logmsgMan(string s)
     ui->messageDisplayMan->append(QString::fromStdString(""));
 }
 
+
+
+
 void MainWindow::logerrMan(string s)
 {
     ui->messageDisplayMan->setTextColor(Qt::red);
@@ -261,11 +309,19 @@ void MainWindow::logerrMan(string s)
     ui->messageDisplayMan->append(QString::fromStdString(""));
 }
 
+
+
+
+//Gestion de l'alarme
+
 void MainWindow::arretUrgence()
 {
     setAlarme();
     emit(arretUrg());
 }
+
+
+
 
 void MainWindow::stopArretUrgence()
 {
@@ -274,7 +330,44 @@ void MainWindow::stopArretUrgence()
 }
 
 
+//////////////////////////////////////////////////////////////////
+//MENU BAR
+
+//Changement de mode
+
+void MainWindow::changerMode()
+{
+    switch(ui->stackedWidgetCommande->currentIndex())
+    {
+        case 0: emit(changeStackedIndexCommande(1));
+                break;
+        case 1: emit(changeStackedIndexCommande(0));
+                break;
+        case 2: emit(changeStackedIndexCommande(0));
+                emit(changeStackedIndexMessage(0));break;
+    }
+}
+
+
+
+//Panne
+
+void MainWindow::inputValeurPanne(void)
+{
+
+   bool ok;
+   int i = QInputDialog::getInt(this, tr("Config pannes"),
+             tr("Percentage pannes:"), freqPannes, 0, 100, 1, &ok);
+   freqPannes = i;
+}
+
+
+
 /////////////////////////////////////////////////////////////////////////////////////
+//MODE AUTOMATIQUE
+
+
+//Action du mode automatique
 
 void MainWindow::stopAutoMod(void)
 {
@@ -290,6 +383,9 @@ void MainWindow::stopAutoMod(void)
            disconnect(&ecl, SIGNAL(signalPorteHautOuverte()),ui->feuMontant,SLOT(setVert()));
            disconnect(&ecl, SIGNAL(signalPorteBasOuverte()),ui->feuAvalant,SLOT(setVert()));
 }
+
+
+
 
 void MainWindow::autoTrans(void)
 {
@@ -314,7 +410,18 @@ void MainWindow::autoTrans(void)
            connect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(fermetureVanneMontant()));
            connect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(ouverturePorteHaut()));
            ecl.fermeturePorteBas();
-        } else
+        } void MainWindow::changerMode()
+        {
+            switch(ui->stackedWidgetCommande->currentIndex())
+            {
+                case 0: emit(changeStackedIndexCommande(1));
+                        break;
+                case 1: emit(changeStackedIndexCommande(0));
+                        break;
+                case 2: emit(changeStackedIndexCommande(0));
+                        emit(changeStackedIndexMessage(0));break;
+            }
+        }else
         {
            ecl.ouverturePorteHaut();
 
@@ -339,20 +446,13 @@ void MainWindow::autoTrans(void)
     }
 }
 
-void MainWindow::changerMode()
-{
-    switch(ui->stackedWidgetCommande->currentIndex())
-    {
-        case 0: emit(changeStackedIndexCommande(1));
-                break;
-        case 1: emit(changeStackedIndexCommande(0));
-                break;
-        case 2: emit(changeStackedIndexCommande(0));
-                emit(changeStackedIndexMessage(0));break;
-    }
-}
+
 
 /////////////////////////////////////////////////////////
+//MODE MANUEL
+
+//Donne la précédence au mode manuel lorsqu'un cycle
+//automatique est actif
 
 void MainWindow::manualFirst()
 {
@@ -392,6 +492,12 @@ void MainWindow::manualFirst()
             this, SLOT(stopAutoMod()));
 }
 
+
+
+//////////////////////////////////////////////////////////
+//MOT DE PASSE
+
+
 void MainWindow::valideMdp()
 {
     ui->messageMdp->setText("");
@@ -412,17 +518,11 @@ void MainWindow::valideMdp()
         ui->mdp->setText("");
 }
 
+
+
 void MainWindow::annuleMdp()
 {
     ui->mdp->setText("");
     emit(changeStackedIndexCommande(0));
 }
 
-void MainWindow::inputValeurPanne(void)
-{
-
-   bool ok;
-   int i = QInputDialog::getInt(this, tr("Config pannes"),
-             tr("Percentage pannes:"), freqPannes, 0, 100, 1, &ok);
-   freqPannes = i;
-}
