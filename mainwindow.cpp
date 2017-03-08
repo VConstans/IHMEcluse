@@ -377,7 +377,7 @@ void MainWindow::manualFirst(){
 
 void MainWindow::valideMdp()
 {
-    if(ui->mdp->text()=="")
+    if(ui->mdp->text()=="asd")
     {
 
         emit(changeStackedIndexCommande(2));
@@ -386,10 +386,7 @@ void MainWindow::valideMdp()
             manualFirst();
         }
     }
-    else
-    {
         ui->mdp->setText("");
-    }
 }
 
 void MainWindow::annuleMdp()
