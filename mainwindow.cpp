@@ -131,7 +131,7 @@ void MainWindow::avalantDoor(int position, int etat)
             break;
         case PANNE:
             ui->porteAvalant->setStyleSheet("background-color:red;");
-            ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+            setAlarme();
             break;
     }
     ui->porteAvalant->show();
@@ -161,7 +161,7 @@ void MainWindow::montantDoor(int position, int etat)
             break;
         case PANNE:
             ui->porteMontant->setStyleSheet("background-color:red;");
-            ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+            setAlarme();
             break;
     }
 
@@ -184,7 +184,7 @@ void MainWindow::montantVanne(int etat)
             break;
         case PANNE:
             ui->vanneMontant->setStyleSheet("background-color:red;");
-            ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+            setAlarme();
             break;
     }
     ui->vanneMontant->show();
@@ -203,7 +203,7 @@ void MainWindow::avalantVanne(int etat)
             break;
         case PANNE:
             ui->vanneAvalant->setStyleSheet("background-color:red;");
-            ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+            setAlarme();
             break;
     }
     ui->vanneAvalant->show();
@@ -212,11 +212,15 @@ void MainWindow::avalantVanne(int etat)
 void MainWindow::setAlarme()
 {
     ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+    logerrAuto("ALARME ACTIVE");
+    logerrMan("ALARME ACTIVE");
 }
 
 void MainWindow::resetAlarme()
 {
     ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_eteind.png"));
+    logmsgMan("Alarme désactivé");
+    logmsgAuto("Alarme désactivé");
 }
 
 void MainWindow::setWaterLevel(int wl)
@@ -235,7 +239,7 @@ void MainWindow::logerrAuto(string s)
 {
     ui->messageDisplayAuto->setTextColor(Qt::red);
     ui->messageDisplayAuto->append(QString::fromStdString(s));
-    ui->messageDisplayAuto->append(QString::fromStdString(""));
+    ui->messageDisplayMan->append(QString::fromStdString(""));
 }
 
 void MainWindow::logmsgMan(string s)
@@ -254,7 +258,7 @@ void MainWindow::logerrMan(string s)
 
 void MainWindow::arretUrgence()
 {
-    ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
+    setAlarme();
     emit(arretUrg());
 }
 
