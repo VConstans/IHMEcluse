@@ -10,6 +10,9 @@ Vanne::Vanne(QObject *parent) :
 
 }
 
+
+//Simulation des pannes d'une vanne
+
 bool Vanne::simulpanne(void)
 {
    if (freqPannes >  (qrand() % 100))
@@ -27,6 +30,9 @@ int Vanne::getetat(void)
     return etat;
 }
 
+
+//Mise en état d'urgence de la vanne
+
 void Vanne::arreturgence(void)
 {
     if (etat == ALARME || etat == PANNE) return;
@@ -35,6 +41,9 @@ void Vanne::arreturgence(void)
     emit signaletat(etat);
 }
 
+
+//Arrêt de l'alarme
+
 void Vanne::extinction(void)
 {
     if (etat != ALARME && etat != PANNE) return;
@@ -42,6 +51,8 @@ void Vanne::extinction(void)
     emit signaletat(etat);
 }
 
+
+//Ouverture de la vanne
 
 void Vanne::ouverture(void)
 {
@@ -54,6 +65,10 @@ void Vanne::ouverture(void)
 
    emit signaletat(etat);
 }
+
+
+
+//Fermeture de la vanne
 
 void Vanne::fermeture(void)
 {
