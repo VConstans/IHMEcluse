@@ -488,7 +488,7 @@ border-radius: 20px</string>
              <x>30</x>
              <y>10</y>
              <width>481</width>
-             <height>351</height>
+             <height>354</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_4">
@@ -1057,9 +1057,9 @@ background-color: black;
    <widget class="QStackedWidget" name="stackedWidgetMessage">
     <property name="geometry">
      <rect>
-      <x>610</x>
+      <x>570</x>
       <y>20</y>
-      <width>251</width>
+      <width>291</width>
       <height>241</height>
      </rect>
     </property>
@@ -1070,28 +1070,26 @@ background-color: black;
      <widget class="QTextBrowser" name="messageDisplayAuto">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>211</width>
-        <height>281</height>
+        <x>10</x>
+        <y>0</y>
+        <width>271</width>
+        <height>261</height>
        </rect>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_2"/>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>630</x>
-      <y>0</y>
-      <width>71</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Messages:</string>
-    </property>
+    <widget class="QWidget" name="page_2">
+     <widget class="QTextBrowser" name="messageDisplayMan">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>271</width>
+        <height>261</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="Line" name="line">
     <property name="geometry">
@@ -1106,14 +1104,17 @@ background-color: black;
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QTextBrowser" name="messageDisplayMan">
+   <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>20</y>
-      <width>211</width>
-      <height>241</height>
+      <x>580</x>
+      <y>0</y>
+      <width>101</width>
+      <height>17</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>Messages:</string>
     </property>
    </widget>
    <zorder>ecluse</zorder>
@@ -1126,9 +1127,8 @@ background-color: black;
    <zorder>porteAvalant</zorder>
    <zorder>porteMontant</zorder>
    <zorder>stackedWidgetMessage</zorder>
-   <zorder>label_7</zorder>
    <zorder>line</zorder>
-   <zorder>messageDisplayMan</zorder>
+   <zorder>label_7</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -1136,7 +1136,7 @@ background-color: black;
      <x>0</x>
      <y>0</y>
      <width>872</width>
-     <height>25</height>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuOutils">
