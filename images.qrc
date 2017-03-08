@@ -16,5 +16,7 @@
         <file>images/ecluse.png</file>
         <file>images/feu_rouge.png</file>
         <file>images/feu_vert.png</file>
+        <file>images/entrer.png</file>
+        <file>images/sortir.png</file>
     </qresource>
 </RCC>
