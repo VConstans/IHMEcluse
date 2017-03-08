@@ -3,9 +3,13 @@
 Porte::Porte(QObject *parent) :
     QObject(parent)
 {
+    // Initialisation des valeurs par defaut
     etat = FERME;
     bkpetat = etat;
     position = MAX_FERMETURE;
+
+
+    // Initialisation timer ouverture/fermature
     timer_transition = new QTimer(this);
     connect(timer_transition,SIGNAL(timeout()),
             this,SLOT(updateposition()));
@@ -13,8 +17,10 @@ Porte::Porte(QObject *parent) :
 
 int Porte::getetat(void){return etat;}
 
+
 void Porte::ouverture(void)
 {
+    // N'ouvrire pas si allarme porte actif
     if (etat == ALARME ) return;
 
     etat = OUVERTURE;
@@ -24,6 +30,7 @@ void Porte::ouverture(void)
 
 void Porte::fermeture(void)
 {
+    // Ne fermer pas si allarme porte actif
     if (etat == ALARME ) return;
 
     etat = FERMETURE;
@@ -32,6 +39,7 @@ void Porte::fermeture(void)
 
 void Porte::extinction(void)
 {
+    // Utiliser l'etat precedent
     if (etat != ALARME && etat != PANNE) return;
     etat = bkpetat;
 }
@@ -50,6 +58,7 @@ void Porte::arret(void)
 void Porte::arreturgence(void)
 {
     if (etat == ALARME || etat == PANNE) return;
+    // Sauvgarde etat 
     bkpetat = etat;
     etat = ALARME;
 }
@@ -67,6 +76,8 @@ bool Porte::simulpanne(void)
    return false;
 }
 
+
+// Mise a jour et signal nouvelle position
 void Porte::updateposition(void)
 {
 
