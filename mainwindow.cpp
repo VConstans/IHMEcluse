@@ -26,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->mdp->setEchoMode(QLineEdit::Password);
 
+    ui->messageMdp->setText("");
+
     //Connect buton urgence
     connect(ui->buttonAlarme,SIGNAL(clicked()),this,SLOT(arretUrgence()));
     connect(ui->buttonDasacAlarme,SIGNAL(clicked()),&ecl,SLOT(stopArretUrgence()));
@@ -387,6 +389,7 @@ void MainWindow::manualFirst(){
 
 void MainWindow::valideMdp()
 {
+    ui->messageMdp->setText("");
     if(ui->mdp->text()=="asd")
     {
 
@@ -396,11 +399,16 @@ void MainWindow::valideMdp()
             manualFirst();
         }
     }
+    else
+    {
+            ui->messageMdp->setText("Mauvais mot de passe");
+    }
         ui->mdp->setText("");
 }
 
 void MainWindow::annuleMdp()
 {
+    ui->mdp->setText("");
     emit(changeStackedIndexCommande(0));
 }
 
