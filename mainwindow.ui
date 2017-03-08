@@ -746,9 +746,7 @@ border-image: url(/home/victor/cours/IHM/IHMEcluse/images/voyant_rouge_eteind.pn
            </property>
            <property name="icon">
             <iconset resource="images.qrc">
-             <normaloff>:/images/urgence_relache.png</normaloff>
-             <normalon>:/images/urgence_relache.png</normalon>
-             <activeoff>:/images/arret_urgence.png</activeoff>:/images/urgence_relache.png</iconset>
+             <normaloff>:/images/arret_urgence.png</normaloff>:/images/arret_urgence.png</iconset>
            </property>
            <property name="iconSize">
             <size>
