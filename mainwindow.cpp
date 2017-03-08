@@ -24,8 +24,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->progressPorteAvalant->setMaximum(MAX_FERMETURE);
     ui->progressPorteAvalant->setValue(MAX_FERMETURE);
 
+    //Mot de passe
     ui->mdp->setEchoMode(QLineEdit::Password);
-
     ui->messageMdp->setText("");
 
     //Connect buton urgence
@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
     emit(changeStackedIndexCommande(0));
     emit(changeStackedIndexMessage(0));
 
-    //Connect mdp
+    //Connect mot de passe
     connect(ui->validerMdp,SIGNAL(clicked()),this,SLOT(valideMdp()));
     connect(ui->annulerMdp,SIGNAL(clicked()),this,SLOT(annuleMdp()));
 
@@ -67,6 +67,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(&ecl, SIGNAL(signalEtatPorteHaut(int,int)),
             this, SLOT(montantDoor(int,int)));
 
+    //Connect feu lumineux
     connect(ui->vertAvalant,SIGNAL(clicked()),ui->feuAvalant,SLOT(setVert()));
     connect(ui->rougeAvalant,SIGNAL(clicked()),ui->feuAvalant,SLOT(setRouge()));
     connect(ui->vertMontant,SIGNAL(clicked()),ui->feuMontant,SLOT(setVert()));
@@ -92,9 +93,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///////////////////////////////
 
+    //Connect bouton entree/sorir
     connect(ui->buttonEntrer,SIGNAL(clicked()),this,SLOT(autoTrans()));
     connect(ui->buttonSortir,SIGNAL(clicked()),this,SLOT(autoTrans()));
 
+    //Connect messages
     connect(&ecl,SIGNAL(baseError(string)),this,SLOT(logerrAuto(string)));
     connect(&ecl,SIGNAL(baseError(string)),this,SLOT(logerrMan(string)));
     connect(&ecl,SIGNAL(verbError(string)),this,SLOT(logerrMan(string)));
