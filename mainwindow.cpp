@@ -120,8 +120,7 @@ MainWindow::~MainWindow()
 
 
 
-//Changement de couleur des portes
-
+// Changement de couleur porte aval
 void MainWindow::avalantDoor(int position, int etat)
 {
     switch(etat)
@@ -156,6 +155,7 @@ void MainWindow::avalantDoor(int position, int etat)
 
 
 
+// Changement de couleur porte amont
 void MainWindow::montantDoor(int position, int etat)
 {
     switch(etat)
@@ -191,8 +191,7 @@ void MainWindow::montantDoor(int position, int etat)
 
 
 
-//Changement de couleur des vannes
-
+// Changement de couleur vanne amont
 void MainWindow::montantVanne(int etat)
 {
     switch(etat)
@@ -214,7 +213,7 @@ void MainWindow::montantVanne(int etat)
 
 
 
-
+// Changement de couleur vanne aval
 void MainWindow::avalantVanne(int etat)
 {
     switch(etat)
@@ -237,7 +236,6 @@ void MainWindow::avalantVanne(int etat)
 
 
 //Changement graphique de l'alarme
-
 void MainWindow::setAlarme()
 {
     ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_allume.png"));
@@ -260,7 +258,6 @@ void MainWindow::resetAlarme()
 
 
 //Mise à jour du niveau d'eau
-
 void MainWindow::setWaterLevel(int wl)
 {
     ui->waterLevel->setValue(wl);
@@ -271,7 +268,6 @@ void MainWindow::setWaterLevel(int wl)
 
 
 //Insert des messages
-
 void MainWindow::logmsgAuto(string s)
 {
     ui->messageDisplayAuto->setTextColor(Qt::black);
@@ -313,7 +309,6 @@ void MainWindow::logerrMan(string s)
 
 
 //Gestion de l'alarme
-
 void MainWindow::arretUrgence()
 {
     setAlarme();
@@ -367,8 +362,7 @@ void MainWindow::inputValeurPanne(void)
 //MODE AUTOMATIQUE
 
 
-//Action du mode automatique
-
+// Stop cycle du mode automatique
 void MainWindow::stopAutoMod(void)
 {
            autoTransActive = false;
@@ -386,7 +380,7 @@ void MainWindow::stopAutoMod(void)
 
 
 
-
+// Demarrage cycle automatique
 void MainWindow::autoTrans(void)
 {
     if (autoTransActive == true) return;
@@ -442,7 +436,6 @@ void MainWindow::autoTrans(void)
 
 //Donne la précédence au mode manuel lorsqu'un cycle
 //automatique est actif
-
 void MainWindow::manualFirst()
 {
 
