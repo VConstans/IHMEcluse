@@ -26,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->mdp->setEchoMode(QLineEdit::Password);
 
+    ui->messageMdp->setText("");
+
     //Connect buton urgence
     connect(ui->buttonAlarme,SIGNAL(clicked()),this,SLOT(arretUrgence()));
     connect(ui->buttonDasacAlarme,SIGNAL(clicked()),&ecl,SLOT(stopArretUrgence()));
@@ -219,7 +221,7 @@ void MainWindow::setAlarme()
 void MainWindow::resetAlarme()
 {
     ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_eteind.png"));
-    logmsgMan("Alarme désactivé");
+    logmsgMan("Alarme désactivé\nReprise du cycle");
     logmsgAuto("Alarme désactivé");
 }
 
@@ -387,7 +389,8 @@ void MainWindow::manualFirst(){
 
 void MainWindow::valideMdp()
 {
-    if(ui->mdp->text()=="")
+    ui->messageMdp->setText("");
+    if(ui->mdp->text()=="asd")
     {
 
         emit(changeStackedIndexCommande(2));
@@ -398,12 +401,14 @@ void MainWindow::valideMdp()
     }
     else
     {
-        ui->mdp->setText("");
+            ui->messageMdp->setText("Mauvais mot de passe");
     }
+        ui->mdp->setText("");
 }
 
 void MainWindow::annuleMdp()
 {
+    ui->mdp->setText("");
     emit(changeStackedIndexCommande(0));
 }
 
