@@ -410,17 +410,6 @@ void MainWindow::autoTrans(void)
            connect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(fermetureVanneMontant()));
            connect(&ecl, SIGNAL(signalEauMax()),&ecl,SLOT(ouverturePorteHaut()));
            ecl.fermeturePorteBas();
-        } void MainWindow::changerMode()
-        {
-            switch(ui->stackedWidgetCommande->currentIndex())
-            {
-                case 0: emit(changeStackedIndexCommande(1));
-                        break;
-                case 1: emit(changeStackedIndexCommande(0));
-                        break;
-                case 2: emit(changeStackedIndexCommande(0));
-                        emit(changeStackedIndexMessage(0));break;
-            }
         }else
         {
            ecl.ouverturePorteHaut();
