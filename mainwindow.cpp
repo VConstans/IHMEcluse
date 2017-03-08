@@ -221,7 +221,7 @@ void MainWindow::setAlarme()
 void MainWindow::resetAlarme()
 {
     ui->alarme->setPixmap(QPixmap(":/images/voyant_rouge_eteind.png"));
-    logmsgMan("Alarme désactivé");
+    logmsgMan("Alarme désactivé\nReprise du cycle");
     logmsgAuto("Alarme désactivé");
 }
 
