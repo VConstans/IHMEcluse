@@ -10,8 +10,10 @@ Vanne::Vanne(QObject *parent) :
 
 }
 
-bool Vanne::simulpanne(void){
-   if (freqPannes >  (qrand() % 100)){
+bool Vanne::simulpanne(void)
+{
+   if (freqPannes >  (qrand() % 100))
+   {
        bkpetat = etat;
        etat = PANNE;
        return true;
@@ -20,30 +22,32 @@ bool Vanne::simulpanne(void){
    return false;
 }
 
-int Vanne::getetat(void){
+int Vanne::getetat(void)
+{
     return etat;
 }
 
-void Vanne::arreturgence(void){
+void Vanne::arreturgence(void)
+{
     if (etat == ALARME || etat == PANNE) return;
     bkpetat = etat;
     etat = ALARME;
-    cout << "Etat vanne = ALARME" << endl;
     emit signaletat(etat);
 }
 
-void Vanne::extinction(void){
-    cout << "Test extinction vanne" << endl;
+void Vanne::extinction(void)
+{
     if (etat != ALARME && etat != PANNE) return;
     etat = bkpetat;
-    cout << "!!!!! Extinction vanne" << endl;
     emit signaletat(etat);
 }
 
 
-void Vanne::ouverture(void){
+void Vanne::ouverture(void)
+{
 
-   if (etat != ALARME && etat != PANNE){
+   if (etat != ALARME && etat != PANNE)
+   {
        if (simulpanne() == true) return;
        etat = OUVERTE;
    }
@@ -51,8 +55,10 @@ void Vanne::ouverture(void){
    emit signaletat(etat);
 }
 
-void Vanne::fermeture(void){
-   if (etat != ALARME && simulpanne() == false){
+void Vanne::fermeture(void)
+{
+   if (etat != ALARME && simulpanne() == false)
+   {
        etat = FERME;
    }
 
